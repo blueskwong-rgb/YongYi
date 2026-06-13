@@ -1,0 +1,12 @@
+# Windows 系统文件
+desktop.ini
+Thumbs.db
+
+# Claude 本地配置
+.claude/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
