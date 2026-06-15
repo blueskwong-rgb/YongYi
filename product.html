@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,6 +155,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .lang-switcher button.active{
   color:#c41e1a;background:#fff;
   box-shadow:var(--shadow-sm);
+}
+
+/* Nav CTA */
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 20px;border-radius:24px;
+  background:#fff;
+  color:#c41e1a;text-decoration:none;
+  font-size:.75rem;font-weight:700;letter-spacing:.02em;
+  font-family:var(--font-body);cursor:pointer;border:none;
+  transition:all .35s var(--ease-spring);
+  white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.18);
+}
+.nav-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  color:#a01814;
 }
 
 /* ============================================================
@@ -600,6 +617,105 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .footer a:hover{color:var(--c-accent)}
 
 /* ============================================================
+   QUOTE MODAL
+   ============================================================ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .35s var(--ease-out-expo);
+  padding:24px;
+}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal{
+  background:var(--c-surface);border:1px solid var(--c-border);
+  border-radius:var(--radius-lg);padding:40px 36px;
+  max-width:540px;width:100%;max-height:85vh;overflow-y:auto;
+  position:relative;
+  box-shadow:var(--shadow-xl),0 0 100px rgba(59,130,246,.1);
+  transform:translateY(30px) scale(.96);
+  transition:transform .4s var(--ease-spring);
+}
+.modal-overlay.active .modal{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--c-bg-alt);border:1px solid var(--c-border);
+  color:var(--c-text-muted);font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;line-height:1;
+}
+.modal-close:hover{background:var(--c-border);color:var(--c-text)}
+.modal-title{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:700;
+  letter-spacing:-.03em;color:var(--c-text);margin-bottom:6px;
+}
+.modal-subtitle{font-size:.85rem;color:var(--c-text-muted);margin-bottom:28px;line-height:1.6}
+.form-group{margin-bottom:16px}
+.form-group label{
+  display:block;font-size:.72rem;font-weight:600;
+  letter-spacing:.04em;color:var(--c-text-secondary);margin-bottom:6px;
+}
+.form-group input,.form-group textarea{
+  width:100%;padding:12px 16px;background:var(--c-bg);
+  border:1px solid var(--c-border);border-radius:var(--radius-sm);
+  color:var(--c-text);font-family:var(--font-body);font-size:.9rem;
+  transition:border-color .3s,box-shadow .3s;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--c-accent);
+  box-shadow:0 0 0 3px rgba(59,130,246,.12);
+}
+.form-group textarea{min-height:100px;resize:vertical}
+.upload-zone{
+  border:2px dashed var(--c-border);border-radius:var(--radius-md);
+  padding:28px 20px;text-align:center;cursor:pointer;
+  transition:all .3s;background:var(--c-bg);position:relative;
+}
+.upload-zone:hover,.upload-zone.dragover{
+  border-color:var(--c-accent);background:rgba(59,130,246,.04);
+}
+.upload-zone .upload-icon{font-size:2rem;margin-bottom:8px}
+.upload-zone .upload-text{font-size:.82rem;color:var(--c-text-secondary);font-weight:500}
+.upload-zone .upload-hint{font-size:.68rem;color:var(--c-text-muted);margin-top:4px}
+.upload-zone input[type=file]{display:none}
+.upload-note{
+  font-size:.7rem;color:var(--c-accent);margin-top:8px;line-height:1.5;
+}
+.file-list{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.file-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:20px;
+  background:var(--c-accent-soft);color:var(--c-accent);
+  font-size:.75rem;font-weight:500;
+}
+.file-chip .file-remove{cursor:pointer;font-weight:700;opacity:.5;font-size:1rem;line-height:1}
+.file-chip .file-remove:hover{opacity:1}
+.form-submit{
+  width:100%;padding:14px 28px;background:var(--grad-accent);
+  border:none;border-radius:28px;color:#fff;
+  font-size:.95rem;font-weight:700;letter-spacing:.02em;
+  cursor:pointer;font-family:var(--font-body);
+  transition:all .4s var(--ease-spring);
+  box-shadow:var(--shadow-glow-blue);margin-top:6px;
+}
+.form-submit:hover{
+  transform:translateY(-2px);box-shadow:0 16px 40px rgba(59,130,246,.35);
+}
+.form-submit:disabled{opacity:.5;pointer-events:none}
+.form-success{text-align:center;padding:24px 0}
+.form-success .success-icon{font-size:3.5rem;margin-bottom:14px}
+.form-success h3{font-family:var(--font-display);font-size:1.4rem;color:var(--c-text);margin-bottom:8px}
+.form-success p{color:var(--c-text-secondary);font-size:.88rem;line-height:1.7}
+@media(max-width:768px){
+  .modal{padding:28px 22px}
+  .modal-title{font-size:1.3rem}
+}
+
+/* ============================================================
    ANIMATIONS
    ============================================================ */
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
@@ -680,9 +796,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
         <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
         <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
       </ul>
+      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
       <div class="lang-switcher">
-        <button onclick="setLang('zh')" data-lang="zh" class="active">中文</button>
-        <button onclick="setLang('en')" data-lang="en">EN</button>
+        <button onclick="setLang('zh')" data-lang="zh">中文</button>
+        <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
         <button onclick="setLang('es')" data-lang="es">ES</button>
       </div>
     </div>
@@ -1376,7 +1493,7 @@ const translations = {
     'cta.btn': '立即咨询 →',
     'common.learnMore': '了解更多',
     'footer.copyright': '© 2026 BlowMold Pro. 保留所有权利。',
-    'footer.privacy': '隐私政策', 'footer.terms': '服务条款', 'footer.about': '关于我们', 'footer.careers': '招贤纳士',
+    'footer.privacy': '隐私政策', 'footer.terms': '服务条款', 'footer.about': '关于我们', 'footer.careers': '招贤纳士','nav.cta':'获取报价','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.file':'上传图纸','quote.uploadText':'拖拽文件到此处或点击浏览','quote.uploadHint':'STEP · STP · IGS · PDF (单个文件最大 10MB)','quote.uploadNote':'📐 上传您的3D设计图纸（STEP/STP/IGS）或 PDF 图档，24小时内获取免费报价。','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将审核您的文件，并在24小时内给您发送详细报价。',
   },
   en: {
     'nav.products': 'Products', 'nav.hardware': 'Hardware', 'nav.facility': 'Facility', 'nav.team': 'Leadership', 'nav.contact': 'Contact',
@@ -1438,7 +1555,7 @@ const translations = {
     'cta.btn': 'Inquire Now →',
     'common.learnMore': 'Learn More',
     'footer.copyright': '© 2026 BlowMold Pro. All rights reserved.',
-    'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.about': 'About Us', 'footer.careers': 'Careers',
+    'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.about': 'About Us', 'footer.careers': 'Careers','nav.cta':'Get a Quote','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.file':'Upload Drawings','quote.uploadText':'Drop your files here or click to browse','quote.uploadHint':'STEP · STP · IGS · PDF (Max 10MB each)','quote.uploadNote':'📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.',
   },
   es: {
     'nav.products': 'Productos', 'nav.hardware': 'Maquinaria', 'nav.facility': 'Instalaciones', 'nav.team': 'Liderazgo', 'nav.contact': 'Contacto',
@@ -1500,7 +1617,7 @@ const translations = {
     'cta.btn': 'Consultar →',
     'common.learnMore': 'Más Información',
     'footer.copyright': '© 2026 BlowMold Pro. Todos los derechos reservados.',
-    'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.about': 'Nosotros', 'footer.careers': 'Carreras',
+    'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.about': 'Nosotros', 'footer.careers': 'Carreras','nav.cta':'Solicitar Presupuesto','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.file':'Subir Planos','quote.uploadText':'Arrastre sus archivos aquí o haga clic','quote.uploadHint':'STEP · STP · IGS · PDF (Máx 10MB c/u)','quote.uploadNote':'📐 Suba su diseño 3D (STEP/STP/IGS) o planos PDF para un presupuesto gratis en 24 horas.','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo revisará sus archivos y le enviará un presupuesto detallado en 24 horas.',
   }
 };
 
@@ -1525,7 +1642,7 @@ function setLang(lang) {
 function getLang() {
   const saved = localStorage.getItem('blowmold-lang');
   if (saved && translations[saved]) return saved;
-  return navigator.language.startsWith('zh') ? 'zh' : navigator.language.startsWith('es') ? 'es' : 'en';
+  return 'en';
 }
 
 document.addEventListener('DOMContentLoaded', () => { setLang(getLang()); });
@@ -1654,7 +1771,116 @@ document.addEventListener('DOMContentLoaded', () => {
   Aurora.init();
   Particles.init();
 });
+
+// ============================================================
+// QUOTE MODAL & FORM
+// ============================================================
+function openQuote(){document.getElementById('quoteModal').classList.add('active');document.body.style.overflow='hidden'}
+function closeQuote(){document.getElementById('quoteModal').classList.remove('active');document.body.style.overflow=''}
+document.getElementById('quoteModal').addEventListener('click',function(e){if(e.target===this)closeQuote()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
+
+const quoteForm=document.getElementById('quoteForm');
+const fileInput=document.getElementById('quoteFile');
+const fileList=document.getElementById('fileList');
+const uploadZone=document.getElementById('uploadZone');
+
+uploadZone.addEventListener('click',function(e){if(e.target!==fileInput)fileInput.click()});
+uploadZone.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover')});
+uploadZone.addEventListener('dragleave',function(){this.classList.remove('dragover')});
+uploadZone.addEventListener('drop',function(e){e.preventDefault();this.classList.remove('dragover');
+  if(e.dataTransfer.files.length){fileInput.files=e.dataTransfer.files;updateFileList()}});
+fileInput.addEventListener('change',updateFileList);
+
+function updateFileList(){
+  fileList.innerHTML='';
+  Array.from(fileInput.files).forEach(function(f){
+    var chip=document.createElement('span');chip.className='file-chip';
+    chip.innerHTML=f.name+' <span class="file-remove" data-name="'+f.name+'">&times;</span>';
+    chip.querySelector('.file-remove').addEventListener('click',function(e){
+      e.stopPropagation();
+      var dt=new DataTransfer();
+      Array.from(fileInput.files).filter(function(x){return x.name!==this.dataset.name}.bind(this)).forEach(function(x){dt.items.add(x)});
+      fileInput.files=dt.files;updateFileList();
+    }.bind(chip.querySelector('.file-remove')));
+    fileList.appendChild(chip);
+  });
+}
+
+quoteForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=quoteForm.querySelector('.form-submit');
+  btn.disabled=true;btn.textContent='Sending...';
+  var formData=new FormData(quoteForm);
+  formData.append('access_key','f0766eed-e23f-46c4-be74-07189bffd2dc');
+  fetch('https://api.web3forms.com/submit',{method:'POST',body:formData})
+    .then(function(r){return r.json()})
+    .then(function(data){
+      if(data.success){
+        document.getElementById('formFields').style.display='none';
+        document.getElementById('formSuccess').style.display='block';
+      }else{
+        alert('Submission failed. Please email us directly at 13711898174@163.com');
+        btn.disabled=false;btn.textContent='Submit Request →';
+      }
+    })
+    .catch(function(){
+      alert('Network error. Please email us directly at 13711898174@163.com');
+      btn.disabled=false;btn.textContent='Submit Request →';
+    });
+});
+
 </script>
+
+<!-- ===== Quote Modal ===== -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeQuote()" aria-label="Close">&times;</button>
+    <div id="formFields">
+      <div class="modal-title" data-i18n="quote.title">Get a Free Quote</div>
+      <div class="modal-subtitle" data-i18n="quote.subtitle">Fill out the form below and we'll get back to you within 24 hours.</div>
+      <form id="quoteForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label data-i18n="quote.name">Your Name *</label>
+          <input type="text" name="name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label data-i18n="quote.email">Email Address *</label>
+          <input type="email" name="email" required placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label data-i18n="quote.company">Company (Optional)</label>
+          <input type="text" name="company" placeholder="Your Company Ltd.">
+        </div>
+        <div class="form-group">
+          <label data-i18n="quote.phone">Phone (Optional)</label>
+          <input type="tel" name="phone" placeholder="+86 138 0000 0000">
+        </div>
+        <div class="form-group">
+          <label data-i18n="quote.file">Upload Drawings</label>
+          <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📎</div>
+            <div class="upload-text" data-i18n="quote.uploadText">Drop your files here or click to browse</div>
+            <div class="upload-hint" data-i18n="quote.uploadHint">STEP · STP · IGS · PDF (Max 10MB each)</div>
+            <input type="file" id="quoteFile" name="attachment" accept=".step,.stp,.igs,.iges,.pdf" multiple>
+          </div>
+          <div class="file-list" id="fileList"></div>
+          <div class="upload-note" data-i18n="quote.uploadNote">📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.</div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="quote.message">Message / Requirements</label>
+          <textarea name="message" placeholder="Describe your project, quantity, material preferences..."></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-i18n="quote.submit">Submit Request →</button>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="success-icon">✅</div>
+      <h3 data-i18n="quote.successTitle">Thank You!</h3>
+      <p data-i18n="quote.successMsg">Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.</p>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
