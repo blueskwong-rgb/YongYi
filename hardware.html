@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlowMold Pro — 硬件实力</title>
+<title>永益吹塑 — 硬件实力</title>
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400&f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -119,6 +119,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 
 .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:24px;background:#fff;color:#c41e1a;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.02em;font-family:var(--font-body);cursor:pointer;border:none;transition:all .35s var(--ease-spring);white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.18)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);color:#a01814}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;gap:5px;cursor:pointer;z-index:1100;background:none;border:none;padding:0}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .35s var(--ease-out-expo);transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-menu-overlay{display:none;position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.5);opacity:0;transition:opacity .35s}
+.mobile-menu-overlay.open{opacity:1}
+.mobile-menu-panel{position:fixed;top:0;right:-300px;width:280px;height:100vh;z-index:1060;background:rgba(168,24,20,.98);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);padding:80px 32px 32px;transition:right .4s var(--ease-out-expo);display:flex;flex-direction:column;gap:24px;overflow-y:auto}
+.mobile-menu-overlay.open .mobile-menu-panel{right:0}
+.mobile-menu-panel .nav-links{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
+.mobile-menu-panel .nav-links a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.02em;padding:12px 16px;border-radius:10px;transition:all .3s}
+.mobile-menu-panel .nav-links a:hover,.mobile-menu-panel .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.mobile-menu-panel .nav-links a::after{display:none}
+.mobile-menu-panel .nav-cta{display:block;width:100%;text-align:center;padding:14px 20px;font-size:.85rem;border-radius:28px;margin-bottom:8px}
+.mobile-menu-panel .lang-switcher{justify-content:center}
+
 
 /* ============================================================
    HERO
@@ -521,9 +538,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
    ============================================================ */
 .footer{
   border-top:1px solid var(--c-border);
-  padding:48px;text-align:center;
-  font-size:.75rem;color:rgba(255,255,255,.65);
-  background:var(--c-surface);
+  padding:40px 48px;text-align:center;font-size:.75rem;color:var(--c-text-muted);background:var(--c-surface);
 }
 .footer a{color:var(--c-text-secondary);text-decoration:none;margin:0 14px;transition:color .3s}
 .footer a:hover{color:var(--c-accent)}
@@ -541,17 +556,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .form-group input,.form-group textarea{width:100%;padding:12px 16px;background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius-sm);color:var(--c-text);font-family:var(--font-body);font-size:.9rem;transition:border-color .3s,box-shadow .3s}
 .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
 .form-group textarea{min-height:100px;resize:vertical}
-.upload-zone{border:2px dashed var(--c-border);border-radius:var(--radius-md);padding:28px 20px;text-align:center;cursor:pointer;transition:all .3s;background:var(--c-bg);position:relative}
-.upload-zone:hover,.upload-zone.dragover{border-color:var(--c-accent);background:rgba(59,130,246,.04)}
-.upload-zone .upload-icon{font-size:2rem;margin-bottom:8px}
-.upload-zone .upload-text{font-size:.82rem;color:var(--c-text-secondary);font-weight:500}
-.upload-zone .upload-hint{font-size:.68rem;color:var(--c-text-muted);margin-top:4px}
-.upload-zone input[type=file]{display:none}
-.upload-note{font-size:.7rem;color:var(--c-accent);margin-top:8px;line-height:1.5}
-.file-list{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
-.file-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:var(--c-accent-soft);color:var(--c-accent);font-size:.75rem;font-weight:500}
-.file-chip .file-remove{cursor:pointer;font-weight:700;opacity:.5;font-size:1rem;line-height:1}
-.file-chip .file-remove:hover{opacity:1}
 .form-submit{width:100%;padding:14px 28px;background:var(--grad-accent);border:none;border-radius:28px;color:#fff;font-size:.95rem;font-weight:700;letter-spacing:.02em;cursor:pointer;font-family:var(--font-body);transition:all .4s var(--ease-spring);box-shadow:var(--shadow-glow-blue);margin-top:6px}
 .form-submit:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(59,130,246,.35)}
 .form-submit:disabled{opacity:.5;pointer-events:none}
@@ -598,8 +602,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   .quality-row{flex-direction:column;gap:20px}
   .stats-bar{flex-wrap:wrap;gap:48px}
   .stat-item .stat-num{font-size:2.4rem}
-  .nav-right{gap:14px}
-  .nav-links{gap:16px}
+  .nav-right{display:none}.hamburger{display:flex}.mobile-menu-overlay{display:block}
   .section{padding:100px 0}
   .machine-row{padding:0 20px}
   .capability-grid,.quality-row,.stats-bar{padding-left:20px;padding-right:20px}
@@ -988,12 +991,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 
 <!-- ===== Footer ===== -->
 <footer class="footer">
-  <p style="margin-bottom:10px" data-i18n="footer.copyright">© 2026 BlowMold Pro. 保留所有权利。</p>
+  <p style="margin-bottom:10px" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</p>
   <div>
-    <a href="#" data-i18n="footer.privacy">隐私政策</a>
-    <a href="#" data-i18n="footer.terms">服务条款</a>
-    <a href="#" data-i18n="footer.about">关于我们</a>
-    <a href="#" data-i18n="footer.careers">招贤纳士</a>
+    <a href="product.html" data-i18n="footer.products">产品展示</a>
+    <a href="index.html" data-i18n="footer.facility">工厂园区</a>
+    <a href="team.html" data-i18n="footer.team">领导团队</a>
   </div>
 </footer>
 
@@ -1094,6 +1096,40 @@ const Aurora = {
       clearTimeout(rt);
       rt = setTimeout(() => { this.resize(); this.createBlobs(); }, 300);
     }, { passive: true });
+// ============================================================
+// MOBILE MENU TOGGLE
+// ============================================================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobilePanel = document.getElementById('mobilePanel');
+
+function openMobileMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+mobileMenu.addEventListener('click', (e) => {
+  if (e.target === mobileMenu) closeMobileMenu();
+});
+
+mobilePanel.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
+
   },
 };
 
@@ -1265,8 +1301,7 @@ const translations = {
     'cta.label': '实地参观', 'cta.title': '亲眼见证我们的制造实力',
     'cta.subtitle': '欢迎预约参观工厂，近距离了解吹塑工艺的全流程。我们的工程师团队期待与您深入交流。',
     'cta.btn': '预约参观 →',
-    'footer.copyright': '© 2026 BlowMold Pro. 保留所有权利。',
-    'footer.privacy': '隐私政策', 'footer.terms': '服务条款', 'footer.about': '关于我们', 'footer.careers': '招贤纳士','nav.cta':'获取报价','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.file':'上传图纸','quote.uploadText':'拖拽文件到此处或点击浏览','quote.uploadHint':'STEP · STP · IGS · PDF (单个文件最大 10MB)','quote.uploadNote':'📐 上传您的3D设计图纸（STEP/STP/IGS）或 PDF 图档，24小时内获取免费报价。','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将审核您的文件，并在24小时内给您发送详细报价。',
+    'footer.copyright': '© 2026 永益吹塑制品厂. 保留所有权利。', 'footer.products':'产品展示', 'footer.hardware':'硬件实力', 'footer.facility':'工厂园区', 'footer.team':'领导团队','nav.cta':'获取报价','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将在24小时内给您发送详细报价。',
   },
   en: {
     'nav.products': 'Products', 'nav.hardware': 'Hardware', 'nav.facility': 'Facility', 'nav.team': 'Leadership', 'nav.contact': 'Contact',
@@ -1320,8 +1355,7 @@ const translations = {
     'cta.label': 'Factory Visit', 'cta.title': 'Witness Our Manufacturing Excellence',
     'cta.subtitle': 'Schedule a factory tour to see the complete blow molding process up close. Our engineering team looks forward to in-depth discussions with you.',
     'cta.btn': 'Schedule a Visit →',
-    'footer.copyright': '© 2026 BlowMold Pro. All rights reserved.',
-    'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.about': 'About Us', 'footer.careers': 'Careers','nav.cta':'Get a Quote','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.file':'Upload Drawings','quote.uploadText':'Drop your files here or click to browse','quote.uploadHint':'STEP · STP · IGS · PDF (Max 10MB each)','quote.uploadNote':'📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.',
+    'footer.copyright': '© 2026 Yongyi Blow Molding. All rights reserved.', 'footer.products':'Products', 'footer.hardware':'Hardware', 'footer.facility':'Facility', 'footer.team':'Leadership','nav.cta':'Get a Quote','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will get back to you with a detailed quote within 24 hours.',
   },
   es: {
     'nav.products': 'Productos', 'nav.hardware': 'Maquinaria', 'nav.facility': 'Instalaciones', 'nav.team': 'Liderazgo', 'nav.contact': 'Contacto',
@@ -1375,8 +1409,7 @@ const translations = {
     'cta.label': 'Visita a Fábrica', 'cta.title': 'Excelencia en Fabricación',
     'cta.subtitle': 'Programe un recorrido para ver el proceso completo. Nuestro equipo de ingenieros espera conversar con usted.',
     'cta.btn': 'Programar Visita →',
-    'footer.copyright': '© 2026 BlowMold Pro. Todos los derechos reservados.',
-    'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.about': 'Nosotros', 'footer.careers': 'Carreras','nav.cta':'Solicitar Presupuesto','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.file':'Subir Planos','quote.uploadText':'Arrastre sus archivos aquí o haga clic','quote.uploadHint':'STEP · STP · IGS · PDF (Máx 10MB c/u)','quote.uploadNote':'📐 Suba su diseño 3D (STEP/STP/IGS) o planos PDF para un presupuesto gratis en 24 horas.','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo revisará sus archivos y le enviará un presupuesto detallado en 24 horas.',
+    'footer.copyright': '© 2026 Yongyi Blow Molding. Todos los derechos reservados.', 'footer.products':'Productos', 'footer.hardware':'Maquinaria', 'footer.facility':'Instalaciones', 'footer.team':'Liderazgo','nav.cta':'Solicitar Presupuesto','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.',
   }
 };
 
@@ -1392,9 +1425,9 @@ function setLang(lang) {
     if (dict[key]) el.textContent = dict[key];
   });
   document.title = {
-    zh: 'BlowMold Pro — 硬件实力',
-    en: 'BlowMold Pro — Hardware Capability',
-    es: 'BlowMold Pro — Capacidad de Maquinaria'
+    zh: '永益吹塑 — 硬件实力',
+    en: 'Yongyi Blow Molding — Hardware Capability',
+    es: 'Yongyi Blow Molding — Capacidad de Maquinaria'
   }[lang];
 }
 
@@ -1524,27 +1557,6 @@ document.addEventListener('DOMContentLoaded',function(){
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
 
   var quoteForm=document.getElementById('quoteForm');
-  var fileInput=document.getElementById('quoteFile');
-  var fileList=document.getElementById('fileList');
-  var uploadZone=document.getElementById('uploadZone');
-uploadZone.addEventListener('click',function(e){if(e.target!==fileInput)fileInput.click()});
-uploadZone.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover')});
-uploadZone.addEventListener('dragleave',function(){this.classList.remove('dragover')});
-uploadZone.addEventListener('drop',function(e){e.preventDefault();this.classList.remove('dragover');if(e.dataTransfer.files.length){fileInput.files=e.dataTransfer.files;updateFileList()}});
-fileInput.addEventListener('change',updateFileList);
-function updateFileList(){
-  fileList.innerHTML='';
-  var files=fileInput.files;
-  if(!files||files.length===0)return;
-  for(var i=0;i<files.length;i++){
-    (function(f){
-      var chip=document.createElement('span');chip.className='file-chip';
-      var sizeMB=(f.size/1048576).toFixed(1);
-      chip.textContent=f.name+' ('+sizeMB+' MB)';
-      fileList.appendChild(chip);
-    })(files[i]);
-  }
-}
 quoteForm.addEventListener('submit',function(e){
   e.preventDefault();
   var btn=quoteForm.querySelector('.form-submit');
@@ -1588,17 +1600,6 @@ quoteForm.addEventListener('submit',function(e){
         <div class="form-group"><label data-i18n="quote.email">Email Address *</label><input type="email" name="email" required placeholder="john@company.com"></div>
         <div class="form-group"><label data-i18n="quote.company">Company (Optional)</label><input type="text" name="company" placeholder="Your Company Ltd."></div>
         <div class="form-group"><label data-i18n="quote.phone">Phone (Optional)</label><input type="tel" name="phone" placeholder="+86 138 0000 0000"></div>
-        <div class="form-group">
-          <label data-i18n="quote.file">Upload Drawings</label>
-          <div class="upload-zone" id="uploadZone">
-            <div class="upload-icon">📎</div>
-            <div class="upload-text" data-i18n="quote.uploadText">Drop your files here or click to browse</div>
-            <div class="upload-hint" data-i18n="quote.uploadHint">STEP · STP · IGS · PDF (Max 10MB each)</div>
-            <input type="file" id="quoteFile" name="attachment" accept=".step,.stp,.igs,.iges,.pdf" multiple>
-          </div>
-          <div class="file-list" id="fileList"></div>
-          <div class="upload-note" data-i18n="quote.uploadNote">📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.</div>
-        </div>
         <div class="form-group"><label data-i18n="quote.message">Message / Requirements</label><textarea name="message" placeholder="Describe your project, quantity, material preferences..."></textarea></div>
         <button type="submit" class="form-submit" data-i18n="quote.submit">Submit Request →</button>
       </form>

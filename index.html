@@ -106,6 +106,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   color:#a01814;
 }
 
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;gap:5px;cursor:pointer;z-index:1100;background:none;border:none;padding:0}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .35s var(--ease-out-expo);transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-menu-overlay{display:none;position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.5);opacity:0;transition:opacity .35s}
+.mobile-menu-overlay.open{opacity:1}
+.mobile-menu-panel{position:fixed;top:0;right:-300px;width:280px;height:100vh;z-index:1060;background:rgba(168,24,20,.98);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);padding:80px 32px 32px;transition:right .4s var(--ease-out-expo);display:flex;flex-direction:column;gap:24px;overflow-y:auto}
+.mobile-menu-overlay.open .mobile-menu-panel{right:0}
+.mobile-menu-panel .nav-links{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
+.mobile-menu-panel .nav-links a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.02em;padding:12px 16px;border-radius:10px;transition:all .3s}
+.mobile-menu-panel .nav-links a:hover,.mobile-menu-panel .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.mobile-menu-panel .nav-links a::after{display:none}
+.mobile-menu-panel .nav-cta{display:block;width:100%;text-align:center;padding:14px 20px;font-size:.85rem;border-radius:28px;margin-bottom:8px}
+.mobile-menu-panel .lang-switcher{justify-content:center}
 
 /* ============================================================
    HERO IMAGE SECTION
@@ -411,30 +427,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   box-shadow:0 0 0 3px rgba(59,130,246,.12);
 }
 .form-group textarea{min-height:100px;resize:vertical}
-.upload-zone{
-  border:2px dashed var(--c-border);border-radius:var(--radius-md);
-  padding:28px 20px;text-align:center;cursor:pointer;
-  transition:all .3s;background:var(--c-bg);position:relative;
-}
-.upload-zone:hover,.upload-zone.dragover{
-  border-color:var(--c-accent);background:rgba(59,130,246,.04);
-}
-.upload-zone .upload-icon{font-size:2rem;margin-bottom:8px}
-.upload-zone .upload-text{font-size:.82rem;color:var(--c-text-secondary);font-weight:500}
-.upload-zone .upload-hint{font-size:.68rem;color:var(--c-text-muted);margin-top:4px}
-.upload-zone input[type=file]{display:none}
-.upload-note{
-  font-size:.7rem;color:var(--c-accent);margin-top:8px;line-height:1.5;
-}
-.file-list{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
-.file-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 14px;border-radius:20px;
-  background:var(--c-accent-soft);color:var(--c-accent);
-  font-size:.75rem;font-weight:500;
-}
-.file-chip .file-remove{cursor:pointer;font-weight:700;opacity:.5;font-size:1rem;line-height:1}
-.file-chip .file-remove:hover{opacity:1}
 .form-submit{
   width:100%;padding:14px 28px;background:var(--grad-accent);
   border:none;border-radius:28px;color:#fff;
@@ -474,8 +466,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   .client-item .client-logo-wrap{width:150px;height:75px}
 }
 @media(max-width:768px){
-  .nav-right{gap:14px}
-  .nav-links{gap:16px}
+  .nav-right{display:none}
+  .hamburger{display:flex}
+  .mobile-menu-overlay{display:block}
   .desc-card{padding:0 20px}
   .desc-card-inner{padding:32px 24px}
   .desc-highlights{grid-template-columns:1fr}
@@ -516,7 +509,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
       </div>
     </div>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-panel" id="mobilePanel">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-i18n="nav.facility">工厂园区</a></li>
+      <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
+      <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
+      <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+    <div class="lang-switcher">
+      <button onclick="setLang('zh')" data-lang="zh">中文</button>
+      <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
+      <button onclick="setLang('es')" data-lang="es">ES</button>
+    </div>
+  </div>
+</div>
 
 <!-- ===== Hero Image ===== -->
 <section class="hero-section">
@@ -837,7 +851,7 @@ const Particles = {
 const translations = {
   zh: {
     'nav.products': '产品展示', 'nav.hardware': '硬件实力', 'nav.facility': '工厂园区', 'nav.team': '领导团队', 'nav.contact': '联系我们',
-    'hero.title':'核心吹塑装备','hero.desc':'大型中空吹塑成型机，以精密工艺驱动卓越品质','desc.title':'创新技术，精密演绎','desc.subtitle':'—— 始于 1998，专注吹塑制造','desc.body1':'惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。','desc.body2':'产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。','desc.body3':'工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。','desc.h1.num':'10台','desc.h1.label':'中空吹塑设备','desc.h2.num':'1998','desc.h2.label':'建厂年份','desc.h3.num':'全流程','desc.h3.label':'模具·机械·吹塑','desc.clients.label':'核心客户：','desc.clients':'天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商','desc.motto':'「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌','map.title':'永益吹塑厂','map.addr':'广东省惠州市博罗县石湾镇','map.name':'永益吹塑厂 / 永益科技有限公司','map.link1':'🚗 Google 地图导航 →','map.link2':'🗺 Google 地图查看 →','clients.label':'合作伙伴','clients.title':'信赖我们的品牌','nav.cta':'获取报价','hero.ctaQuote':'获取免费报价 →','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.file':'上传图纸','quote.uploadText':'拖拽文件到此处或点击浏览','quote.uploadHint':'STEP · STP · IGS · PDF (单个文件最大 10MB)','quote.uploadNote':'📐 上传您的3D设计图纸（STEP/STP/IGS）或 PDF 图档，24小时内获取免费报价。','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将审核您的文件，并在24小时内给您发送详细报价。',
+    'hero.title':'核心吹塑装备','hero.desc':'大型中空吹塑成型机，以精密工艺驱动卓越品质','desc.title':'创新技术，精密演绎','desc.subtitle':'—— 始于 1998，专注吹塑制造','desc.body1':'惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。','desc.body2':'产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。','desc.body3':'工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。','desc.h1.num':'10台','desc.h1.label':'中空吹塑设备','desc.h2.num':'1998','desc.h2.label':'建厂年份','desc.h3.num':'全流程','desc.h3.label':'模具·机械·吹塑','desc.clients.label':'核心客户：','desc.clients':'天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商','desc.motto':'「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌','map.title':'永益吹塑厂','map.addr':'广东省惠州市博罗县石湾镇','map.name':'永益吹塑厂 / 永益科技有限公司','map.link1':'🚗 Google 地图导航 →','map.link2':'🗺 Google 地图查看 →','clients.label':'合作伙伴','clients.title':'信赖我们的品牌','nav.cta':'获取报价','hero.ctaQuote':'获取免费报价 →','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将在24小时内给您发送详细报价。',
     'hero.badge': '全新发布',
     'hero.line1': '匠心', 'hero.line2': '吹塑', 'hero.line3': '重塑品质生活',
     'hero.subtitle': '从户外装备到儿童乐园，以先进的吹塑工艺打造每一件产品。轻量化、高强度、环保耐用。',
@@ -895,12 +909,11 @@ const translations = {
     'cta.subtitle': '无论是批量采购还是 OEM 定制，我们的团队都将为您提供专业的一站式吹塑制品解决方案。',
     'cta.btn': '立即咨询 →',
     'common.learnMore': '了解更多',
-    'footer.copyright': '© 2026 永益吹塑制品厂. 保留所有权利。',
-    'footer.privacy': '隐私政策', 'footer.terms': '服务条款', 'footer.about': '关于我们', 'footer.careers': '招贤纳士',
+    'footer.copyright': '© 2026 永益吹塑制品厂. 保留所有权利。', 'footer.products':'产品展示', 'footer.hardware':'硬件实力', 'footer.facility':'工厂园区', 'footer.team':'领导团队',
   },
   en: {
     'nav.products': 'Products', 'nav.hardware': 'Hardware', 'nav.facility': 'Facility', 'nav.team': 'Leadership', 'nav.contact': 'Contact',
-    'hero.title':'Core Blow Molding Equipment','hero.desc':'Large-scale hollow blow molding machine, driving excellence through precision engineering','desc.title':'Innovation & Precision','desc.subtitle':'—— Est. 1998, Blow Molding Specialists','desc.body1':'Established in 1998, Huizhou Yongyi Technology Co., Ltd. is a professional blow molding manufacturer. Our facility operates 6 large-scale blow molding machines and 4 fully automatic transparent-line machines, producing hollow plastic tool boxes, childrens blow-molded toys, and various packaging containers.','desc.body2':'Our products serve power tool packaging, hand tool kits, toy gifts, Halloween and Christmas toys, and daily chemical packaging. We manufacture large blow-molded products and custom shapes including humidifier tanks, AC housings, ventilation ducts, automotive cooler boxes, windshield washer tanks, oil cans, fuel tanks, road barriers, traffic signs, highway reflectors, large artificial plants, modular playground equipment, and more.','desc.body3':'With strong technical expertise and an in-house design team, our mold workshop and machinery manufacturing department can design and produce custom molds and blow molding machines. We are a fully integrated manufacturer combining machinery, mold design, and blow molding production.','desc.h1.num':'10 Units','desc.h1.label':'Blow Molding Machines','desc.h2.num':'1998','desc.h2.label':'Year Established','desc.h3.num':'Full Chain','desc.h3.label':'Mold · Machine · Molding','desc.clients.label':'Key Clients:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Certified Supplier','desc.motto':'"Quality First, Service Supreme" — Welcome global partners','map.title':'Yongyi Blow Molding Factory','map.addr':'Shiwan Town, Boluo County, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navigate via Google Maps →','map.link2':'🗺 View on Google Maps →','clients.label':'TRUSTED BY','clients.title':'Partners Who Trust Us','nav.cta':'Get a Quote','hero.ctaQuote':'Get a Free Quote →','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.file':'Upload Drawings','quote.uploadText':'Drop your files here or click to browse','quote.uploadHint':'STEP · STP · IGS · PDF (Max 10MB each)','quote.uploadNote':'📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.',
+    'hero.title':'Core Blow Molding Equipment','hero.desc':'Large-scale hollow blow molding machine, driving excellence through precision engineering','desc.title':'Innovation & Precision','desc.subtitle':'—— Est. 1998, Blow Molding Specialists','desc.body1':'Established in 1998, Huizhou Yongyi Technology Co., Ltd. is a professional blow molding manufacturer. Our facility operates 6 large-scale blow molding machines and 4 fully automatic transparent-line machines, producing hollow plastic tool boxes, childrens blow-molded toys, and various packaging containers.','desc.body2':'Our products serve power tool packaging, hand tool kits, toy gifts, Halloween and Christmas toys, and daily chemical packaging. We manufacture large blow-molded products and custom shapes including humidifier tanks, AC housings, ventilation ducts, automotive cooler boxes, windshield washer tanks, oil cans, fuel tanks, road barriers, traffic signs, highway reflectors, large artificial plants, modular playground equipment, and more.','desc.body3':'With strong technical expertise and an in-house design team, our mold workshop and machinery manufacturing department can design and produce custom molds and blow molding machines. We are a fully integrated manufacturer combining machinery, mold design, and blow molding production.','desc.h1.num':'10 Units','desc.h1.label':'Blow Molding Machines','desc.h2.num':'1998','desc.h2.label':'Year Established','desc.h3.num':'Full Chain','desc.h3.label':'Mold · Machine · Molding','desc.clients.label':'Key Clients:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Certified Supplier','desc.motto':'"Quality First, Service Supreme" — Welcome global partners','map.title':'Yongyi Blow Molding Factory','map.addr':'Shiwan Town, Boluo County, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navigate via Google Maps →','map.link2':'🗺 View on Google Maps →','clients.label':'TRUSTED BY','clients.title':'Partners Who Trust Us','nav.cta':'Get a Quote','hero.ctaQuote':'Get a Free Quote →','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will get back to you with a detailed quote within 24 hours.',
     'hero.badge': 'New Release',
     'hero.line1': 'Artisan', 'hero.line2': 'Blow Molding', 'hero.line3': 'Redefining Quality Living',
     'hero.subtitle': 'From outdoor gear to playgrounds, we craft every product with advanced blow molding technology. Lightweight, high-strength, eco-friendly and durable.',
@@ -958,12 +971,11 @@ const translations = {
     'cta.subtitle': 'Whether bulk purchasing or OEM customization, our team provides professional one-stop blow molding solutions.',
     'cta.btn': 'Inquire Now →',
     'common.learnMore': 'Learn More',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. All rights reserved.',
-    'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.about': 'About Us', 'footer.careers': 'Careers',
+    'footer.copyright': '© 2026 Yongyi Blow Molding. All rights reserved.', 'footer.products':'Products', 'footer.hardware':'Hardware', 'footer.facility':'Facility', 'footer.team':'Leadership',
   },
   es: {
     'nav.products': 'Productos', 'nav.hardware': 'Maquinaria', 'nav.facility': 'Instalaciones', 'nav.team': 'Liderazgo', 'nav.contact': 'Contacto',
-    'hero.title':'Equipo Central de Soplado','hero.desc':'Máquina de moldeo por soplado hueco a gran escala, impulsando la excelencia mediante ingeniería de precisión','desc.title':'Innovación y Precisión','desc.subtitle':'—— Desde 1998, Especialistas en Moldeo por Soplado','desc.body1':'Fundada en 1998, Huizhou Yongyi Technology Co., Ltd. es un fabricante profesional de productos de moldeo por soplado. Nuestra fábrica cuenta con 6 máquinas de soplado a gran escala y 4 máquinas automáticas de línea transparente, produciendo cajas de herramientas de plástico hueco, juguetes infantiles y diversos envases.','desc.body2':'Nuestros productos se utilizan en embalajes para herramientas eléctricas y manuales, juguetes, artículos de Halloween y Navidad, y productos químicos diarios. Fabricamos grandes productos soplados y piezas personalizadas.','desc.body3':'Con gran experiencia técnica y un equipo de diseño propio, nuestro taller de moldes y departamento de maquinaria pueden diseñar y fabricar moldes personalizados y máquinas de soplado. Somos un fabricante integrado.','desc.h1.num':'10 Unidades','desc.h1.label':'Máquinas de Soplado','desc.h2.num':'1998','desc.h2.label':'Año de Fundación','desc.h3.num':'Cadena Completa','desc.h3.label':'Molde · Máquina · Soplado','desc.clients.label':'Clientes Clave:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Proveedor Certificado','desc.motto':'"Calidad Primero, Servicio Supremo" — Bienvenidos socios globales','map.title':'Fábrica Yongyi de Soplado','map.addr':'Shiwan, Boluo, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navegar con Google Maps →','map.link2':'🗺 Ver en Google Maps →','clients.label':'CONFÍAN EN NOSOTROS','clients.title':'Marcas Que Confían En Nosotros','nav.cta':'Solicitar Presupuesto','hero.ctaQuote':'Obtener Presupuesto Gratis →','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.file':'Subir Planos','quote.uploadText':'Arrastre sus archivos aquí o haga clic','quote.uploadHint':'STEP · STP · IGS · PDF (Máx 10MB c/u)','quote.uploadNote':'📐 Suba su diseño 3D (STEP/STP/IGS) o planos PDF para un presupuesto gratis en 24 horas.','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo revisará sus archivos y le enviará un presupuesto detallado en 24 horas.',
+    'hero.title':'Equipo Central de Soplado','hero.desc':'Máquina de moldeo por soplado hueco a gran escala, impulsando la excelencia mediante ingeniería de precisión','desc.title':'Innovación y Precisión','desc.subtitle':'—— Desde 1998, Especialistas en Moldeo por Soplado','desc.body1':'Fundada en 1998, Huizhou Yongyi Technology Co., Ltd. es un fabricante profesional de productos de moldeo por soplado. Nuestra fábrica cuenta con 6 máquinas de soplado a gran escala y 4 máquinas automáticas de línea transparente, produciendo cajas de herramientas de plástico hueco, juguetes infantiles y diversos envases.','desc.body2':'Nuestros productos se utilizan en embalajes para herramientas eléctricas y manuales, juguetes, artículos de Halloween y Navidad, y productos químicos diarios. Fabricamos grandes productos soplados y piezas personalizadas.','desc.body3':'Con gran experiencia técnica y un equipo de diseño propio, nuestro taller de moldes y departamento de maquinaria pueden diseñar y fabricar moldes personalizados y máquinas de soplado. Somos un fabricante integrado.','desc.h1.num':'10 Unidades','desc.h1.label':'Máquinas de Soplado','desc.h2.num':'1998','desc.h2.label':'Año de Fundación','desc.h3.num':'Cadena Completa','desc.h3.label':'Molde · Máquina · Soplado','desc.clients.label':'Clientes Clave:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Proveedor Certificado','desc.motto':'"Calidad Primero, Servicio Supremo" — Bienvenidos socios globales','map.title':'Fábrica Yongyi de Soplado','map.addr':'Shiwan, Boluo, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navegar con Google Maps →','map.link2':'🗺 Ver en Google Maps →','clients.label':'CONFÍAN EN NOSOTROS','clients.title':'Marcas Que Confían En Nosotros','nav.cta':'Solicitar Presupuesto','hero.ctaQuote':'Obtener Presupuesto Gratis →','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.',
     'hero.badge': 'Nuevo Lanzamiento',
     'hero.line1': 'Artesanal', 'hero.line2': 'Moldeo por Soplado', 'hero.line3': 'Redefiniendo la Calidad de Vida',
     'hero.subtitle': 'Desde equipos para exteriores hasta parques infantiles, fabricamos cada producto con tecnología avanzada. Ligero, resistente, ecológico y duradero.',
@@ -1021,8 +1033,7 @@ const translations = {
     'cta.subtitle': 'Soluciones profesionales integrales de moldeo por soplado.',
     'cta.btn': 'Consultar →',
     'common.learnMore': 'Más Información',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. Todos los derechos reservados.',
-    'footer.privacy': 'Privacidad', 'footer.terms': 'Términos', 'footer.about': 'Nosotros', 'footer.careers': 'Carreras',
+    'footer.copyright': '© 2026 Yongyi Blow Molding. Todos los derechos reservados.', 'footer.products':'Productos', 'footer.hardware':'Maquinaria', 'footer.facility':'Instalaciones', 'footer.team':'Liderazgo',
   }
 };
 
@@ -1038,9 +1049,9 @@ function setLang(lang) {
     if (dict[key]) el.textContent = dict[key];
   });
   document.title = {
-    zh: 'BlowMold Pro — 高端吹塑制品',
-    en: 'BlowMold Pro — Premium Blow Molded Products',
-    es: 'BlowMold Pro — Productos Premium'
+    zh: '永益吹塑 — 高端吹塑制品',
+    en: 'Yongyi Blow Molding — Premium Blow Molded Products',
+    es: 'Yongyi Blow Molding — Productos Premium'
   }[lang];
 }
 
@@ -1086,6 +1097,43 @@ window.addEventListener('scroll', () => {
   }
   lastScroll = currentScroll;
 }, { passive: true });
+
+// ============================================================
+// MOBILE MENU TOGGLE
+// ============================================================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobilePanel = document.getElementById('mobilePanel');
+
+function openMobileMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+// Click overlay to close
+mobileMenu.addEventListener('click', (e) => {
+  if (e.target === mobileMenu) closeMobileMenu();
+});
+
+// Close on nav link click
+mobilePanel.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Close on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
 
 // ============================================================
 // IMAGE PARALLAX
@@ -1192,32 +1240,6 @@ document.addEventListener('DOMContentLoaded',function(){
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
 
   var quoteForm=document.getElementById('quoteForm');
-  var fileInput=document.getElementById('quoteFile');
-  var fileList=document.getElementById('fileList');
-  var uploadZone=document.getElementById('uploadZone');
-
-  uploadZone.addEventListener('click',function(e){if(e.target!==fileInput)fileInput.click()});
-  uploadZone.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover')});
-  uploadZone.addEventListener('dragleave',function(){this.classList.remove('dragover')});
-  uploadZone.addEventListener('drop',function(e){
-    e.preventDefault();this.classList.remove('dragover');
-    if(e.dataTransfer.files.length){fileInput.files=e.dataTransfer.files;updateFileList()}
-  });
-  fileInput.addEventListener('change',updateFileList);
-
-  function updateFileList(){
-    fileList.innerHTML='';
-    var files=fileInput.files;
-    if(!files||files.length===0)return;
-    for(var i=0;i<files.length;i++){
-      (function(f){
-        var chip=document.createElement('span');chip.className='file-chip';
-        var sizeMB=(f.size/1048576).toFixed(1);
-        chip.textContent=f.name+' ('+sizeMB+' MB)';
-        fileList.appendChild(chip);
-      })(files[i]);
-    }
-  }
 
   quoteForm.addEventListener('submit',function(e){
     e.preventDefault();
@@ -1275,17 +1297,6 @@ document.addEventListener('DOMContentLoaded',function(){
         <div class="form-group">
           <label data-i18n="quote.phone">Phone (Optional)</label>
           <input type="tel" name="phone" placeholder="+86 138 0000 0000">
-        </div>
-        <div class="form-group">
-          <label data-i18n="quote.file">Upload Drawings</label>
-          <div class="upload-zone" id="uploadZone">
-            <div class="upload-icon">📎</div>
-            <div class="upload-text" data-i18n="quote.uploadText">Drop your files here or click to browse</div>
-            <div class="upload-hint" data-i18n="quote.uploadHint">STEP · STP · IGS · PDF (Max 10MB each)</div>
-            <input type="file" id="quoteFile" name="attachment" accept=".step,.stp,.igs,.iges,.pdf" multiple>
-          </div>
-          <div class="file-list" id="fileList"></div>
-          <div class="upload-note" data-i18n="quote.uploadNote">📐 Upload your 3D design (STEP/STP/IGS) or PDF drawings for a free quote within 24 hours.</div>
         </div>
         <div class="form-group">
           <label data-i18n="quote.message">Message / Requirements</label>
