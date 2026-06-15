@@ -1515,12 +1515,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function openQuote(){document.getElementById('quoteModal').classList.add('active');document.body.style.overflow='hidden'}
 function closeQuote(){document.getElementById('quoteModal').classList.remove('active');document.body.style.overflow=''}
-document.getElementById('quoteModal').addEventListener('click',function(e){if(e.target===this)closeQuote()});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
-const quoteForm=document.getElementById('quoteForm');
-const fileInput=document.getElementById('quoteFile');
-const fileList=document.getElementById('fileList');
-const uploadZone=document.getElementById('uploadZone');
+
+document.addEventListener('DOMContentLoaded',function(){
+  var modal=document.getElementById('quoteModal');
+  if(!modal)return;
+
+  modal.addEventListener('click',function(e){if(e.target===this)closeQuote()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
+
+  var quoteForm=document.getElementById('quoteForm');
+  var fileInput=document.getElementById('quoteFile');
+  var fileList=document.getElementById('fileList');
+  var uploadZone=document.getElementById('uploadZone');
 uploadZone.addEventListener('click',function(e){if(e.target!==fileInput)fileInput.click()});
 uploadZone.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover')});
 uploadZone.addEventListener('dragleave',function(){this.classList.remove('dragover')});
@@ -1567,6 +1573,7 @@ quoteForm.addEventListener('submit',function(e){
       alert('Network error. Please check your connection and try again, or email us directly at 13711898174@163.com');
       btn.disabled=false;btn.textContent=origText;
     });
+  });
 });
 </script>
 
