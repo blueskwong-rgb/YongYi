@@ -645,7 +645,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
       </div>
     </div>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-panel" id="mobilePanel">
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.facility">工厂园区</a></li>
+      <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
+      <li><a href="hardware.html" class="active" data-i18n="nav.hardware">硬件实力</a></li>
+      <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+    <div class="lang-switcher">
+      <button onclick="setLang('zh')" data-lang="zh">中文</button>
+      <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
+      <button onclick="setLang('es')" data-lang="es">ES</button>
+    </div>
+  </div>
+</div>
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="top">
@@ -1096,6 +1117,9 @@ const Aurora = {
       clearTimeout(rt);
       rt = setTimeout(() => { this.resize(); this.createBlobs(); }, 300);
     }, { passive: true });
+  },
+};
+
 // ============================================================
 // MOBILE MENU TOGGLE
 // ============================================================
@@ -1129,9 +1153,6 @@ mobilePanel.querySelectorAll('a').forEach(link => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
 });
-
-  },
-};
 
 // ============================================================
 // FLOATING PARTICLES
