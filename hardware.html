@@ -1528,38 +1528,44 @@ uploadZone.addEventListener('drop',function(e){e.preventDefault();this.classList
 fileInput.addEventListener('change',updateFileList);
 function updateFileList(){
   fileList.innerHTML='';
-  Array.from(fileInput.files).forEach(function(f){
-    var chip=document.createElement('span');chip.className='file-chip';
-    chip.innerHTML=f.name+' <span class="file-remove" data-name="'+f.name+'">&times;</span>';
-    chip.querySelector('.file-remove').addEventListener('click',function(e){
-      e.stopPropagation();
-      var dt=new DataTransfer();
-      Array.from(fileInput.files).filter(function(x){return x.name!==this.dataset.name}.bind(this)).forEach(function(x){dt.items.add(x)});
-      fileInput.files=dt.files;updateFileList();
-    }.bind(chip.querySelector('.file-remove')));
-    fileList.appendChild(chip);
-  });
+  var files=fileInput.files;
+  if(!files||files.length===0)return;
+  for(var i=0;i<files.length;i++){
+    (function(f){
+      var chip=document.createElement('span');chip.className='file-chip';
+      var sizeMB=(f.size/1048576).toFixed(1);
+      chip.textContent=f.name+' ('+sizeMB+' MB)';
+      fileList.appendChild(chip);
+    })(files[i]);
+  }
 }
 quoteForm.addEventListener('submit',function(e){
   e.preventDefault();
   var btn=quoteForm.querySelector('.form-submit');
+  var origText=btn.textContent;
   btn.disabled=true;btn.textContent='Sending...';
+
   var formData=new FormData(quoteForm);
   formData.append('access_key','f0766eed-e23f-46c4-be74-07189bffd2dc');
+  formData.append('subject','New Quote Request - Yongyi Blow Molding');
+
+  console.log('Submitting to Web3Forms...');
   fetch('https://api.web3forms.com/submit',{method:'POST',body:formData})
     .then(function(r){return r.json()})
     .then(function(data){
+      console.log('Web3Forms response:',data);
       if(data.success){
         document.getElementById('formFields').style.display='none';
         document.getElementById('formSuccess').style.display='block';
       }else{
-        alert('Submission failed. Please email us directly at 13711898174@163.com');
-        btn.disabled=false;btn.textContent='Submit Request →';
+        alert('Server error: '+(data.message||'Unknown')+'. Please try again or email us at 13711898174@163.com');
+        btn.disabled=false;btn.textContent=origText;
       }
     })
-    .catch(function(){
-      alert('Network error. Please email us directly at 13711898174@163.com');
-      btn.disabled=false;btn.textContent='Submit Request →';
+    .catch(function(err){
+      console.error('Web3Forms error:',err);
+      alert('Network error. Please check your connection and try again, or email us directly at 13711898174@163.com');
+      btn.disabled=false;btn.textContent=origText;
     });
 });
 </script>
