@@ -557,7 +557,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .product-card{border-radius:var(--radius-sm)}
 .product-card:hover .img-wrap img{transform:scale(1.04)}
 .product-card .img-wrap img{transition:transform .4s var(--ease-apple)}
-.product-card .img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.product-card .img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
 .product-card .badge{
   position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:4px;
