@@ -656,6 +656,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 }
 .hero-glow>*{position:relative;z-index:2}
 
+/* Hardware — glow slightly higher */
+.hero-glow-up::before{
+  background:
+    radial-gradient(ellipse 70% 35% at 50% 38%, rgba(0,113,227,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 30% at 35% 43%, rgba(80,140,230,.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 25% at 65% 36%, rgba(140,180,240,.08) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 15% at 50% 85%, rgba(0,113,227,.04) 0%, transparent 60%);
+}
+.hero-glow-up::after{top:37%}
+
 /* About Us page — glow lower to match text below carousel */
 .hero-image-section.hero-glow::before{
   background:
