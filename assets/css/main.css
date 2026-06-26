@@ -2,9 +2,6 @@
    Yongyi Blow Molding — Apple-Style Design System
    ============================================================ */
 
-/* JS test indicator */
-html.js-test body::after{content:'JS OK';position:fixed;bottom:8px;right:8px;background:#22c55e;color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;z-index:99999;font-family:var(--font-stack)}
-
 /* --- Design Tokens --- */
 :root {
   /* Primary palette */
