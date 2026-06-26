@@ -71,7 +71,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
    ============================================================ */
 .nav{
   position:sticky;top:0;z-index:1000;
-  background:rgba(255,255,255,.92);
+  background:rgba(245,245,247,.92);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--c-border-light);
@@ -131,7 +131,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .35s}
 .mobile-menu-overlay.open{opacity:1;pointer-events:auto}
 .mobile-menu-panel{position:fixed;top:0;right:-300px;width:280px;height:100vh;z-index:1060;
-  background:var(--c-white);padding:80px 32px 32px;
+  background:var(--c-bg-light);padding:80px 32px 32px;
   transition:right .4s var(--ease-apple);
   display:flex;flex-direction:column;gap:24px;overflow-y:auto;
   box-shadow:-2px 0 16px rgba(0,0,0,.08);
