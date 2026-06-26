@@ -3,6 +3,15 @@
    Apple-Style, minimal, production-grade
    ============================================================ */
 
+// Global error capture for debugging
+window._errors = [];
+window.onerror = function(msg, url, line, col, err) {
+  window._errors.push({msg:msg, url:url, line:line, col:col});
+  var el = document.getElementById('js-error-log');
+  if (el) el.textContent += 'ERROR: '+msg+' (line '+line+')\n';
+  return false;
+};
+
 /* --- Shared Translations (nav, footer, modal, common) --- */
 const sharedTranslations = {
   zh: {
