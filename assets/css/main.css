@@ -667,12 +667,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 /* Hardware page — glow between badge and h1 */
 .hero-glow-high::before{
   background:
-    radial-gradient(ellipse 70% 22% at 50% 16%, rgba(0,113,227,.2) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 18% at 35% 18%, rgba(80,140,230,.10) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 15% at 65% 14%, rgba(140,180,240,.08) 0%, transparent 48%);
+    radial-gradient(ellipse 70% 22% at 50% 24%, rgba(0,113,227,.2) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 18% at 35% 26%, rgba(80,140,230,.10) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 15% at 65% 22%, rgba(140,180,240,.08) 0%, transparent 48%);
 }
 .hero-glow-high::after{
-  top:17%;width:55%;
+  top:25%;width:55%;
   background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.18) 15%, rgba(0,113,227,.55) 50%, rgba(0,113,227,.18) 85%, transparent 95%);
 }
 
