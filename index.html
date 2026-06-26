@@ -186,24 +186,14 @@
 <script src="assets/js/main.js"></script>
 <script>
 // Factory Carousel
-let carouselIndex = 0;
-const carouselTotal = 5;
-let carouselTimer;
+var _ci=0,_ct=5,_timer;
+window.carouselGo=function(i){_ci=i;document.querySelectorAll('#factoryCarousel .carousel-slide').forEach(function(s,x){s.classList.toggle('active',x===i)});document.querySelectorAll('#carouselDots button').forEach(function(d,x){d.classList.toggle('active',x===i)})};
+window.carouselPrev=function(){carouselGo((_ci-1+_ct)%_ct);clearInterval(_timer);_timer=setInterval(carouselNext,5000)};
+window.carouselNext=function(){carouselGo((_ci+1)%_ct);clearInterval(_timer);_timer=setInterval(carouselNext,5000)};
+_timer=setInterval(carouselNext,5000);
+document.getElementById('factoryCarousel').addEventListener('mouseenter',function(){clearInterval(_timer)});
+document.getElementById('factoryCarousel').addEventListener('mouseleave',function(){_timer=setInterval(carouselNext,5000)});
 
-function carouselGo(i) {
-  carouselIndex = i;
-  document.querySelectorAll('#factoryCarousel .carousel-slide').forEach((s,idx) => s.classList.toggle('active', idx===i));
-  document.querySelectorAll('#carouselDots button').forEach((d,idx) => d.classList.toggle('active', idx===i));
-}
-function carouselPrev() { carouselGo((carouselIndex - 1 + carouselTotal) % carouselTotal); resetTimer(); }
-function carouselNext() { carouselGo((carouselIndex + 1) % carouselTotal); resetTimer(); }
-function resetTimer() { clearInterval(carouselTimer); carouselTimer = setInterval(carouselNext, 5000); }
-carouselTimer = setInterval(carouselNext, 5000);
-// Pause on hover
-document.getElementById('factoryCarousel').addEventListener('mouseenter', () => clearInterval(carouselTimer));
-document.getElementById('factoryCarousel').addEventListener('mouseleave', () => { carouselTimer = setInterval(carouselNext, 5000); });
-</script>
-<script>
 // Page-specific translations
 mergeTranslations({
   zh: {
