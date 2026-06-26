@@ -3,633 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>永益吹塑 — 硬件实力</title>
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400&f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   DESIGN SYSTEM — Modern Industrial Luxe
-   ============================================================ */
-:root {
-  --c-white: #ffffff;
-  --c-bg: #0f172a;
-  --c-bg-alt: #1e293b;
-  --c-surface: #1e293b;
-  --c-border: #334155;
-  --c-text: #f1f5f9;
-  --c-text-secondary: #cbd5e1;
-  --c-text-muted: #94a3b8;
-  --c-accent: #3b82f6;
-  --c-accent-bright: #60a5fa;
-  --c-accent-soft: rgba(59,130,246,0.12);
-  --c-cyan: #22d3ee;
-  --c-cyan-soft: rgba(34,211,238,0.1);
-  --c-amber: #fbbf24;
-  --c-violet: #a78bfa;
-  --c-emerald: #34d399;
-  --grad-accent: linear-gradient(135deg, #3b82f6, #22d3ee);
-  --grad-hero: linear-gradient(135deg, #3b82f6, #22d3ee, #a78bfa);
-  --font-display: 'Clash Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-body: 'Satoshi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px; --radius-xl: 48px;
-  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.2),0 1px 2px rgba(0,0,0,.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.3),0 2px 6px rgba(0,0,0,.2);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.2);
-  --shadow-xl: 0 24px 64px rgba(0,0,0,.5),0 8px 24px rgba(0,0,0,.3);
-  --shadow-glow-blue: 0 8px 32px rgba(59,130,246,.25);
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:var(--font-body);
-  background:var(--c-bg);
-  color:var(--c-text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-}
-
-/* ── Aurora Canvas ── */
-#aurora-canvas{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;
-  z-index:-1;pointer-events:none;opacity:0.55;
-}
-
-/* ── Particles ── */
-#particles-canvas{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;
-  z-index:0;pointer-events:none;
-}
-
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--c-bg)}
-::-webkit-scrollbar-thumb{background:#475569;border-radius:10px}
-::-webkit-scrollbar-thumb:hover{background:#64748b}
-::selection{background:var(--c-accent);color:#fff}
-a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-offset:3px;border-radius:6px}
-
-/* ============================================================
-/* ============================================================
-   NAV
-   ============================================================ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(196,30,26,.9);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  border-bottom:1px solid rgba(255,255,255,.15);
-  padding:0 48px;height:60px;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .5s var(--ease-out-expo),background .5s,box-shadow .5s;
-}
-.nav.hidden{transform:translateY(-100%)}
-.nav.scrolled{background:rgba(168,24,20,.95);box-shadow:0 2px 12px rgba(0,0,0,.2)}
-.nav-inner{max-width:1280px;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;text-decoration:none}
-.nav-logo-img{height:38px;width:auto;display:block}
-.nav-right{display:flex;align-items:center;gap:36px}
-.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
-.nav-links a{
-  color:rgba(255,255,255,.82);text-decoration:none;
-  font-size:.8rem;font-weight:500;letter-spacing:.02em;
-  transition:color .3s;position:relative;white-space:nowrap;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;
-  background:#fff;border-radius:2px;
-  transition:width .35s var(--ease-out-expo);
-}
-.nav-links a:hover{color:#fff}
-.nav-links a:hover::after{width:100%}
-.nav-links a.active{color:#fff;font-weight:600}
-.nav-links a.active::after{width:100%}
-
-.lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(255,255,255,.15);border-radius:10px;padding:3px;border:1px solid rgba(255,255,255,.2)}
-.lang-switcher button{
-  background:none;border:none;color:rgba(255,255,255,.65);
-  font-size:.7rem;font-weight:600;cursor:pointer;
-  padding:5px 12px;border-radius:8px;transition:all .3s;
-  letter-spacing:.02em;font-family:var(--font-body);
-}
-.lang-switcher button:hover{color:#fff}
-.lang-switcher button.active{color:#c41e1a;background:#fff;box-shadow:var(--shadow-sm)}
-
-.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:24px;background:#fff;color:#c41e1a;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.02em;font-family:var(--font-body);cursor:pointer;border:none;transition:all .35s var(--ease-spring);white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);color:#a01814}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;gap:5px;cursor:pointer;z-index:1100;background:none;border:none;padding:0}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .35s var(--ease-out-expo);transform-origin:center}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-.mobile-menu-overlay{display:none;position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .35s}
-.mobile-menu-overlay.open{opacity:1;pointer-events:auto}
-.mobile-menu-panel{position:fixed;top:0;right:-300px;width:280px;height:100vh;z-index:1060;background:rgba(168,24,20,.98);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);padding:80px 32px 32px;transition:right .4s var(--ease-out-expo);display:flex;flex-direction:column;gap:24px;overflow-y:auto}
-.mobile-menu-overlay.open .mobile-menu-panel{right:0}
-.mobile-menu-panel .nav-links{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
-.mobile-menu-panel .nav-links a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.02em;padding:12px 16px;border-radius:10px;transition:all .3s}
-.mobile-menu-panel .nav-links a:hover,.mobile-menu-panel .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-.mobile-menu-panel .nav-links a::after{display:none}
-.mobile-menu-panel .nav-cta{display:block;width:100%;text-align:center;padding:14px 20px;font-size:.85rem;border-radius:28px;margin-bottom:8px}
-.mobile-menu-panel .lang-switcher{justify-content:center}
-
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero{
-  height:85vh;min-height:580px;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(59,130,246,.08) 0%, transparent 60%),
-             radial-gradient(ellipse 60% 50% at 25% 65%, rgba(34,211,238,.07) 0%, transparent 60%),
-             radial-gradient(ellipse 60% 50% at 75% 25%, rgba(167,139,250,.06) 0%, transparent 60%);
-  pointer-events:none;z-index:0;
-}
-.hero-grid-bg{
-  position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.35;
-  background-image:
-    linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);
-  background-size:72px 72px;
-  mask-image:radial-gradient(ellipse at center,black 25%,transparent 70%);
-  -webkit-mask-image:radial-gradient(ellipse at center,black 25%,transparent 70%);
-}
-.hero-accent-line{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:1px;height:45vh;z-index:0;
-  background:linear-gradient(transparent,rgba(59,130,246,.12) 20%,rgba(59,130,246,.12) 80%,transparent);
-  opacity:0;animation:fadeIn .8s .2s forwards;
-}
-.hero-content{position:relative;z-index:1;padding:0 24px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.72rem;font-weight:600;letter-spacing:.16em;
-  color:var(--c-accent);text-transform:uppercase;margin-bottom:18px;
-  padding:9px 20px;border-radius:32px;
-  background:var(--c-accent-soft);
-  border:1.5px solid rgba(59,130,246,.12);
-  opacity:0;transform:translateY(30px);
-  animation:fadeUp .8s .15s forwards;
-}
-.hero-badge-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--c-accent-bright);
-  animation:badgePulse 2s infinite;
-}
-@keyframes badgePulse{
-  0%,100%{opacity:.5;transform:scale(1)}
-  50%{opacity:1;transform:scale(1.7)}
-}
-.hero h1{
-  font-family:var(--font-display);
-  font-size:clamp(2.8rem,7vw,5.6rem);font-weight:700;
-  letter-spacing:-.045em;line-height:1.05;
-  color:var(--c-text);
-  opacity:0;transform:translateY(30px);
-  animation:fadeUp .8s .35s forwards;
-}
-.hero h1 .accent{
-  background:linear-gradient(135deg,#3b82f6 0%,#22d3ee 50%,#a78bfa 100%);
-  background-size:200% 200%;
-  background-clip:text;-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shimmer 5s ease-in-out infinite;
-}
-@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero p{
-  font-size:clamp(1rem,1.8vw,1.3rem);color:var(--c-text-secondary);
-  max-width:640px;margin:16px auto 0;font-weight:400;line-height:1.8;
-  opacity:0;transform:translateY(30px);
-  animation:fadeUp .8s .55s forwards;
-}
-.hero-cta{
-  margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
-  opacity:0;transform:translateY(30px);
-  animation:fadeUp .8s .75s forwards;
-}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 38px;border-radius:44px;
-  background:var(--c-accent);color:#fff;text-decoration:none;
-  font-size:.92rem;font-weight:600;letter-spacing:.01em;
-  font-family:var(--font-body);
-  transition:all .4s var(--ease-spring);
-  box-shadow:var(--shadow-glow-blue);
-  border:none;cursor:pointer;
-}
-.btn-primary:hover{
-  background:#2563eb;
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 16px 48px rgba(59,130,246,.32);
-}
-.btn-primary .arrow{transition:transform .3s}
-.btn-primary:hover .arrow{transform:translateX(5px)}
-.scroll-indicator{
-  position:absolute;bottom:44px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  opacity:.45;z-index:1;transition:opacity .5s;
-}
-.scroll-indicator:hover{opacity:.85}
-.scroll-indicator span{font-size:.64rem;letter-spacing:.14em;color:rgba(255,255,255,.65);font-weight:500}
-.scroll-line{
-  width:1.5px;height:48px;
-  background:linear-gradient(var(--c-text-muted),transparent);
-  border-radius:2px;
-  animation:scrollPulse 2.2s ease-in-out infinite;
-}
-@keyframes scrollPulse{0%,100%{opacity:.2;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.15)}}
-
-/* ============================================================
-   SECTION COMMON
-   ============================================================ */
-.section{padding:100px 0;position:relative}
-.section-label{
-  font-size:.7rem;font-weight:700;letter-spacing:.18em;color:var(--c-accent);
-  text-transform:uppercase;margin-bottom:16px;
-  font-family:var(--font-body);
-  display:inline-flex;align-items:center;gap:10px;
-}
-.section-label::before{
-  content:'';width:28px;height:2px;
-  background:#fff;border-radius:2px;
-}
-.section h2{
-  font-family:var(--font-display);
-  font-size:clamp(2.2rem,4.8vw,4rem);font-weight:700;
-  letter-spacing:-.03em;line-height:1.12;margin-bottom:20px;
-  color:var(--c-text);
-}
-.section-subtitle{font-size:1.08rem;color:var(--c-text-secondary);max-width:560px;line-height:1.75}
-
-.section-divider{
-  max-width:1280px;margin:0 auto;padding:0 48px;
-  display:flex;align-items:center;gap:16px;
-}
-.section-divider .div-line{
-  flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,var(--c-border),transparent);
-}
-.section-divider .div-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--c-accent-bright);opacity:.3;
-}
-
-/* ============================================================
-   INTRO
-   ============================================================ */
-.intro-section{
-  max-width:900px;margin:0 auto;padding:0 48px 50px;text-align:center;
-}
-.intro-section .intro-text{
-  font-size:1.12rem;color:var(--c-text-secondary);line-height:2;
-}
-
-/* ============================================================
-   MACHINE ROW
-   ============================================================ */
-.machine-row{
-  max-width:1280px;margin:0 auto;padding:0 48px;
-  display:flex;align-items:center;gap:60px;min-height:auto;
-}
-.machine-row.reverse{flex-direction:row-reverse}
-
-.machine-row .visual{flex:1.1;position:relative}
-.machine-row .visual .img-wrap{
-  position:relative;z-index:1;border-radius:var(--radius-lg);
-  overflow:hidden;
-  box-shadow:var(--shadow-xl);
-  transition:transform .6s var(--ease-out-expo),box-shadow .6s;
-}
-.machine-row .visual .img-wrap:hover{
-  transform:translateY(-6px);
-  box-shadow:0 32px 80px rgba(0,0,0,.12),0 8px 24px rgba(59,130,246,.08);
-}
-.machine-row .visual img{
-  width:100%;height:auto;display:block;
-  transition:transform .8s var(--ease-out-expo);
-}
-.machine-row .visual .img-wrap:hover img{transform:scale(1.04)}
-
-.visual-accent-ring{
-  position:absolute;top:-30px;right:-30px;width:140px;height:140px;
-  border-radius:50%;border:2px dashed rgba(59,130,246,.12);
-  z-index:0;pointer-events:none;
-  animation:ringSpin 30s linear infinite;
-}
-@keyframes ringSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.visual-glow-dot{
-  position:absolute;bottom:-18px;left:-18px;
-  width:80px;height:80px;border-radius:50%;
-  background:radial-gradient(circle,rgba(34,211,238,.12) 0%,transparent 70%);
-  z-index:0;pointer-events:none;
-}
-.machine-visual-badge{
-  position:absolute;top:20px;left:20px;z-index:2;
-  background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(59,130,246,.15);
-  color:var(--c-accent);font-size:.64rem;font-weight:700;
-  letter-spacing:.12em;padding:6px 14px;border-radius:24px;
-  font-family:var(--font-body);
-  box-shadow:var(--shadow-sm);
-}
-
-.machine-row .info{flex:0.9;position:relative;z-index:2}
-.machine-row .info h3{
-  font-family:var(--font-display);
-  font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:700;
-  letter-spacing:-.03em;margin-bottom:20px;line-height:1.15;
-  color:var(--c-text);
-}
-.machine-row .info .desc{
-  font-size:1.02rem;color:var(--c-text-secondary);line-height:1.9;margin-bottom:20px;
-}
-
-/* ── Tech Specs ── */
-.tech-specs{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;
-}
-.tech-spec-item{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:var(--radius-sm);padding:14px 16px;
-  transition:all .4s var(--ease-out-expo);
-  position:relative;overflow:hidden;
-}
-.tech-spec-item::before{
-  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
-  background:#fff;opacity:0;transition:opacity .4s;
-}
-.tech-spec-item:hover{
-  border-color:var(--c-accent-bright);
-  box-shadow:var(--shadow-lg);transform:translateY(-3px);background:#1e293b;
-}
-.tech-spec-item:hover::before{opacity:1}
-.tech-spec-item .ts-label{
-  font-size:.64rem;font-weight:700;letter-spacing:.1em;
-  color:rgba(255,255,255,.65);text-transform:uppercase;
-}
-.tech-spec-item .ts-value{
-  font-size:1rem;font-weight:700;color:var(--c-text);margin-top:6px;
-  font-family:var(--font-display);letter-spacing:-.01em;
-}
-
-/* ── Tech Tags ── */
-.tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.tech-tag{
-  font-size:.72rem;font-weight:600;padding:6px 14px;
-  border-radius:24px;
-  background:var(--c-accent-soft);
-  color:var(--c-accent);
-  border:1px solid rgba(59,130,246,.1);
-  transition:all .35s var(--ease-spring);
-  cursor:default;
-}
-.tech-tag:hover{
-  background:rgba(59,130,246,.13);
-  border-color:rgba(59,130,246,.25);
-  transform:translateY(-3px);
-  box-shadow:0 6px 20px rgba(59,130,246,.14);
-}
-
-/* ============================================================
-   CAPABILITY CARDS
-   ============================================================ */
-.capability-header{text-align:center;max-width:720px;margin:0 auto 50px;padding:0 48px}
-.capability-grid{
-  max-width:1280px;margin:0 auto;padding:0 48px 50px;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-}
-.capability-card{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:var(--radius-md);padding:30px 22px;text-align:center;
-  transition:all .5s var(--ease-out-expo);
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow-sm);
-}
-.capability-card::after{
-  content:'';position:absolute;top:0;left:20px;right:20px;
-  height:2px;background:#fff;border-radius:0 0 4px 4px;
-  opacity:0;transition:opacity .5s;
-}
-.capability-card:hover{
-  transform:translateY(-10px);
-  border-color:rgba(59,130,246,.2);
-  background:#1e293b;
-  box-shadow:var(--shadow-xl),0 0 60px rgba(59,130,246,.05);
-}
-.capability-card:hover::after{opacity:1}
-.capability-icon{
-  font-size:2.8rem;margin-bottom:20px;display:block;
-  filter:drop-shadow(0 6px 16px rgba(59,130,246,.15));
-}
-.capability-card h4{
-  font-family:var(--font-display);
-  font-size:1.1rem;font-weight:600;margin-bottom:12px;letter-spacing:-.02em;
-  color:var(--c-text);
-}
-.capability-card p{font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.7}
-
-/* ============================================================
-   QUALITY CARDS
-   ============================================================ */
-.quality-row{
-  max-width:1280px;margin:0 auto;padding:0 48px;
-  display:flex;align-items:stretch;gap:16px;
-}
-.q-card{
-  flex:1;background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:var(--radius-md);padding:32px 24px;
-  transition:all .5s var(--ease-out-expo);
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow-sm);
-}
-.q-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:#fff;opacity:0;transition:opacity .5s;
-}
-.q-card:hover{
-  border-color:rgba(59,130,246,.2);
-  background:#1e293b;
-  transform:translateY(-8px);
-  box-shadow:var(--shadow-xl),0 0 60px rgba(59,130,246,.05);
-}
-.q-card:hover::before{opacity:1}
-.q-card .q-icon{font-size:2.2rem;margin-bottom:18px;display:block}
-.q-card h4{
-  font-family:var(--font-display);
-  font-size:1.15rem;font-weight:600;margin-bottom:12px;letter-spacing:-.02em;
-  color:var(--c-text);
-}
-.q-card p{font-size:.86rem;color:rgba(255,255,255,.65);line-height:1.8}
-
-/* ============================================================
-   STATS
-   ============================================================ */
-.stats-section{
-  background:linear-gradient(180deg,var(--c-bg) 0%,#1e293b 50%,var(--c-bg) 100%);
-  position:relative;overflow:hidden;
-}
-.stats-section::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(circle at 20% 50%,rgba(59,130,246,.03) 0%,transparent 50%),
-    radial-gradient(circle at 80% 50%,rgba(34,211,238,.03) 0%,transparent 50%);
-}
-.stats-bar{
-  max-width:1280px;margin:0 auto;padding:70px 48px;
-  display:flex;justify-content:space-around;text-align:center;gap:20px;
-  position:relative;z-index:1;
-}
-.stat-item{position:relative}
-.stat-item .stat-num{
-  font-family:var(--font-display);
-  font-size:clamp(2.6rem,5vw,4.2rem);font-weight:700;letter-spacing:-.04em;
-  background:linear-gradient(180deg,var(--c-accent) 0%,var(--c-cyan) 100%);
-  background-clip:text;-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.stat-item .stat-label{
-  font-size:.8rem;color:rgba(255,255,255,.65);margin-top:10px;
-  letter-spacing:.06em;font-weight:500;
-}
-
-/* ============================================================
-   CTA
-   ============================================================ */
-.cta-section{
-  text-align:center;padding:70px 48px;
-  position:relative;overflow:hidden;
-  background:linear-gradient(180deg,var(--c-bg) 0%,#0f172a 100%);
-}
-.cta-bg-visual{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 50%,rgba(59,130,246,.06) 0%,transparent 60%),
-    radial-gradient(circle at 30% 40%,rgba(34,211,238,.04) 0%,transparent 50%),
-    radial-gradient(circle at 70% 60%,rgba(167,139,250,.03) 0%,transparent 50%);
-}
-.cta-orbs{position:absolute;inset:0;pointer-events:none}
-.cta-orb{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  border-radius:50%;border:1.5px solid rgba(59,130,246,.08);
-}
-.cta-orb:nth-child(1){width:450px;height:450px}
-.cta-orb:nth-child(2){width:650px;height:650px;border-color:rgba(59,130,246,.05)}
-.cta-orb:nth-child(3){width:850px;height:850px;border-color:rgba(59,130,246,.025)}
-.cta-section h2{
-  font-family:var(--font-display);
-  font-size:clamp(2.2rem,4.8vw,3.6rem);margin-bottom:16px;
-  position:relative;color:var(--c-text);
-}
-.cta-section p{
-  color:var(--c-text-secondary);margin-bottom:40px;
-  max-width:520px;margin-inline:auto;position:relative;font-size:1.05rem;line-height:1.8;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer{
-  border-top:1px solid var(--c-border);
-  padding:40px 48px;text-align:center;font-size:.75rem;color:var(--c-text-muted);background:var(--c-surface);
-}
-.footer a{color:var(--c-text-secondary);text-decoration:none;margin:0 14px;transition:color .3s}
-.footer a:hover{color:var(--c-accent)}
-
-.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease-out-expo);padding:24px}
-.modal-overlay.active{opacity:1;pointer-events:auto}
-.modal{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-lg);padding:40px 36px;max-width:540px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:var(--shadow-xl),0 0 100px rgba(59,130,246,.1);transform:translateY(30px) scale(.96);transition:transform .4s var(--ease-spring)}
-.modal-overlay.active .modal{transform:translateY(0) scale(1)}
-.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:var(--c-bg-alt);border:1px solid var(--c-border);color:var(--c-text-muted);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;line-height:1}
-.modal-close:hover{background:var(--c-border);color:var(--c-text)}
-.modal-title{font-family:var(--font-display);font-size:1.6rem;font-weight:700;letter-spacing:-.03em;color:var(--c-text);margin-bottom:6px}
-.modal-subtitle{font-size:.85rem;color:var(--c-text-muted);margin-bottom:28px;line-height:1.6}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.04em;color:var(--c-text-secondary);margin-bottom:6px}
-.form-group input,.form-group textarea{width:100%;padding:12px 16px;background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius-sm);color:var(--c-text);font-family:var(--font-body);font-size:.9rem;transition:border-color .3s,box-shadow .3s}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
-.form-group textarea{min-height:100px;resize:vertical}
-.form-submit{width:100%;padding:14px 28px;background:var(--grad-accent);border:none;border-radius:28px;color:#fff;font-size:.95rem;font-weight:700;letter-spacing:.02em;cursor:pointer;font-family:var(--font-body);transition:all .4s var(--ease-spring);box-shadow:var(--shadow-glow-blue);margin-top:6px}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(59,130,246,.35)}
-.form-submit:disabled{opacity:.5;pointer-events:none}
-.form-success{text-align:center;padding:24px 0}
-.form-success .success-icon{font-size:3.5rem;margin-bottom:14px}
-.form-success h3{font-family:var(--font-display);font-size:1.4rem;color:var(--c-text);margin-bottom:8px}
-.form-success p{color:var(--c-text-secondary);font-size:.88rem;line-height:1.7}
-@media(max-width:768px){.modal{padding:28px 22px}.modal-title{font-size:1.3rem}}
-
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{to{opacity:1}}
-
-.reveal{
-  opacity:0;transform:translateY(70px);
-  transition:opacity .9s var(--ease-out-expo),transform .9s var(--ease-out-expo);
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-img{
-  opacity:0;transform:scale(.9) translateY(30px);
-  transition:opacity 1s var(--ease-out-expo),transform 1s var(--ease-out-expo);
-}
-.reveal-img.visible{opacity:1;transform:scale(1) translateY(0)}
-.reveal-stagger > * {
-  opacity:0;transform:translateY(50px);
-  transition:opacity .7s var(--ease-out-expo),transform .7s var(--ease-out-expo);
-}
-.reveal-stagger > *.visible{opacity:1;transform:translateY(0)}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media(max-width:1024px){
-  .machine-row,.machine-row.reverse{flex-direction:column;gap:50px;min-height:auto}
-  .capability-grid{grid-template-columns:repeat(2,1fr)}
-  .nav{padding:0 28px}
-  .machine-row{padding:0 28px}
-}
-
-@media(max-width:768px){
-  .capability-grid{grid-template-columns:1fr}
-  .quality-row{flex-direction:column;gap:20px}
-  .stats-bar{flex-wrap:wrap;gap:48px}
-  .stat-item .stat-num{font-size:2.4rem}
-  .nav-right{display:none}.hamburger{display:flex}.mobile-menu-overlay{display:block}
-  .section{padding:100px 0}
-  .machine-row{padding:0 20px}
-  .capability-grid,.quality-row,.stats-bar{padding-left:20px;padding-right:20px}
-  .tech-specs{grid-template-columns:1fr}
-  .hero h1{font-size:clamp(2.2rem,8vw,3.4rem)}
-  .cta-section{padding:80px 24px}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  #particles-canvas{display:none}
-}
-</style>
+<title data-i18n="page.title">永益吹塑 — 硬件实力</title>
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<!-- ===== 数字光瞳开幕 ===== -->
-
-<canvas id="aurora-canvas" aria-hidden="true"></canvas>
-<canvas id="particles-canvas" aria-hidden="true"></canvas>
-
-<!-- ===== Nav ===== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="product.html" class="nav-logo">
-      <img src="商标.png" alt="永益吹塑" class="nav-logo-img">
-    </a>
+    <a href="index.html" class="nav-logo"><img src="assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img"></a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="index.html" data-i18n="nav.facility">关于我们</a></li>
@@ -637,29 +18,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
         <li><a href="hardware.html" class="active" data-i18n="nav.hardware">硬件实力</a></li>
         <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
       </ul>
-      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
       <div class="lang-switcher">
         <button onclick="setLang('zh')" data-lang="zh">中文</button>
         <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
         <button onclick="setLang('es')" data-lang="es">ES</button>
       </div>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenu">
-  <div class="mobile-menu-panel" id="mobilePanel">
+  <div class="mobile-menu-panel">
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.facility">关于我们</a></li>
       <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
       <li><a href="hardware.html" class="active" data-i18n="nav.hardware">硬件实力</a></li>
       <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
     </ul>
-    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
     <div class="lang-switcher">
       <button onclick="setLang('zh')" data-lang="zh">中文</button>
       <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
@@ -668,970 +46,325 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   </div>
 </div>
 
-<!-- ===== Hero ===== -->
-<section class="hero" id="top">
-  <div class="hero-grid-bg" aria-hidden="true"></div>
-  <div class="hero-accent-line" aria-hidden="true"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      <span data-i18n="hero.badge">先进制造 · 精密工艺</span>
+<!-- Hero -->
+<section class="hero reveal">
+  <div class="hero-inner">
+    <div class="hero-badge" data-i18n="hero.badge">先进制造</div>
+    <h1 data-i18n="hero.title">高精度吹塑智能制造</h1>
+    <p class="subtitle" data-i18n="hero.subtitle">拥有覆盖全流程的先进吹塑生产线，从研发到量产，以精密装备确保卓越品质</p>
+    <div class="hero-buttons">
+      <a href="#machines" class="btn-primary" data-i18n="hero.cta">探索设备</a>
     </div>
-    <h1>
-      <span data-i18n="hero.line1">高精尖</span><br>
-      <span class="accent" data-i18n="hero.line2">吹塑智能制造</span>
-    </h1>
-    <p data-i18n="hero.subtitle">引进国际一流吹塑设备，构建全自动化生产线。从原料到成品，每一道工序都精准可控，以硬核实力铸就卓越品质。</p>
-    <div class="hero-cta">
-      <a href="#machines" class="btn-primary">
-        <span data-i18n="hero.cta">探索设备</span>
-        <span class="arrow">→</span>
-      </a>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <span data-i18n="scroll.hint">向下滚动</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ===== Intro ===== -->
-<section class="section" style="padding-bottom:0">
-  <div class="intro-section reveal">
-    <div class="section-label" data-i18n="intro.label">工厂概览</div>
-    <h2 data-i18n="intro.title">智能制造基地</h2>
-    <p class="intro-text" data-i18n="intro.desc">
-      我们的生产基地占地面积超过 20,000 平方米，拥有多条全自动吹塑生产线。
-      从大型中空成型机到精密数控加工中心，每一台设备均来自国际顶级品牌，
-      确保产品精度达到微米级水准。我们不断投入智能化升级，
-      以工业 4.0 标准打造吹塑行业的标杆工厂。
-    </p>
+<!-- Intro -->
+<section class="intro-section reveal" id="machines">
+  <span class="section-label" data-i18n="intro.label">核心装备</span>
+  <h2 data-i18n="intro.title">超过 20,000 平米的现代化工厂</h2>
+  <p data-i18n="intro.desc">配备国际先进的大型中空吹塑机、多层共挤设备、五轴CNC加工中心及全自动后处理产线。从模具开发到成品检测，每一道工序都经过严格把控。</p>
+</section>
+
+<!-- Machine 1 -->
+<section class="section reveal">
+  <div class="machine-row">
+    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑机器1.webp" alt="大型中空吹塑机" loading="lazy" width="600" height="400"></div></div>
+    <div class="info">
+      <span class="section-label" data-i18n="m1.label">核心设备 01</span>
+      <h3 data-i18n="m1.title">大型中空吹塑成型机</h3>
+      <p class="section-desc" data-i18n="m1.desc">可成型最大2000L的超大型中空制品，满足工业级生产需求。全伺服驱动系统确保每一次成型都达到最高精度标准。</p>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label" data-i18n="m1.spec1.label">最大容积</div><div class="spec-value" data-i18n="m1.spec1.value">2000 L</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m1.spec2.label">成型精度</div><div class="spec-value" data-i18n="m1.spec2.value">≤0.1mm</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m1.spec3.label">驱动方式</div><div class="spec-value" data-i18n="m1.spec3.value">全伺服驱动</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m1.spec4.label">日产能</div><div class="spec-value" data-i18n="m1.spec4.value">500+ 件</div></div>
+      </div>
+      <div class="tag-row">
+        <span class="tag" data-i18n="m1.tag1">超大成型</span>
+        <span class="tag" data-i18n="m1.tag2">全伺服</span>
+        <span class="tag" data-i18n="m1.tag3">高精度</span>
+        <span class="tag" data-i18n="m1.tag4">稳定量产</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<div class="section-divider" style="padding-top:40px"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
-
-<!-- ===== Machines ===== -->
-<div id="machines">
-
-  <!-- Machine 1 -->
-  <section class="section">
-    <div class="machine-row reveal">
-      <div class="visual reveal-img">
-        <div class="visual-accent-ring" aria-hidden="true"></div>
-        <div class="visual-glow-dot" aria-hidden="true"></div>
-        <div class="img-wrap">
-          <div class="machine-visual-badge" data-i18n="m1.badge">核心设备 01</div>
-          <img src="吹塑机器1.jpg" alt="全自动中空吹塑成型机 — 德国技术，最大2000L" loading="lazy">
-        </div>
+<!-- Machine 2 -->
+<section class="section section-light reveal">
+  <div class="machine-row reverse">
+    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑机器2.webp" alt="多层共挤吹塑机" loading="lazy" width="600" height="400"></div></div>
+    <div class="info">
+      <span class="section-label" data-i18n="m2.label">核心设备 02</span>
+      <h3 data-i18n="m2.title">多层共挤吹塑机</h3>
+      <p class="section-desc" data-i18n="m2.desc">6层共挤技术实现多层材料完美复合，EVOH高阻隔层有效延长产品保质期。智能PID温控系统确保每层材料在最佳温度下成型。</p>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label" data-i18n="m2.spec1.label">共挤层数</div><div class="spec-value" data-i18n="m2.spec1.value">6 层</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m2.spec2.label">温控精度</div><div class="spec-value" data-i18n="m2.spec2.value">±0.5°C</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m2.spec3.label">阻隔材料</div><div class="spec-value" data-i18n="m2.spec3.value">EVOH</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m2.spec4.label">控制系统</div><div class="spec-value" data-i18n="m2.spec4.value">智能PID</div></div>
       </div>
-      <div class="info">
-        <div class="section-label" data-i18n="m1.label">大型中空成型</div>
-        <h3 data-i18n="m1.title">全自动中空吹塑成型机</h3>
-        <p class="desc" data-i18n="m1.desc">
-          引进德国先进技术，配备双工位储料式模头，最大可成型 2000L 容积制品。
-          PLC 全闭环控制系统确保壁厚均匀度误差 ≤ 0.1mm，适用于大型皮划艇、
-          保温箱等对强度要求极高的产品。全伺服驱动实现高效节能生产，
-          单机日产能可达 500+ 件。
-        </p>
-        <div class="tech-specs">
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m1.spec1.label">最大容积</div>
-            <div class="ts-value" data-i18n="m1.spec1.value">2000 L</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m1.spec2.label">壁厚精度</div>
-            <div class="ts-value" data-i18n="m1.spec2.value">≤ 0.1 mm</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m1.spec3.label">驱动方式</div>
-            <div class="ts-value" data-i18n="m1.spec3.value">全伺服驱动</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m1.spec4.label">日产能</div>
-            <div class="ts-value" data-i18n="m1.spec4.value">500+ 件</div>
-          </div>
-        </div>
-        <div class="tech-tags">
-          <span class="tech-tag" data-i18n="m1.tag1">德国技术</span>
-          <span class="tech-tag" data-i18n="m1.tag2">PLC 闭环控制</span>
-          <span class="tech-tag" data-i18n="m1.tag3">双工位模头</span>
-          <span class="tech-tag" data-i18n="m1.tag4">节能高效</span>
-        </div>
+      <div class="tag-row">
+        <span class="tag" data-i18n="m2.tag1">6层共挤</span>
+        <span class="tag" data-i18n="m2.tag2">高阻隔EVOH</span>
+        <span class="tag" data-i18n="m2.tag3">梯级材料</span>
+        <span class="tag" data-i18n="m2.tag4">精密温控</span>
       </div>
     </div>
-  </section>
-
-  <div class="section-divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
-
-  <!-- Machine 2 -->
-  <section class="section">
-    <div class="machine-row reverse reveal">
-      <div class="visual reveal-img">
-        <div class="visual-accent-ring" aria-hidden="true"></div>
-        <div class="visual-glow-dot" aria-hidden="true"></div>
-        <div class="img-wrap">
-          <div class="machine-visual-badge" data-i18n="m2.badge">核心设备 02</div>
-          <img src="吹塑机器2.jpg" alt="多层共挤吹塑成型机 — 6层EVOH高阻隔" loading="lazy">
-        </div>
-      </div>
-      <div class="info">
-        <div class="section-label" data-i18n="m2.label">多层共挤技术</div>
-        <h3 data-i18n="m2.title">多层共挤吹塑成型机</h3>
-        <p class="desc" data-i18n="m2.desc">
-          支持 6 层共挤结构，可生产 EVOH 高阻隔性复合制品。
-          每层厚度独立精准调节，实现功能梯度材料的工业化生产。
-          适用于高端保温箱、化学品容器等对阻隔性能有严苛要求的产品。
-          搭载智能温控系统，模头温度波动控制在 ±0.5°C 以内。
-        </p>
-        <div class="tech-specs">
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m2.spec1.label">共挤层数</div>
-            <div class="ts-value" data-i18n="m2.spec1.value">6 层</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m2.spec2.label">温控精度</div>
-            <div class="ts-value" data-i18n="m2.spec2.value">±0.5°C</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m2.spec3.label">阻隔材料</div>
-            <div class="ts-value" data-i18n="m2.spec3.value">EVOH 复合层</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m2.spec4.label">控制系统</div>
-            <div class="ts-value" data-i18n="m2.spec4.value">智能 PID 温控</div>
-          </div>
-        </div>
-        <div class="tech-tags">
-          <span class="tech-tag" data-i18n="m2.tag1">6层共挤</span>
-          <span class="tech-tag" data-i18n="m2.tag2">高阻隔 EVOH</span>
-          <span class="tech-tag" data-i18n="m2.tag3">功能梯度材料</span>
-          <span class="tech-tag" data-i18n="m2.tag4">精密温控</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
-
-  <!-- Machine 3 -->
-  <section class="section">
-    <div class="machine-row reveal">
-      <div class="visual reveal-img">
-        <div class="visual-accent-ring" aria-hidden="true"></div>
-        <div class="visual-glow-dot" aria-hidden="true"></div>
-        <div class="img-wrap">
-          <div class="machine-visual-badge" data-i18n="m3.badge">核心设备 03</div>
-          <img src="吹塑机器3.jpg" alt="五轴CNC加工中心 — ±0.005mm微米级精度" loading="lazy">
-        </div>
-      </div>
-      <div class="info">
-        <div class="section-label" data-i18n="m3.label">模具制造</div>
-        <h3 data-i18n="m3.title">五轴数控加工中心</h3>
-        <p class="desc" data-i18n="m3.desc">
-          配备五轴联动 CNC 加工中心，专门用于吹塑模具的高精度制造与维护。
-          加工精度可达 ±0.005mm，表面粗糙度 Ra ≤ 0.2μm。支持复杂曲面、
-          异形结构的模具加工，确保每一件产品的表面质感和尺寸精度达到设计标准。
-          自有模具车间大幅缩短新品开发周期。
-        </p>
-        <div class="tech-specs">
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m3.spec1.label">加工精度</div>
-            <div class="ts-value" data-i18n="m3.spec1.value">±0.005 mm</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m3.spec2.label">表面粗糙度</div>
-            <div class="ts-value" data-i18n="m3.spec2.value">Ra ≤ 0.2 μm</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m3.spec3.label">轴数</div>
-            <div class="ts-value" data-i18n="m3.spec3.value">五轴联动</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m3.spec4.label">优势</div>
-            <div class="ts-value" data-i18n="m3.spec4.value">自有模具车间</div>
-          </div>
-        </div>
-        <div class="tech-tags">
-          <span class="tech-tag" data-i18n="m3.tag1">五轴联动</span>
-          <span class="tech-tag" data-i18n="m3.tag2">微米级精度</span>
-          <span class="tech-tag" data-i18n="m3.tag3">复杂曲面</span>
-          <span class="tech-tag" data-i18n="m3.tag4">快速开发</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
-
-  <!-- Machine 4 -->
-  <section class="section">
-    <div class="machine-row reverse reveal">
-      <div class="visual reveal-img">
-        <div class="visual-accent-ring" aria-hidden="true"></div>
-        <div class="visual-glow-dot" aria-hidden="true"></div>
-        <div class="img-wrap">
-          <div class="machine-visual-badge" data-i18n="m4.badge">核心设备 04</div>
-          <img src="吹塑机器4.jpg" alt="全自动后处理生产线 — AI视觉检测" loading="lazy">
-        </div>
-      </div>
-      <div class="info">
-        <div class="section-label" data-i18n="m4.label">自动化产线</div>
-        <h3 data-i18n="m4.title">全自动后处理生产线</h3>
-        <p class="desc" data-i18n="m4.desc">
-          集成自动去飞边、火焰处理、UV 固化、质量检测于一体的全自动后处理线。
-          机器人手臂精准完成修边去毛刺工序，火焰处理提升表面附着力为后续
-          印刷/涂装做准备。在线视觉检测系统实时监控产品缺陷，
-          不良品自动分拣，确保出厂良品率 ≥ 99.8%。
-        </p>
-        <div class="tech-specs">
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m4.spec1.label">自动化率</div>
-            <div class="ts-value" data-i18n="m4.spec1.value">≥ 95%</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m4.spec2.label">良品率</div>
-            <div class="ts-value" data-i18n="m4.spec2.value">≥ 99.8%</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m4.spec3.label">检测方式</div>
-            <div class="ts-value" data-i18n="m4.spec3.value">AI 视觉检测</div>
-          </div>
-          <div class="tech-spec-item">
-            <div class="ts-label" data-i18n="m4.spec4.label">处理工序</div>
-            <div class="ts-value" data-i18n="m4.spec4.value">去飞边+火焰+UV</div>
-          </div>
-        </div>
-        <div class="tech-tags">
-          <span class="tech-tag" data-i18n="m4.tag1">机器人去飞边</span>
-          <span class="tech-tag" data-i18n="m4.tag2">AI视觉检测</span>
-          <span class="tech-tag" data-i18n="m4.tag3">火焰处理</span>
-          <span class="tech-tag" data-i18n="m4.tag4">自动分拣</span>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== Capability Grid ===== -->
-<section class="capability-section section">
-  <div class="capability-header reveal">
-    <div class="section-label" data-i18n="cap.label">核心能力</div>
-    <h2 data-i18n="cap.title">全方位制造优势</h2>
-    <p class="section-subtitle" style="margin:0 auto" data-i18n="cap.subtitle">从模具设计到批量生产，我们拥有完整的垂直整合能力。</p>
   </div>
-  <div class="capability-grid reveal-stagger">
-    <div class="capability-card">
-      <span class="capability-icon">🏗️</span>
-      <h4 data-i18n="cap.c1.title">大型中空成型</h4>
-      <p data-i18n="cap.c1.desc">最大可成型 2000L 超大型中空制品，满足工业级及大型户外装备需求。</p>
+</section>
+
+<!-- Machine 3 -->
+<section class="section reveal">
+  <div class="machine-row">
+    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑机器3.webp" alt="五轴CNC加工中心" loading="lazy" width="600" height="400"></div></div>
+    <div class="info">
+      <span class="section-label" data-i18n="m3.label">核心设备 03</span>
+      <h3 data-i18n="m3.title">五轴CNC加工中心</h3>
+      <p class="section-desc" data-i18n="m3.desc">自建模具工厂配备五轴CNC，满足复杂曲面的高精度加工需求。从模具设计到成品验证全部自主完成，大幅缩短产品开发周期。</p>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label" data-i18n="m3.spec1.label">加工精度</div><div class="spec-value" data-i18n="m3.spec1.value">±0.005mm</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m3.spec2.label">表面粗糙度</div><div class="spec-value" data-i18n="m3.spec2.value">Ra≤0.2μm</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m3.spec3.label">加工轴数</div><div class="spec-value" data-i18n="m3.spec3.value">5 轴联动</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m3.spec4.label">模具开发</div><div class="spec-value" data-i18n="m3.spec4.value">自主完成</div></div>
+      </div>
+      <div class="tag-row">
+        <span class="tag" data-i18n="m3.tag1">五轴CNC</span>
+        <span class="tag" data-i18n="m3.tag2">微米级精度</span>
+        <span class="tag" data-i18n="m3.tag3">复杂曲面</span>
+        <span class="tag" data-i18n="m3.tag4">快速开发</span>
+      </div>
     </div>
-    <div class="capability-card">
-      <span class="capability-icon">🔬</span>
-      <h4 data-i18n="cap.c2.title">多层共挤技术</h4>
-      <p data-i18n="cap.c2.desc">6 层共挤结构实现功能梯度材料，高阻隔性能满足食品、化工等严苛场景。</p>
+  </div>
+</section>
+
+<!-- Machine 4 -->
+<section class="section section-light reveal">
+  <div class="machine-row reverse">
+    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑机器4.webp" alt="全自动后处理产线" loading="lazy" width="600" height="400"></div></div>
+    <div class="info">
+      <span class="section-label" data-i18n="m4.label">核心设备 04</span>
+      <h3 data-i18n="m4.title">全自动后处理产线</h3>
+      <p class="section-desc" data-i18n="m4.desc">机器人去飞边+火焰处理+AI视觉检测+自动分拣的全流程自动化。自动化率超过95%，一次良品率达到99.8%。</p>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label" data-i18n="m4.spec1.label">自动化率</div><div class="spec-value" data-i18n="m4.spec1.value">≥95%</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m4.spec2.label">良品率</div><div class="spec-value" data-i18n="m4.spec2.value">≥99.8%</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m4.spec3.label">检测系统</div><div class="spec-value" data-i18n="m4.spec3.value">AI视觉</div></div>
+        <div class="spec-item"><div class="spec-label" data-i18n="m4.spec4.label">工艺覆盖</div><div class="spec-value" data-i18n="m4.spec4.value">去飞边+火焰+UV</div></div>
+      </div>
+      <div class="tag-row">
+        <span class="tag" data-i18n="m4.tag1">机器人去飞边</span>
+        <span class="tag" data-i18n="m4.tag2">AI视觉检测</span>
+        <span class="tag" data-i18n="m4.tag3">火焰处理</span>
+        <span class="tag" data-i18n="m4.tag4">自动分拣</span>
+      </div>
     </div>
-    <div class="capability-card">
-      <span class="capability-icon">🎯</span>
+  </div>
+</section>
+
+<!-- Capability Grid -->
+<section class="section reveal">
+  <div style="text-align:center;margin-bottom:48px">
+    <span class="section-label" data-i18n="cap.label">核心能力</span>
+    <h2 class="section-title" style="text-align:center" data-i18n="cap.title">全面的制造优势</h2>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-card">
+      <span class="cap-icon">🏭</span>
+      <h4 data-i18n="cap.c1.title">大型吹塑成型</h4>
+      <p data-i18n="cap.c1.desc">可成型最大2000L的超大型中空产品，满足工业级需求。</p>
+    </div>
+    <div class="cap-card">
+      <span class="cap-icon">🔄</span>
+      <h4 data-i18n="cap.c2.title">多层共挤成型</h4>
+      <p data-i18n="cap.c2.desc">6层共挤技术，EVOH高阻隔，满足食品级包装需求。</p>
+    </div>
+    <div class="cap-card">
+      <span class="cap-icon">🔧</span>
       <h4 data-i18n="cap.c3.title">精密模具制造</h4>
-      <p data-i18n="cap.c3.desc">五轴 CNC 自有模具车间，微米级精度，新品开发周期缩短 40%。</p>
+      <p data-i18n="cap.c3.desc">五轴CNC自建模具工厂，微米级精度，快速开发验证。</p>
     </div>
-    <div class="capability-card">
-      <span class="capability-icon">🤖</span>
+    <div class="cap-card">
+      <span class="cap-icon">🤖</span>
       <h4 data-i18n="cap.c4.title">智能自动化</h4>
-      <p data-i18n="cap.c4.desc">全流程自动化覆盖，AI 视觉在线检测，良品率高达 99.8%。</p>
+      <p data-i18n="cap.c4.desc">全流程机器人+AI视觉，自动化率95%，良品率99.8%。</p>
     </div>
   </div>
 </section>
 
-<!-- ===== Quality ===== -->
-<section class="quality-section section" style="padding-top:0">
-  <div style="max-width:1280px;margin:0 auto;padding:0 48px;text-align:center;margin-bottom:40px" class="reveal">
-    <div class="section-label" data-i18n="quality.label">品质管控</div>
-    <h2 data-i18n="quality.title">每一个环节，精益求精</h2>
-    <p class="section-subtitle" style="margin:0 auto" data-i18n="quality.subtitle">通过 ISO 9001:2015 质量体系认证，建立全链路品控节点。</p>
+<!-- Quality -->
+<section class="section section-light reveal">
+  <div style="text-align:center;margin-bottom:48px">
+    <span class="section-label" data-i18n="qual.label">品质管控</span>
+    <h2 class="section-title" style="text-align:center" data-i18n="qual.title">三级质量保障体系</h2>
+    <p class="section-desc" style="text-align:center;margin:0 auto" data-i18n="qual.subtitle">从来料到出货的每一个环节都经过严格把控</p>
   </div>
-  <div class="quality-row reveal-stagger">
+  <div class="quality-row">
     <div class="q-card">
-      <span class="q-icon">📋</span>
-      <h4 data-i18n="quality.c1.title">原料入厂检测</h4>
-      <p data-i18n="quality.c1.desc">每批次原料均经过熔融指数、密度、含水率等多项指标检测，确保源头品质。</p>
+      <h4 data-i18n="qual.q1.title">来料检验</h4>
+      <p data-i18n="qual.q1.desc">所有原材料入库前必须通过力学性能、热稳定性和环保标准的全项检测。</p>
     </div>
     <div class="q-card">
-      <span class="q-icon">⚙️</span>
-      <h4 data-i18n="quality.c2.title">过程参数监控</h4>
-      <p data-i18n="quality.c2.desc">实时监控温度、压力、冷却时间等关键参数，SPC 统计过程控制确保工艺稳定。</p>
+      <h4 data-i18n="qual.q2.title">过程参数监控</h4>
+      <p data-i18n="qual.q2.desc">温度、压力、冷却时间等关键参数实时监控，异常即时报警调整。</p>
     </div>
     <div class="q-card">
-      <span class="q-icon">✅</span>
-      <h4 data-i18n="quality.c3.title">成品全检出货</h4>
-      <p data-i18n="quality.c3.desc">尺寸、外观、承重、跌落测试逐项检验，每件产品带有唯一追溯码。</p>
+      <h4 data-i18n="qual.q3.title">成品全检</h4>
+      <p data-i18n="qual.q3.desc">100%外观检查和抽样力学测试，确保每一件产品符合客户标准。</p>
     </div>
   </div>
 </section>
 
-<!-- ===== Stats ===== -->
-<section class="stats-section section">
-  <div class="stats-bar reveal-stagger">
+<!-- Stats -->
+<section class="stats-section reveal">
+  <div class="stats-row">
     <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="20000">0</span><span style="font-size:1.4rem;font-weight:500">m²</span></div>
-      <div class="stat-label" data-i18n="stats.area">生产基地面积</div>
+      <div class="stat-number"><span data-count="20000">20000</span>m²</div>
+      <div class="stat-label" data-i18n="stats.s1">厂房面积</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="12">0</span>+</div>
-      <div class="stat-label" data-i18n="stats.lines">全自动产线</div>
+      <div class="stat-number"><span data-count="12">12</span>+</div>
+      <div class="stat-label" data-i18n="stats.s2">生产线</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">99.8<span style="font-size:1.4rem;font-weight:500">%</span></div>
-      <div class="stat-label" data-i18n="stats.yield">出厂良品率</div>
+      <div class="stat-number"><span data-count="99.8">99.8</span>%</div>
+      <div class="stat-label" data-i18n="stats.s3">良品率</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num" style="background:linear-gradient(180deg,#3b82f6 0%,#a78bfa 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ISO</div>
-      <div class="stat-label" data-i18n="stats.cert">质量管理体系</div>
+      <div class="stat-number" data-i18n="stats.s4">ISO 认证</div>
+      <div class="stat-label" data-i18n="stats.s4label">质量体系</div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<div id="contact">
-  <section class="cta-section">
-    <div class="cta-bg-visual" aria-hidden="true"></div>
-    <div class="cta-orbs" aria-hidden="true">
-      <div class="cta-orb"></div>
-      <div class="cta-orb"></div>
-      <div class="cta-orb"></div>
-    </div>
-    <div class="reveal">
-      <div class="section-label" data-i18n="cta.label">实地参观</div>
-      <h2 data-i18n="cta.title">亲眼见证我们的制造实力</h2>
-      <p data-i18n="cta.subtitle">欢迎预约参观工厂，近距离了解吹塑工艺的全流程。我们的工程师团队期待与您深入交流。</p>
-      <a href="mailto:blueskwong@gmail.com?subject=永益吹塑 - 预约参观" class="btn-primary" data-i18n="cta.btn">预约参观 →</a>
-    </div>
-  </section>
-</div>
+<!-- CTA -->
+<section class="cta-section reveal">
+  <span class="section-label" data-i18n="cta.label">参观工厂</span>
+  <h2 data-i18n="cta.title">亲眼见证我们的制造实力</h2>
+  <p class="subtitle" data-i18n="cta.subtitle">预约工厂参观，了解我们如何通过精密装备和严格品控，为您打造完美的吹塑产品。</p>
+  <button class="btn-primary" onclick="openQuote()" data-i18n="cta.btn">预约参观 →</button>
+</section>
 
-<!-- ===== Footer ===== -->
-<footer class="footer">
-  <p style="margin-bottom:10px" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</p>
-  <div>
-    <a href="product.html" data-i18n="footer.products">产品展示</a>
-    <a href="index.html" data-i18n="footer.facility">关于我们</a>
-    <a href="team.html" data-i18n="footer.team">领导团队</a>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</span>
+    <ul class="footer-links">
+      <li><a href="product.html" data-i18n="footer.products">产品展示</a></li>
+      <li><a href="index.html" data-i18n="footer.facility">关于我们</a></li>
+      <li><a href="team.html" data-i18n="footer.team">领导团队</a></li>
+    </ul>
   </div>
 </footer>
 
-<script>
-// ============================================================
-// AURORA MESH GRADIENT CANVAS
-// ============================================================
-const Aurora = {
-  canvas: null, ctx: null, blobs: [], animId: null, lastTime: 0,
-
-  config: {
-    blobCount: 6,
-    colors: [
-      [102, 126, 234], [34, 211, 238], [59, 130, 246],
-      [167, 139, 250], [56, 189, 248], [99, 102, 241],
-    ],
-  },
-
-  init() {
-    this.canvas = document.getElementById('aurora-canvas');
-    if (!this.canvas) return;
-    this.ctx = this.canvas.getContext('2d');
-    this.resize();
-    this.createBlobs();
-    this.bindEvents();
-    this.lastTime = performance.now();
-    this.animate(this.lastTime);
-  },
-
-  resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.width = window.innerWidth * dpr;
-    this.canvas.height = window.innerHeight * dpr;
-    this.canvas.style.width = window.innerWidth + 'px';
-    this.canvas.style.height = window.innerHeight + 'px';
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(dpr, dpr);
-  },
-
-  createBlobs() {
-    this.blobs = [];
-    for (let i = 0; i < this.config.blobCount; i++) {
-      this.blobs.push({
-        x: Math.random(), y: Math.random(),
-        vx: (Math.random() - 0.5) * 0.012,
-        vy: (Math.random() - 0.5) * 0.012,
-        radius: 0.2 + Math.random() * 0.35,
-        color: this.config.colors[i % this.config.colors.length],
-        phase: Math.random() * Math.PI * 2,
-        speed: 0.015 + Math.random() * 0.04,
-        orbitR: 0.03 + Math.random() * 0.08,
-        orbitCX: 0.2 + Math.random() * 0.6,
-        orbitCY: 0.2 + Math.random() * 0.6,
-        angle: Math.random() * Math.PI * 2,
-      });
-    }
-  },
-
-  animate(timestamp) {
-    const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1);
-    this.lastTime = timestamp;
-    this.update(dt);
-    this.draw();
-    this.animId = requestAnimationFrame(t => this.animate(t));
-  },
-
-  update(dt) {
-    for (const b of this.blobs) {
-      b.angle += b.speed * dt;
-      b.x = b.orbitCX + b.orbitR * Math.cos(b.angle + b.phase);
-      b.y = b.orbitCY + b.orbitR * Math.sin(b.angle * 1.3 + b.phase);
-      b.orbitCX += b.vx * dt;
-      b.orbitCY += b.vy * dt;
-      if (b.orbitCX < -0.1 || b.orbitCX > 1.1) b.vx *= -1;
-      if (b.orbitCY < -0.1 || b.orbitCY > 1.1) b.vy *= -1;
-    }
-  },
-
-  draw() {
-    const w = window.innerWidth, h = window.innerHeight, ctx = this.ctx;
-    ctx.clearRect(0, 0, w, h);
-    for (const b of this.blobs) {
-      const cx = b.x * w, cy = b.y * h, r = b.radius * Math.max(w, h);
-      const [cr, cg, cb] = b.color;
-      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      grad.addColorStop(0, `rgba(${cr},${cg},${cb},0.14)`);
-      grad.addColorStop(0.25, `rgba(${cr},${cg},${cb},0.09)`);
-      grad.addColorStop(0.55, `rgba(${cr},${cg},${cb},0.03)`);
-      grad.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-    }
-  },
-
-  bindEvents() {
-    let rt;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(() => { this.resize(); this.createBlobs(); }, 300);
-    }, { passive: true });
-  },
-};
-
-// ============================================================
-// MOBILE MENU TOGGLE
-// ============================================================
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobilePanel = document.getElementById('mobilePanel');
-
-function openMobileMenu() {
-  hamburger.classList.add('open');
-  mobileMenu.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMobileMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
-});
-
-mobileMenu.addEventListener('click', (e) => {
-  if (e.target === mobileMenu) closeMobileMenu();
-});
-
-mobilePanel.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeMobileMenu);
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-});
-
-// ============================================================
-// FLOATING PARTICLES
-// ============================================================
-const Particles = {
-  canvas: null, ctx: null, particles: [], animId: null, lastTime: 0,
-
-  init() {
-    this.canvas = document.getElementById('particles-canvas');
-    if (!this.canvas) return;
-    this.ctx = this.canvas.getContext('2d');
-    this.resize();
-    this.createParticles();
-    this.bindEvents();
-    this.lastTime = performance.now();
-    this.animate(this.lastTime);
-  },
-
-  resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.width = window.innerWidth * dpr;
-    this.canvas.height = window.innerHeight * dpr;
-    this.canvas.style.width = window.innerWidth + 'px';
-    this.canvas.style.height = window.innerHeight + 'px';
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(dpr, dpr);
-  },
-
-  createParticles() {
-    const count = Math.min(Math.floor(window.innerWidth * 0.05), 65);
-    this.particles = [];
-    const shapes = ['circle', 'diamond', 'hexagon', 'square'];
-    for (let i = 0; i < count; i++) {
-      this.particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        size: 2 + Math.random() * 7,
-        shape: shapes[Math.floor(Math.random() * shapes.length)],
-        speedY: -0.12 - Math.random() * 0.4,
-        speedX: (Math.random() - 0.5) * 0.25,
-        opacity: 0.06 + Math.random() * 0.18,
-        rotation: Math.random() * 360,
-        rotSpeed: (Math.random() - 0.5) * 0.4,
-        wobbleAmp: Math.random() * 25,
-        wobbleSpeed: 0.005 + Math.random() * 0.02,
-        wobbleOffset: Math.random() * Math.PI * 2,
-        color: Math.random() > 0.5 ? [59, 130, 246] : [34, 211, 238],
-      });
-    }
-  },
-
-  animate(timestamp) {
-    const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1);
-    this.lastTime = timestamp;
-    this.update(dt);
-    this.draw();
-    this.animId = requestAnimationFrame(t => this.animate(t));
-  },
-
-  update(dt) {
-    const w = window.innerWidth, h = window.innerHeight;
-    for (const p of this.particles) {
-      p.y += p.speedY * dt * 60;
-      p.x += p.speedX * dt * 60 + Math.sin(performance.now() * p.wobbleSpeed + p.wobbleOffset) * 0.2;
-      p.rotation += p.rotSpeed;
-      if (p.y < -20) { p.y = h + 20; p.x = Math.random() * w; }
-      if (p.x < -20) p.x = w + 20;
-      if (p.x > w + 20) p.x = -20;
-    }
-  },
-
-  draw() {
-    const ctx = this.ctx, w = window.innerWidth, h = window.innerHeight;
-    ctx.clearRect(0, 0, w, h);
-    for (const p of this.particles) {
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate((p.rotation * Math.PI) / 180);
-      ctx.globalAlpha = p.opacity;
-      ctx.fillStyle = `rgb(${p.color[0]},${p.color[1]},${p.color[2]})`;
-      const s = p.size;
-
-      if (p.shape === 'circle') {
-        ctx.beginPath(); ctx.arc(0, 0, s / 2, 0, Math.PI * 2); ctx.fill();
-      } else if (p.shape === 'diamond') {
-        ctx.beginPath();
-        ctx.moveTo(0, -s / 2); ctx.lineTo(s / 2, 0);
-        ctx.lineTo(0, s / 2); ctx.lineTo(-s / 2, 0);
-        ctx.closePath(); ctx.fill();
-      } else if (p.shape === 'hexagon') {
-        ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          const a = (Math.PI / 3) * i - Math.PI / 6;
-          const px = (s / 2) * Math.cos(a), py = (s / 2) * Math.sin(a);
-          i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-        }
-        ctx.closePath(); ctx.fill();
-      } else {
-        ctx.fillRect(-s / 2, -s / 2, s, s);
-      }
-      ctx.restore();
-    }
-  },
-
-  bindEvents() {
-    let rt;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(() => { this.resize(); this.createParticles(); }, 300);
-    }, { passive: true });
-  },
-};
-
-// ============================================================
-// i18n SYSTEM
-// ============================================================
-const translations = {
-  zh: {
-    'nav.products': '产品展示', 'nav.hardware': '硬件实力', 'nav.facility': '关于我们', 'nav.team': '领导团队', 'nav.contact': '联系我们',
-    'hero.badge': '先进制造 · 精密工艺',
-    'hero.line1': '高精尖', 'hero.line2': '吹塑智能制造',
-    'hero.subtitle': '引进国际一流吹塑设备，构建全自动化生产线。从原料到成品，每一道工序都精准可控，以硬核实力铸就卓越品质。',
-    'hero.cta': '探索设备',
-    'scroll.hint': '向下滚动',
-    'intro.label': '工厂概览', 'intro.title': '智能制造基地',
-    'intro.desc': '我们的生产基地占地面积超过 20,000 平方米，拥有多条全自动吹塑生产线。从大型中空成型机到精密数控加工中心，每一台设备均来自国际顶级品牌，确保产品精度达到微米级水准。我们不断投入智能化升级，以工业 4.0 标准打造吹塑行业的标杆工厂。',
-    'm1.badge': '核心设备 01', 'm1.label': '大型中空成型', 'm1.title': '全自动中空吹塑成型机',
-    'm1.desc': '引进德国先进技术，配备双工位储料式模头，最大可成型 2000L 容积制品。PLC 全闭环控制系统确保壁厚均匀度误差 ≤ 0.1mm，适用于大型皮划艇、保温箱等对强度要求极高的产品。全伺服驱动实现高效节能生产，单机日产能可达 500+ 件。',
-    'm1.spec1.label': '最大容积', 'm1.spec1.value': '2000 L',
-    'm1.spec2.label': '壁厚精度', 'm1.spec2.value': '≤ 0.1 mm',
-    'm1.spec3.label': '驱动方式', 'm1.spec3.value': '全伺服驱动',
-    'm1.spec4.label': '日产能', 'm1.spec4.value': '500+ 件',
-    'm1.tag1': '德国技术', 'm1.tag2': 'PLC 闭环控制', 'm1.tag3': '双工位模头', 'm1.tag4': '节能高效',
-    'm2.badge': '核心设备 02', 'm2.label': '多层共挤技术', 'm2.title': '多层共挤吹塑成型机',
-    'm2.desc': '支持 6 层共挤结构，可生产 EVOH 高阻隔性复合制品。每层厚度独立精准调节，实现功能梯度材料的工业化生产。适用于高端保温箱、化学品容器等对阻隔性能有严苛要求的产品。搭载智能温控系统，模头温度波动控制在 ±0.5°C 以内。',
-    'm2.spec1.label': '共挤层数', 'm2.spec1.value': '6 层',
-    'm2.spec2.label': '温控精度', 'm2.spec2.value': '±0.5°C',
-    'm2.spec3.label': '阻隔材料', 'm2.spec3.value': 'EVOH 复合层',
-    'm2.spec4.label': '控制系统', 'm2.spec4.value': '智能 PID 温控',
-    'm2.tag1': '6层共挤', 'm2.tag2': '高阻隔 EVOH', 'm2.tag3': '功能梯度材料', 'm2.tag4': '精密温控',
-    'm3.badge': '核心设备 03', 'm3.label': '模具制造', 'm3.title': '五轴数控加工中心',
-    'm3.desc': '配备五轴联动 CNC 加工中心，专门用于吹塑模具的高精度制造与维护。加工精度可达 ±0.005mm，表面粗糙度 Ra ≤ 0.2μm。支持复杂曲面、异形结构的模具加工，确保每一件产品的表面质感和尺寸精度达到设计标准。自有模具车间大幅缩短新品开发周期。',
-    'm3.spec1.label': '加工精度', 'm3.spec1.value': '±0.005 mm',
-    'm3.spec2.label': '表面粗糙度', 'm3.spec2.value': 'Ra ≤ 0.2 μm',
-    'm3.spec3.label': '轴数', 'm3.spec3.value': '五轴联动',
-    'm3.spec4.label': '优势', 'm3.spec4.value': '自有模具车间',
-    'm3.tag1': '五轴联动', 'm3.tag2': '微米级精度', 'm3.tag3': '复杂曲面', 'm3.tag4': '快速开发',
-    'm4.badge': '核心设备 04', 'm4.label': '自动化产线', 'm4.title': '全自动后处理生产线',
-    'm4.desc': '集成自动去飞边、火焰处理、UV 固化、质量检测于一体的全自动后处理线。机器人手臂精准完成修边去毛刺工序，火焰处理提升表面附着力为后续印刷/涂装做准备。在线视觉检测系统实时监控产品缺陷，不良品自动分拣，确保出厂良品率 ≥ 99.8%。',
-    'm4.spec1.label': '自动化率', 'm4.spec1.value': '≥ 95%',
-    'm4.spec2.label': '良品率', 'm4.spec2.value': '≥ 99.8%',
-    'm4.spec3.label': '检测方式', 'm4.spec3.value': 'AI 视觉检测',
-    'm4.spec4.label': '处理工序', 'm4.spec4.value': '去飞边+火焰+UV',
-    'm4.tag1': '机器人去飞边', 'm4.tag2': 'AI视觉检测', 'm4.tag3': '火焰处理', 'm4.tag4': '自动分拣',
-    'cap.label': '核心能力', 'cap.title': '全方位制造优势',
-    'cap.subtitle': '从模具设计到批量生产，我们拥有完整的垂直整合能力。',
-    'cap.c1.title': '大型中空成型', 'cap.c1.desc': '最大可成型 2000L 超大型中空制品，满足工业级及大型户外装备需求。',
-    'cap.c2.title': '多层共挤技术', 'cap.c2.desc': '6 层共挤结构实现功能梯度材料，高阻隔性能满足食品、化工等严苛场景。',
-    'cap.c3.title': '精密模具制造', 'cap.c3.desc': '五轴 CNC 自有模具车间，微米级精度，新品开发周期缩短 40%。',
-    'cap.c4.title': '智能自动化', 'cap.c4.desc': '全流程自动化覆盖，AI 视觉在线检测，良品率高达 99.8%。',
-    'quality.label': '品质管控', 'quality.title': '每一个环节，精益求精',
-    'quality.subtitle': '通过 ISO 9001:2015 质量体系认证，建立全链路品控节点。',
-    'quality.c1.title': '原料入厂检测', 'quality.c1.desc': '每批次原料均经过熔融指数、密度、含水率等多项指标检测，确保源头品质。',
-    'quality.c2.title': '过程参数监控', 'quality.c2.desc': '实时监控温度、压力、冷却时间等关键参数，SPC 统计过程控制确保工艺稳定。',
-    'quality.c3.title': '成品全检出货', 'quality.c3.desc': '尺寸、外观、承重、跌落测试逐项检验，每件产品带有唯一追溯码。',
-    'stats.area': '生产基地面积', 'stats.lines': '全自动产线', 'stats.yield': '出厂良品率', 'stats.cert': '质量管理体系',
-    'cta.label': '实地参观', 'cta.title': '亲眼见证我们的制造实力',
-    'cta.subtitle': '欢迎预约参观工厂，近距离了解吹塑工艺的全流程。我们的工程师团队期待与您深入交流。',
-    'cta.btn': '预约参观 →',
-    'footer.copyright': '© 2026 永益吹塑制品厂. 保留所有权利。', 'footer.products':'产品展示', 'footer.hardware':'硬件实力', 'footer.facility':'关于我们', 'footer.team':'领导团队','nav.cta':'获取报价','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将在24小时内给您发送详细报价。',
-  },
-  en: {
-    'nav.products': 'Products', 'nav.hardware': 'Hardware', 'nav.facility': 'About Us', 'nav.team': 'Leadership', 'nav.contact': 'Contact',
-    'hero.badge': 'Advanced Manufacturing · Precision Engineering',
-    'hero.line1': 'High-Precision', 'hero.line2': 'Blow Molding Smart Manufacturing',
-    'hero.subtitle': 'Equipped with world-class blow molding machinery and fully automated production lines. Every step is precisely controlled — delivering exceptional quality through hardcore engineering strength.',
-    'hero.cta': 'Explore Equipment',
-    'scroll.hint': 'Scroll Down',
-    'intro.label': 'Factory Overview', 'intro.title': 'Smart Manufacturing Base',
-    'intro.desc': 'Our production facility spans over 20,000 m² with multiple fully automated blow molding lines. From large-scale blow molding machines to precision CNC machining centers, every piece of equipment comes from top international brands, ensuring micron-level product precision. We continuously invest in intelligent upgrades, building a benchmark factory for the blow molding industry to Industry 4.0 standards.',
-    'm1.badge': 'Core Equipment 01', 'm1.label': 'Large-Scale Blow Molding', 'm1.title': 'Fully Automatic Blow Molding Machine',
-    'm1.desc': 'Incorporating advanced German technology with a dual-station accumulator die head, capable of molding products up to 2000L. PLC closed-loop control ensures wall thickness uniformity within ±0.1mm. Full servo drive enables energy-efficient production with daily output of 500+ units.',
-    'm1.spec1.label': 'Max Volume', 'm1.spec1.value': '2000 L',
-    'm1.spec2.label': 'Wall Thickness Precision', 'm1.spec2.value': '≤ 0.1 mm',
-    'm1.spec3.label': 'Drive System', 'm1.spec3.value': 'Full Servo Drive',
-    'm1.spec4.label': 'Daily Output', 'm1.spec4.value': '500+ Units',
-    'm1.tag1': 'German Technology', 'm1.tag2': 'PLC Closed-Loop', 'm1.tag3': 'Dual-Station Die', 'm1.tag4': 'Energy Efficient',
-    'm2.badge': 'Core Equipment 02', 'm2.label': 'Multi-Layer Co-Extrusion', 'm2.title': 'Multi-Layer Co-Extrusion Machine',
-    'm2.desc': 'Supports 6-layer co-extrusion capable of producing EVOH high-barrier composite products. Each layer thickness independently adjustable. Equipped with intelligent temperature control maintaining die head temperature within ±0.5°C.',
-    'm2.spec1.label': 'Co-Ex Layers', 'm2.spec1.value': '6 Layers',
-    'm2.spec2.label': 'Temp Precision', 'm2.spec2.value': '±0.5°C',
-    'm2.spec3.label': 'Barrier Material', 'm2.spec3.value': 'EVOH Composite',
-    'm2.spec4.label': 'Control System', 'm2.spec4.value': 'Intelligent PID',
-    'm2.tag1': '6-Layer Co-Ex', 'm2.tag2': 'High-Barrier EVOH', 'm2.tag3': 'Graded Materials', 'm2.tag4': 'Precision Thermal',
-    'm3.badge': 'Core Equipment 03', 'm3.label': 'Mold Manufacturing', 'm3.title': '5-Axis CNC Machining Center',
-    'm3.desc': 'Equipped with a 5-axis simultaneous CNC machining center for high-precision blow mold manufacturing. Accuracy reaches ±0.005mm with surface roughness Ra ≤ 0.2μm. In-house mold shop significantly reduces development cycles.',
-    'm3.spec1.label': 'Machining Accuracy', 'm3.spec1.value': '±0.005 mm',
-    'm3.spec2.label': 'Surface Roughness', 'm3.spec2.value': 'Ra ≤ 0.2 μm',
-    'm3.spec3.label': 'Axes', 'm3.spec3.value': '5-Axis Simultaneous',
-    'm3.spec4.label': 'Advantage', 'm3.spec4.value': 'In-House Mold Shop',
-    'm3.tag1': '5-Axis CNC', 'm3.tag2': 'Micron Precision', 'm3.tag3': 'Complex Surfaces', 'm3.tag4': 'Rapid Development',
-    'm4.badge': 'Core Equipment 04', 'm4.label': 'Automated Production Line', 'm4.title': 'Fully Automated Post-Processing Line',
-    'm4.desc': 'Integrated automatic deflashing, flame treatment, UV curing, and quality inspection. Robotic arms perform precise trimming. Online vision inspection monitors defects in real-time with auto rejection, ensuring ≥ 99.8% yield rate.',
-    'm4.spec1.label': 'Automation Rate', 'm4.spec1.value': '≥ 95%',
-    'm4.spec2.label': 'Yield Rate', 'm4.spec2.value': '≥ 99.8%',
-    'm4.spec3.label': 'Inspection Method', 'm4.spec3.value': 'AI Vision Inspection',
-    'm4.spec4.label': 'Process Steps', 'm4.spec4.value': 'Deflash+Flame+UV',
-    'm4.tag1': 'Robotic Deflashing', 'm4.tag2': 'AI Vision', 'm4.tag3': 'Flame Treatment', 'm4.tag4': 'Auto Sorting',
-    'cap.label': 'Core Capabilities', 'cap.title': 'Comprehensive Manufacturing Advantages',
-    'cap.subtitle': 'From mold design to mass production, we possess complete vertical integration capabilities.',
-    'cap.c1.title': 'Large-Scale Blow Molding', 'cap.c1.desc': 'Capable of molding ultra-large hollow products up to 2000L for industrial-grade needs.',
-    'cap.c2.title': 'Multi-Layer Co-Extrusion', 'cap.c2.desc': '6-layer co-extrusion enables functionally graded materials with high-barrier performance.',
-    'cap.c3.title': 'Precision Mold Making', 'cap.c3.desc': 'In-house 5-axis CNC mold shop with micron-level precision, reducing development cycles by 40%.',
-    'cap.c4.title': 'Intelligent Automation', 'cap.c4.desc': 'Full-process automation with AI-powered vision inspection, achieving 99.8% yield rate.',
-    'quality.label': 'Quality Control', 'quality.title': 'Excellence in Every Step',
-    'quality.subtitle': 'ISO 9001:2015 certified quality management system with full-chain quality control checkpoints.',
-    'quality.c1.title': 'Incoming Material Inspection', 'quality.c1.desc': 'Every batch undergoes melt flow index, density, moisture content and multiple other tests.',
-    'quality.c2.title': 'Process Parameter Monitoring', 'quality.c2.desc': 'Real-time monitoring of temperature, pressure, cooling time with SPC ensuring process stability.',
-    'quality.c3.title': '100% Final Inspection', 'quality.c3.desc': 'Dimensional, visual, load-bearing, and drop tests on every item with unique traceability codes.',
-    'stats.area': 'Production Facility Area', 'stats.lines': 'Fully Automated Lines', 'stats.yield': 'Factory Yield Rate', 'stats.cert': 'Quality Management System',
-    'cta.label': 'Factory Visit', 'cta.title': 'Witness Our Manufacturing Excellence',
-    'cta.subtitle': 'Schedule a factory tour to see the complete blow molding process up close. Our engineering team looks forward to in-depth discussions with you.',
-    'cta.btn': 'Schedule a Visit →',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. All rights reserved.', 'footer.products':'Products', 'footer.hardware':'Hardware', 'footer.facility':'About Us', 'footer.team':'Leadership','nav.cta':'Get a Quote','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will get back to you with a detailed quote within 24 hours.',
-  },
-  es: {
-    'nav.products': 'Productos', 'nav.hardware': 'Maquinaria', 'nav.facility': 'Sobre Nosotros', 'nav.team': 'Liderazgo', 'nav.contact': 'Contacto',
-    'hero.badge': 'Fabricación Avanzada · Ingeniería de Precisión',
-    'hero.line1': 'Alta Precisión', 'hero.line2': 'Manufactura Inteligente de Soplado',
-    'hero.subtitle': 'Equipados con maquinaria de clase mundial y líneas totalmente automatizadas. Cada paso controlado con precisión.',
-    'hero.cta': 'Explorar Equipos',
-    'scroll.hint': 'Desplazar',
-    'intro.label': 'Visión General', 'intro.title': 'Base de Manufactura Inteligente',
-    'intro.desc': 'Nuestras instalaciones abarcan más de 20.000 m² con múltiples líneas automatizadas. Cada equipo proviene de las mejores marcas internacionales, garantizando precisión a nivel de micras.',
-    'm1.badge': 'Equipo Principal 01', 'm1.label': 'Moldeo a Gran Escala', 'm1.title': 'Máquina Automática de Soplado',
-    'm1.desc': 'Tecnología alemana con cabezal acumulador de doble estación, productos de hasta 2000L. Control PLC de lazo cerrado, precisión de espesor ≤ 0,1mm.',
-    'm1.spec1.label': 'Volumen Máx.', 'm1.spec1.value': '2000 L',
-    'm1.spec2.label': 'Precisión Espesor', 'm1.spec2.value': '≤ 0,1 mm',
-    'm1.spec3.label': 'Accionamiento', 'm1.spec3.value': 'Servo Completo',
-    'm1.spec4.label': 'Producción Diaria', 'm1.spec4.value': '500+ Unidades',
-    'm1.tag1': 'Tecnología Alemana', 'm1.tag2': 'PLC Lazo Cerrado', 'm1.tag3': 'Doble Estación', 'm1.tag4': 'Eficiente',
-    'm2.badge': 'Equipo Principal 02', 'm2.label': 'Co-Extrusión', 'm2.title': 'Máquina de Co-Extrusión Multicapa',
-    'm2.desc': 'Estructura de 6 capas, productos EVOH de alta barrera. Control inteligente de temperatura, fluctuación dentro de ±0,5°C.',
-    'm2.spec1.label': 'Capas', 'm2.spec1.value': '6 Capas',
-    'm2.spec2.label': 'Precisión Térmica', 'm2.spec2.value': '±0,5°C',
-    'm2.spec3.label': 'Material Barrera', 'm2.spec3.value': 'Compuesto EVOH',
-    'm2.spec4.label': 'Control', 'm2.spec4.value': 'PID Inteligente',
-    'm2.tag1': '6 Capas', 'm2.tag2': 'Alta Barrera', 'm2.tag3': 'Materiales Graduados', 'm2.tag4': 'Térmica Precisión',
-    'm3.badge': 'Equipo Principal 03', 'm3.label': 'Fabricación Moldes', 'm3.title': 'Centro CNC de 5 Ejes',
-    'm3.desc': 'Mecanizado CNC simultáneo de 5 ejes. Precisión ±0,005mm, rugosidad Ra ≤ 0,2μm. Taller de moldes propio.',
-    'm3.spec1.label': 'Precisión', 'm3.spec1.value': '±0,005 mm',
-    'm3.spec2.label': 'Rugosidad', 'm3.spec2.value': 'Ra ≤ 0,2 μm',
-    'm3.spec3.label': 'Ejes', 'm3.spec3.value': '5 Ejes',
-    'm3.spec4.label': 'Ventaja', 'm3.spec4.value': 'Taller Propio',
-    'm3.tag1': 'CNC 5 Ejes', 'm3.tag2': 'Precisión Micrónica', 'm3.tag3': 'Superficies Complejas', 'm3.tag4': 'Desarrollo Rápido',
-    'm4.badge': 'Equipo Principal 04', 'm4.label': 'Línea Automatizada', 'm4.title': 'Línea de Post-Procesamiento',
-    'm4.desc': 'Desbarbado automático, tratamiento con llama, curado UV e inspección. Brazos robóticos para recorte. Inspección por visión IA, rendimiento ≥ 99,8%.',
-    'm4.spec1.label': 'Automatización', 'm4.spec1.value': '≥ 95%',
-    'm4.spec2.label': 'Rendimiento', 'm4.spec2.value': '≥ 99,8%',
-    'm4.spec3.label': 'Inspección', 'm4.spec3.value': 'Visión IA',
-    'm4.spec4.label': 'Pasos', 'm4.spec4.value': 'Desbarbado+Llama+UV',
-    'm4.tag1': 'Desbarbado Robot', 'm4.tag2': 'Visión IA', 'm4.tag3': 'Tratamiento Llama', 'm4.tag4': 'Clasificación Auto',
-    'cap.label': 'Capacidades', 'cap.title': 'Ventajas de Fabricación',
-    'cap.subtitle': 'Desde diseño de moldes hasta producción en masa, capacidades completas de integración vertical.',
-    'cap.c1.title': 'Moldeo a Gran Escala', 'cap.c1.desc': 'Productos huecos ultra grandes de hasta 2000L para necesidades industriales.',
-    'cap.c2.title': 'Co-Extrusión', 'cap.c2.desc': '6 capas para materiales con gradiente funcional y alto rendimiento de barrera.',
-    'cap.c3.title': 'Moldes de Precisión', 'cap.c3.desc': 'Taller CNC de 5 ejes propio, precisión micrónica, ciclos reducidos 40%.',
-    'cap.c4.title': 'Automatización Inteligente', 'cap.c4.desc': 'Automatización completa con inspección visual IA, rendimiento del 99,8%.',
-    'quality.label': 'Control de Calidad', 'quality.title': 'Excelencia en Cada Paso',
-    'quality.subtitle': 'Sistema de gestión de calidad certificado ISO 9001:2015.',
-    'quality.c1.title': 'Inspección de Materiales', 'quality.c1.desc': 'Cada lote sometido a pruebas de fluidez, densidad, humedad y más.',
-    'quality.c2.title': 'Monitoreo de Parámetros', 'quality.c2.desc': 'Monitoreo en tiempo real de temperatura, presión, enfriamiento con control SPC.',
-    'quality.c3.title': 'Inspección Final 100%', 'quality.c3.desc': 'Pruebas dimensionales, visuales, de carga y caída con códigos de trazabilidad.',
-    'stats.area': 'Superficie', 'stats.lines': 'Líneas Automatizadas', 'stats.yield': 'Rendimiento', 'stats.cert': 'Gestión de Calidad',
-    'cta.label': 'Visita a Fábrica', 'cta.title': 'Excelencia en Fabricación',
-    'cta.subtitle': 'Programe un recorrido para ver el proceso completo. Nuestro equipo de ingenieros espera conversar con usted.',
-    'cta.btn': 'Programar Visita →',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. Todos los derechos reservados.', 'footer.products':'Productos', 'footer.hardware':'Maquinaria', 'footer.facility':'Sobre Nosotros', 'footer.team':'Liderazgo','nav.cta':'Solicitar Presupuesto','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.',
-  }
-};
-
-function setLang(lang) {
-  localStorage.setItem('blowmold-lang', lang);
-  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'es' ? 'es' : 'en';
-  document.querySelectorAll('.lang-switcher button').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  const dict = translations[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (dict[key]) el.textContent = dict[key];
-  });
-  document.title = {
-    zh: '永益吹塑 — 硬件实力',
-    en: 'Yongyi Blow Molding — Hardware Capability',
-    es: 'Yongyi Blow Molding — Capacidad de Maquinaria'
-  }[lang];
-}
-
-function getLang() {
-  const saved = localStorage.getItem('blowmold-lang');
-  if (saved && translations[saved]) return saved;
-  return 'en';
-}
-
-document.addEventListener('DOMContentLoaded', () => { setLang(getLang()); });
-
-// ============================================================
-// SCROLL REVEAL
-// ============================================================
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      if (entry.target.classList.contains('reveal-stagger')) {
-        entry.target.querySelectorAll(':scope > *').forEach((child, i) => {
-          child.style.transitionDelay = `${i * 0.06}s`;
-          child.classList.add('visible');
-        });
-      }
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-img, .reveal-stagger').forEach(el => observer.observe(el));
-
-// ============================================================
-// NAV SCROLL
-// ============================================================
-let lastScroll = 0;
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll > 200) {
-    nav.classList.toggle('hidden', currentScroll > lastScroll);
-    nav.classList.toggle('scrolled', true);
-  } else {
-    nav.classList.remove('hidden', 'scrolled');
-  }
-  lastScroll = currentScroll;
-}, { passive: true });
-
-// ============================================================
-// IMAGE PARALLAX
-// ============================================================
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.visual .img-wrap').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight;
-    if (rect.bottom > 0 && rect.top < vh) {
-      const progress = (vh - rect.top) / (vh + rect.height);
-      el.style.transform = `translateY(${progress * 28 - 14}px)`;
-    }
-  });
-}, { passive: true });
-
-// ============================================================
-// COUNTER ANIMATION
-// ============================================================
-let countersAnimated = false;
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !countersAnimated) {
-      countersAnimated = true;
-      document.querySelectorAll('.counter').forEach(counter => {
-        const target = parseInt(counter.dataset.target);
-        const duration = 2200;
-        const start = performance.now();
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      });
-    }
-  });
-}, { threshold: 0.5 });
-
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) counterObserver.observe(statsBar);
-
-// ============================================================
-// 3D TILT ON CAPABILITY CARDS
-// ============================================================
-document.querySelectorAll('.capability-card, .q-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-  });
-});
-
-// ============================================================
-// ============================================================
-
-// ============================================================
-// BOOT
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
-  Aurora.init();
-  Particles.init();
-});
-
-function openQuote(){document.getElementById('quoteModal').classList.add('active');document.body.style.overflow='hidden'}
-function closeQuote(){document.getElementById('quoteModal').classList.remove('active');document.body.style.overflow=''}
-
-document.addEventListener('DOMContentLoaded',function(){
-  var modal=document.getElementById('quoteModal');
-  if(!modal)return;
-
-  modal.addEventListener('click',function(e){if(e.target===this)closeQuote()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
-
-  var quoteForm=document.getElementById('quoteForm');
-quoteForm.addEventListener('submit',function(e){
-  e.preventDefault();
-  var btn=quoteForm.querySelector('.form-submit');
-  var origText=btn.textContent;
-  btn.disabled=true;btn.textContent='Sending...';
-
-  var formData=new FormData(quoteForm);
-  formData.append('access_key','f0766eed-e23f-46c4-be74-07189bffd2dc');
-  formData.append('subject','New Quote Request - Yongyi Blow Molding');
-
-  console.log('Submitting to Web3Forms...');
-  fetch('https://api.web3forms.com/submit',{method:'POST',body:formData})
-    .then(function(r){return r.json()})
-    .then(function(data){
-      console.log('Web3Forms response:',data);
-      if(data.success){
-        document.getElementById('formFields').style.display='none';
-        document.getElementById('formSuccess').style.display='block';
-      }else{
-        alert('Server error: '+(data.message||'Unknown')+'. Please try again or email us at 13711898174@163.com');
-        btn.disabled=false;btn.textContent=origText;
-      }
-    })
-    .catch(function(err){
-      console.error('Web3Forms error:',err);
-      alert('Network error. Please check your connection and try again, or email us directly at 13711898174@163.com');
-      btn.disabled=false;btn.textContent=origText;
-    });
-  });
-});
-</script>
-
 <div class="modal-overlay" id="quoteModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeQuote()" aria-label="Close">&times;</button>
-    <div id="formFields">
-      <div class="modal-title" data-i18n="quote.title">Get a Free Quote</div>
-      <div class="modal-subtitle" data-i18n="quote.subtitle">Fill out the form below and we'll get back to you within 24 hours.</div>
-      <form id="quoteForm" enctype="multipart/form-data">
-        <div class="form-group"><label data-i18n="quote.name">Your Name *</label><input type="text" name="name" required placeholder="John Doe"></div>
-        <div class="form-group"><label data-i18n="quote.email">Email Address *</label><input type="email" name="email" required placeholder="john@company.com"></div>
-        <div class="form-group"><label data-i18n="quote.company">Company (Optional)</label><input type="text" name="company" placeholder="Your Company Ltd."></div>
-        <div class="form-group"><label data-i18n="quote.phone">Phone (Optional)</label><input type="tel" name="phone" placeholder="+86 138 0000 0000"></div>
-        <div class="form-group"><label data-i18n="quote.message">Message / Requirements</label><textarea name="message" placeholder="Describe your project, quantity, material preferences..."></textarea></div>
-        <button type="submit" class="form-submit" data-i18n="quote.submit">Submit Request →</button>
-      </form>
-    </div>
-    <div class="form-success" id="formSuccess" style="display:none">
-      <div class="success-icon">✅</div>
-      <h3 data-i18n="quote.successTitle">Thank You!</h3>
-      <p data-i18n="quote.successMsg">Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.</p>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeQuote()">✕</button>
+    <h2 data-i18n="quote.title">获取免费报价</h2>
+    <p class="modal-sub" data-i18n="quote.subtitle">填写以下表单，我们将在24小时内回复您。</p>
+    <form id="quoteForm">
+      <div class="form-group"><label data-i18n="quote.name">您的姓名 *</label><input type="text" name="name" required></div>
+      <div class="form-group"><label data-i18n="quote.email">邮箱地址 *</label><input type="email" name="email" required></div>
+      <div class="form-group"><label data-i18n="quote.company">公司名称（选填）</label><input type="text" name="company"></div>
+      <div class="form-group"><label data-i18n="quote.phone">联系电话（选填）</label><input type="tel" name="phone"></div>
+      <div class="form-group"><label data-i18n="quote.message">留言 / 需求描述</label><textarea name="message"></textarea></div>
+      <button type="submit" class="form-submit" data-i18n="quote.submit">提交询价 →</button>
+    </form>
+    <div class="form-success">
+      <div class="check">✓</div>
+      <h3 data-i18n="quote.successTitle">感谢您的询价！</h3>
+      <p data-i18n="quote.successMsg">您的询价已提交。我们的团队将在24小时内给您发送详细报价。</p>
     </div>
   </div>
 </div>
 
+<script src="assets/js/main.js" defer></script>
+<script>
+mergeTranslations({
+  zh: {
+    'page.title':'永益吹塑 — 硬件实力',
+    'hero.badge':'先进制造','hero.title':'高精度吹塑智能制造','hero.subtitle':'拥有覆盖全流程的先进吹塑生产线，从研发到量产，以精密装备确保卓越品质','hero.cta':'探索设备',
+    'intro.label':'核心装备','intro.title':'超过 20,000 平米的现代化工厂','intro.desc':'配备国际先进的大型中空吹塑机、多层共挤设备、五轴CNC加工中心及全自动后处理产线。从模具开发到成品检测，每一道工序都经过严格把控。',
+    'm1.label':'核心设备 01','m1.title':'大型中空吹塑成型机','m1.desc':'可成型最大2000L的超大型中空制品，满足工业级生产需求。全伺服驱动系统确保每一次成型都达到最高精度标准。',
+    'm1.spec1.label':'最大容积','m1.spec1.value':'2000 L','m1.spec2.label':'成型精度','m1.spec2.value':'≤0.1mm','m1.spec3.label':'驱动方式','m1.spec3.value':'全伺服驱动','m1.spec4.label':'日产能','m1.spec4.value':'500+ 件',
+    'm1.tag1':'超大成型','m1.tag2':'全伺服','m1.tag3':'高精度','m1.tag4':'稳定量产',
+    'm2.label':'核心设备 02','m2.title':'多层共挤吹塑机','m2.desc':'6层共挤技术实现多层材料完美复合，EVOH高阻隔层有效延长产品保质期。智能PID温控系统确保每层材料在最佳温度下成型。',
+    'm2.spec1.label':'共挤层数','m2.spec1.value':'6 层','m2.spec2.label':'温控精度','m2.spec2.value':'±0.5°C','m2.spec3.label':'阻隔材料','m2.spec3.value':'EVOH','m2.spec4.label':'控制系统','m2.spec4.value':'智能PID',
+    'm2.tag1':'6层共挤','m2.tag2':'高阻隔EVOH','m2.tag3':'梯级材料','m2.tag4':'精密温控',
+    'm3.label':'核心设备 03','m3.title':'五轴CNC加工中心','m3.desc':'自建模具工厂配备五轴CNC，满足复杂曲面的高精度加工需求。从模具设计到成品验证全部自主完成，大幅缩短产品开发周期。',
+    'm3.spec1.label':'加工精度','m3.spec1.value':'±0.005mm','m3.spec2.label':'表面粗糙度','m3.spec2.value':'Ra≤0.2μm','m3.spec3.label':'加工轴数','m3.spec3.value':'5 轴联动','m3.spec4.label':'模具开发','m3.spec4.value':'自主完成',
+    'm3.tag1':'五轴CNC','m3.tag2':'微米级精度','m3.tag3':'复杂曲面','m3.tag4':'快速开发',
+    'm4.label':'核心设备 04','m4.title':'全自动后处理产线','m4.desc':'机器人去飞边+火焰处理+AI视觉检测+自动分拣的全流程自动化。自动化率超过95%，一次良品率达到99.8%。',
+    'm4.spec1.label':'自动化率','m4.spec1.value':'≥95%','m4.spec2.label':'良品率','m4.spec2.value':'≥99.8%','m4.spec3.label':'检测系统','m4.spec3.value':'AI视觉','m4.spec4.label':'工艺覆盖','m4.spec4.value':'去飞边+火焰+UV',
+    'm4.tag1':'机器人去飞边','m4.tag2':'AI视觉检测','m4.tag3':'火焰处理','m4.tag4':'自动分拣',
+    'cap.label':'核心能力','cap.title':'全面的制造优势',
+    'cap.c1.title':'大型吹塑成型','cap.c1.desc':'可成型最大2000L的超大型中空产品，满足工业级需求。',
+    'cap.c2.title':'多层共挤成型','cap.c2.desc':'6层共挤技术，EVOH高阻隔，满足食品级包装需求。',
+    'cap.c3.title':'精密模具制造','cap.c3.desc':'五轴CNC自建模具工厂，微米级精度，快速开发验证。',
+    'cap.c4.title':'智能自动化','cap.c4.desc':'全流程机器人+AI视觉，自动化率95%，良品率99.8%。',
+    'qual.label':'品质管控','qual.title':'三级质量保障体系','qual.subtitle':'从来料到出货的每一个环节都经过严格把控',
+    'qual.q1.title':'来料检验','qual.q1.desc':'所有原材料入库前必须通过力学性能、热稳定性和环保标准的全项检测。',
+    'qual.q2.title':'过程参数监控','qual.q2.desc':'温度、压力、冷却时间等关键参数实时监控，异常即时报警调整。',
+    'qual.q3.title':'成品全检','qual.q3.desc':'100%外观检查和抽样力学测试，确保每一件产品符合客户标准。',
+    'stats.s1':'厂房面积','stats.s2':'生产线','stats.s3':'良品率','stats.s4':'ISO 认证','stats.s4label':'质量体系',
+    'cta.label':'参观工厂','cta.title':'亲眼见证我们的制造实力','cta.subtitle':'预约工厂参观，了解我们如何通过精密装备和严格品控，为您打造完美的吹塑产品。','cta.btn':'预约参观 →',
+  },
+  en: {
+    'page.title':'Yongyi Blow Molding — Hardware',
+    'hero.badge':'Advanced Manufacturing','hero.title':'High-Precision Blow Molding Smart Manufacturing','hero.subtitle':'Full-process advanced blow molding production lines, from R&D to mass production, precision equipment ensures superior quality','hero.cta':'Explore Equipment',
+    'intro.label':'Core Equipment','intro.title':'Over 20,000 m² Modern Factory','intro.desc':'Equipped with internationally advanced large-scale blow molding machines, multi-layer co-extrusion equipment, 5-axis CNC machining centers, and fully automated post-processing lines.',
+    'm1.label':'Core Equipment 01','m1.title':'Large-Scale Blow Molding Machine','m1.desc':'Capable of molding ultra-large hollow products up to 2000L for industrial-grade needs. Full servo drive ensures maximum precision.',
+    'm1.spec1.label':'Max Volume','m1.spec1.value':'2000 L','m1.spec2.label':'Precision','m1.spec2.value':'≤0.1mm','m1.spec3.label':'Drive','m1.spec3.value':'Full Servo','m1.spec4.label':'Daily Output','m1.spec4.value':'500+ Units',
+    'm1.tag1':'Ultra-Large','m1.tag2':'Full Servo','m1.tag3':'High Precision','m1.tag4':'Stable Output',
+    'm2.label':'Core Equipment 02','m2.title':'Multi-Layer Co-Extrusion Machine','m2.desc':'6-layer co-extrusion with EVOH barrier for extended shelf life. Intelligent PID thermal control ensures optimal processing.',
+    'm2.spec1.label':'Layers','m2.spec1.value':'6 Layers','m2.spec2.label':'Temp Precision','m2.spec2.value':'±0.5°C','m2.spec3.label':'Barrier','m2.spec3.value':'EVOH','m2.spec4.label':'Control','m2.spec4.value':'Intelligent PID',
+    'm2.tag1':'6-Layer Co-Ex','m2.tag2':'High-Barrier EVOH','m2.tag3':'Graded Materials','m2.tag4':'Precision Thermal',
+    'm3.label':'Core Equipment 03','m3.title':'5-Axis CNC Machining Center','m3.desc':'In-house mold shop with 5-axis CNC for complex surface machining. From design to validation, all completed in-house.',
+    'm3.spec1.label':'Accuracy','m3.spec1.value':'±0.005mm','m3.spec2.label':'Surface Finish','m3.spec2.value':'Ra≤0.2μm','m3.spec3.label':'Axes','m3.spec3.value':'5-Axis','m3.spec4.label':'Mold Dev','m3.spec4.value':'In-House',
+    'm3.tag1':'5-Axis CNC','m3.tag2':'Micron Precision','m3.tag3':'Complex Surfaces','m3.tag4':'Rapid Development',
+    'm4.label':'Core Equipment 04','m4.title':'Fully Automated Post-Processing Line','m4.desc':'Robotic deflashing + flame treatment + AI vision inspection + auto sorting. >95% automation, 99.8% first-pass yield.',
+    'm4.spec1.label':'Automation','m4.spec1.value':'≥95%','m4.spec2.label':'Yield','m4.spec2.value':'≥99.8%','m4.spec3.label':'Inspection','m4.spec3.value':'AI Vision','m4.spec4.label':'Process','m4.spec4.value':'Flash+Flame+UV',
+    'm4.tag1':'Robotic Deflashing','m4.tag2':'AI Vision','m4.tag3':'Flame Treatment','m4.tag4':'Auto Sorting',
+    'cap.label':'Core Capabilities','cap.title':'Comprehensive Manufacturing Advantages',
+    'cap.c1.title':'Large-Scale Blow Molding','cap.c1.desc':'Capable of molding ultra-large hollow products up to 2000L for industrial-grade needs.',
+    'cap.c2.title':'Multi-Layer Co-Extrusion','cap.c2.desc':'6-layer co-extrusion with EVOH barrier for food-grade packaging requirements.',
+    'cap.c3.title':'Precision Mold Making','cap.c3.desc':'5-axis CNC in-house mold shop, micron-level precision, rapid development and validation.',
+    'cap.c4.title':'Intelligent Automation','cap.c4.desc':'Full-process robotics + AI vision, 95% automation rate, 99.8% yield rate.',
+    'qual.label':'Quality Control','qual.title':'Three-Tier Quality System','qual.subtitle':'Every step from incoming materials to shipment is rigorously controlled',
+    'qual.q1.title':'Incoming Inspection','qual.q1.desc':'All raw materials undergo full mechanical, thermal stability, and environmental testing before warehousing.',
+    'qual.q2.title':'Process Monitoring','qual.q2.desc':'Real-time monitoring of temperature, pressure, cooling time — instant alerts on anomalies.',
+    'qual.q3.title':'100% Final Inspection','qual.q3.desc':'Complete visual inspection and sample mechanical testing on every product.',
+    'stats.s1':'Factory Area','stats.s2':'Production Lines','stats.s3':'Yield Rate','stats.s4':'ISO Certified','stats.s4label':'Quality System',
+    'cta.label':'Factory Visit','cta.title':'See Our Manufacturing Power','cta.subtitle':'Schedule a factory visit to see how precision equipment and strict quality control create perfect products.','cta.btn':'Schedule Visit →',
+  },
+  es: {
+    'page.title':'Yongyi Blow Molding — Maquinaria',
+    'hero.badge':'Fabricación Avanzada','hero.title':'Fabricación Inteligente de Soplado','hero.subtitle':'Líneas avanzadas de soplado de proceso completo, desde I+D hasta producción en masa','hero.cta':'Explorar Equipos',
+    'intro.label':'Equipo Central','intro.title':'Más de 20,000 m² de Fábrica Moderna','intro.desc':'Equipada con máquinas de soplado a gran escala, co-extrusión multicapa, centros CNC de 5 ejes y líneas automatizadas de post-procesamiento.',
+    'm1.label':'Equipo Central 01','m1.title':'Máquina de Soplado a Gran Escala','m1.desc':'Capaz de moldear productos huecos ultra grandes de hasta 2000L. Servo completo para máxima precisión.',
+    'm1.spec1.label':'Volumen Máx','m1.spec1.value':'2000 L','m1.spec2.label':'Precisión','m1.spec2.value':'≤0.1mm','m1.spec3.label':'Transmisión','m1.spec3.value':'Servo Completo','m1.spec4.label':'Producción','m1.spec4.value':'500+ Unidades',
+    'm1.tag1':'Ultra Grande','m1.tag2':'Servo Completo','m1.tag3':'Alta Precisión','m1.tag4':'Estable',
+    'm2.label':'Equipo Central 02','m2.title':'Co-Extrusora Multicapa','m2.desc':'Co-extrusión de 6 capas con barrera EVOH. Control PID inteligente de temperatura.',
+    'm2.spec1.label':'Capas','m2.spec1.value':'6 Capas','m2.spec2.label':'Precisión Temp','m2.spec2.value':'±0.5°C','m2.spec3.label':'Barrera','m2.spec3.value':'EVOH','m2.spec4.label':'Control','m2.spec4.value':'PID Inteligente',
+    'm2.tag1':'6 Capas','m2.tag2':'EVOH','m2.tag3':'Materiales','m2.tag4':'Térmico',
+    'm3.label':'Equipo Central 03','m3.title':'Centro CNC de 5 Ejes','m3.desc':'Taller de moldes interno con CNC de 5 ejes. Desde diseño hasta validación, todo interno.',
+    'm3.spec1.label':'Precisión','m3.spec1.value':'±0.005mm','m3.spec2.label':'Acabado','m3.spec2.value':'Ra≤0.2μm','m3.spec3.label':'Ejes','m3.spec3.value':'5 Ejes','m3.spec4.label':'Desarrollo','m3.spec4.value':'Interno',
+    'm3.tag1':'CNC 5 Ejes','m3.tag2':'Micrones','m3.tag3':'Superficies','m3.tag4':'Rápido',
+    'm4.label':'Equipo Central 04','m4.title':'Línea Automatizada de Post-Procesamiento','m4.desc':'Desbarbado robotizado + tratamiento de llama + inspección IA + clasificación automática. >95% automatización.',
+    'm4.spec1.label':'Automatización','m4.spec1.value':'≥95%','m4.spec2.label':'Rendimiento','m4.spec2.value':'≥99.8%','m4.spec3.label':'Inspección','m4.spec3.value':'Visión IA','m4.spec4.label':'Proceso','m4.spec4.value':'Flash+Llama+UV',
+    'm4.tag1':'Robot','m4.tag2':'Visión IA','m4.tag3':'Llama','m4.tag4':'Clasificación',
+    'cap.label':'Capacidades','cap.title':'Ventajas de Fabricación',
+    'cap.c1.title':'Soplado a Gran Escala','cap.c1.desc':'Productos huecos ultra grandes de hasta 2000L para necesidades industriales.',
+    'cap.c2.title':'Co-Extrusión Multicapa','cap.c2.desc':'Tecnología de 6 capas con barrera EVOH para envases de grado alimenticio.',
+    'cap.c3.title':'Fabricación de Moldes','cap.c3.desc':'CNC de 5 ejes en taller interno, precisión de micrones, desarrollo rápido.',
+    'cap.c4.title':'Automatización Inteligente','cap.c4.desc':'Robótica + visión IA, 95% de automatización, 99.8% de rendimiento.',
+    'qual.label':'Control de Calidad','qual.title':'Sistema de Calidad de Tres Niveles','qual.subtitle':'Cada paso rigurosamente controlado',
+    'qual.q1.title':'Inspección de Entrada','qual.q1.desc':'Todos los materiales sometidos a pruebas mecánicas, térmicas y ambientales completas.',
+    'qual.q2.title':'Monitoreo de Proceso','qual.q2.desc':'Monitoreo en tiempo real de temperatura, presión y tiempo de enfriamiento.',
+    'qual.q3.title':'Inspección Final 100%','qual.q3.desc':'Inspección visual completa y pruebas mecánicas por muestreo en cada producto.',
+    'stats.s1':'Área de Fábrica','stats.s2':'Líneas','stats.s3':'Rendimiento','stats.s4':'ISO Certificado','stats.s4label':'Sistema de Calidad',
+    'cta.label':'Visita a Fábrica','cta.title':'Vea Nuestro Poder de Fabricación','cta.subtitle':'Programe una visita para ver cómo creamos productos perfectos.','cta.btn':'Agendar Visita →',
+  }
+});
+setLang(getLang());
+</script>
 </body>
 </html>

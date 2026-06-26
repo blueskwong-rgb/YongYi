@@ -3,496 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>永益吹塑 — 关于我们</title>
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400&f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   DESIGN SYSTEM — Modern Industrial Luxe
-   ============================================================ */
-:root {
-  --c-white: #ffffff;
-  --c-bg: #0f172a;
-  --c-bg-alt: #1e293b;
-  --c-surface: #1e293b;
-  --c-border: #334155;
-  --c-text: #f1f5f9;
-  --c-text-secondary: #cbd5e1;
-  --c-text-muted: #94a3b8;
-  --c-accent: #3b82f6;
-  --c-accent-bright: #60a5fa;
-  --c-accent-soft: rgba(59,130,246,0.12);
-  --c-cyan: #22d3ee;
-  --c-violet: #a78bfa;
-  --grad-accent: linear-gradient(135deg, #3b82f6, #22d3ee);
-  --grad-hero: linear-gradient(135deg, #3b82f6, #22d3ee, #a78bfa);
-  --font-display: 'Clash Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-body: 'Satoshi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px; --radius-xl: 48px;
-  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.2),0 1px 2px rgba(0,0,0,.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.3),0 2px 6px rgba(0,0,0,.2);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.2);
-  --shadow-xl: 0 24px 64px rgba(0,0,0,.5),0 8px 24px rgba(0,0,0,.3);
-  --shadow-glow-blue: 0 8px 32px rgba(59,130,246,.25);
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:var(--font-body);
-  background:var(--c-bg);
-  color:var(--c-text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-#aurora-canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;opacity:0.55}
-#particles-canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
-
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--c-bg)}
-::-webkit-scrollbar-thumb{background:#475569;border-radius:10px}
-::-webkit-scrollbar-thumb:hover{background:#64748b}
-::selection{background:var(--c-accent);color:#fff}
-a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-offset:3px;border-radius:6px}
-
-/* ============================================================
-   NAV
-   ============================================================ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(196,30,26,.9);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  border-bottom:1px solid rgba(255,255,255,.15);
-  padding:0 48px;height:60px;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .5s var(--ease-out-expo),background .5s,box-shadow .5s;
-}
-.nav.hidden{transform:translateY(-100%)}
-.nav.scrolled{background:rgba(168,24,20,.95);box-shadow:0 2px 12px rgba(0,0,0,.2)}
-.nav-inner{max-width:1280px;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;text-decoration:none}
-.nav-logo-img{height:38px;width:auto;display:block}
-.nav-right{display:flex;align-items:center;gap:36px}
-.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
-.nav-links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.02em;transition:color .3s;position:relative;white-space:nowrap}
-.nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:#fff;border-radius:2px;transition:width .35s var(--ease-out-expo)}
-.nav-links a:hover{color:#fff}
-.nav-links a:hover::after{width:100%}
-.nav-links a.active{color:#fff;font-weight:600}
-.nav-links a.active::after{width:100%}
-.lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(255,255,255,.15);border-radius:10px;padding:3px;border:1px solid rgba(255,255,255,.2)}
-.lang-switcher button{background:none;border:none;color:rgba(255,255,255,.65);font-size:.7rem;font-weight:600;cursor:pointer;padding:5px 12px;border-radius:8px;transition:all .3s;letter-spacing:.02em;font-family:var(--font-body)}
-.lang-switcher button:hover{color:#fff}
-.lang-switcher button.active{color:#c41e1a;background:#fff;box-shadow:var(--shadow-sm)}
-
-/* Nav CTA */
-.nav-cta{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:9px 20px;border-radius:24px;
-  background:#fff;
-  color:#c41e1a;text-decoration:none;
-  font-size:.75rem;font-weight:700;letter-spacing:.02em;
-  font-family:var(--font-body);cursor:pointer;border:none;
-  transition:all .35s var(--ease-spring);
-  white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.18);
-}
-.nav-cta:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
-  color:#a01814;
-}
-
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;gap:5px;cursor:pointer;z-index:1100;background:none;border:none;padding:0}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .35s var(--ease-out-expo);transform-origin:center}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-.mobile-menu-overlay{display:none;position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .35s}
-.mobile-menu-overlay.open{opacity:1;pointer-events:auto}
-.mobile-menu-panel{position:fixed;top:0;right:-300px;width:280px;height:100vh;z-index:1060;background:rgba(168,24,20,.98);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);padding:80px 32px 32px;transition:right .4s var(--ease-out-expo);display:flex;flex-direction:column;gap:24px;overflow-y:auto}
-.mobile-menu-overlay.open .mobile-menu-panel{right:0}
-.mobile-menu-panel .nav-links{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
-.mobile-menu-panel .nav-links a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.02em;padding:12px 16px;border-radius:10px;transition:all .3s}
-.mobile-menu-panel .nav-links a:hover,.mobile-menu-panel .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-.mobile-menu-panel .nav-links a::after{display:none}
-.mobile-menu-panel .nav-cta{display:block;width:100%;text-align:center;padding:14px 20px;font-size:.85rem;border-radius:28px;margin-bottom:8px}
-.mobile-menu-panel .lang-switcher{justify-content:center}
-
-/* ============================================================
-   HERO IMAGE SECTION
-   ============================================================ */
-.hero-section{padding:80px 0 24px;position:relative}
-.hero-card{max-width:1100px;margin:0 auto;padding:0 48px;text-align:center}
-.hero-img-wrap{
-  position:relative;z-index:1;
-  border-radius:var(--radius-lg);
-  overflow:hidden;
-  box-shadow:var(--shadow-xl);
-  transition:transform .5s var(--ease-out-expo),box-shadow .5s;
-}
-.hero-img-wrap:hover{transform:translateY(-6px);box-shadow:0 28px 72px rgba(0,0,0,.45),0 6px 18px rgba(59,130,246,.1)}
-.hero-img-wrap img{
-  width:100%;max-height:500px;object-fit:contain;display:block;
-  opacity:0;animation:fadeUp .9s .2s forwards;
-  transition:transform .7s var(--ease-out-expo);
-}
-.hero-img-wrap:hover img{transform:scale(1.03)}
-.hero-img-outer{position:relative;margin-bottom:32px}
-.hero-ring{
-  position:absolute;top:-30px;right:-30px;width:140px;height:140px;
-  border-radius:50%;border:2px dashed rgba(59,130,246,.1);
-  z-index:0;pointer-events:none;
-  animation:ringSpin 30s linear infinite;
-}
-.hero-dot{
-  position:absolute;bottom:-18px;left:-18px;
-  width:80px;height:80px;border-radius:50%;
-  background:radial-gradient(circle,rgba(34,211,238,.1) 0%,transparent 70%);
-  z-index:0;pointer-events:none;
-}
-.hero-title{
-  opacity:0;animation:fadeUp .8s .4s forwards;
-  font-family:var(--font-display);
-  font-size:clamp(2rem,4vw,2.8rem);font-weight:700;
-  letter-spacing:-.03em;color:var(--c-text);
-  margin-bottom:10px;position:relative;z-index:1;
-}
-.hero-desc{
-  opacity:0;animation:fadeUp .8s .55s forwards;
-  font-size:1rem;color:var(--c-text-secondary);
-  max-width:520px;margin:0 auto;line-height:1.7;
-  position:relative;z-index:1;
-}
-.hero-line{
-  opacity:0;animation:fadeUp .6s .3s forwards;
-  width:60px;height:3px;
-  background:var(--grad-accent);border-radius:3px;
-  margin:0 auto 20px;position:relative;z-index:1;
-}
-.hero-cta-wrap{
-  opacity:0;animation:fadeUp .8s .7s forwards;
-  margin-top:24px;position:relative;z-index:1;
-}
-.btn-quote-hero{
-  display:inline-block;padding:16px 44px;border-radius:50px;
-  background:linear-gradient(135deg,#fff,#e8e8e8);
-  color:#c41e1a;font-size:.95rem;font-weight:700;
-  letter-spacing:.01em;cursor:pointer;border:none;
-  font-family:var(--font-body);
-  transition:all .4s var(--ease-spring);
-  box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 0 4px rgba(196,30,26,.25);
-}
-.btn-quote-hero:hover{
-  transform:translateY(-4px) scale(1.03);
-  box-shadow:0 16px 48px rgba(0,0,0,.35),0 0 0 8px rgba(196,30,26,.15);
-  background:linear-gradient(135deg,#fff,#f0f0f0);
-}
-/* ============================================================
-   FACTORY DESCRIPTION CARD
-   ============================================================ */
-.desc-section{padding:32px 0 48px}
-.desc-card{max-width:1100px;margin:0 auto;padding:0 48px}
-.desc-card-inner{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:var(--radius-lg);padding:36px 40px;
-  box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
-}
-.desc-card-inner::before{
-  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
-  background:var(--grad-accent);border-radius:4px 0 0 4px;
-}
-.desc-card-inner::after{
-  content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(59,130,246,.04) 0%,transparent 70%);
-  pointer-events:none;
-}
-.desc-title{
-  font-family:var(--font-display);
-  font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;
-  letter-spacing:-.03em;color:var(--c-text);
-  margin-bottom:8px;position:relative;z-index:1;
-}
-.desc-subtitle{
-  font-size:.85rem;color:var(--c-accent);font-weight:600;
-  letter-spacing:.06em;margin-bottom:28px;position:relative;z-index:1;
-}
-.desc-body{
-  font-size:.95rem;color:var(--c-text-secondary);line-height:2;
-  position:relative;z-index:1;
-}
-.desc-body p{margin-bottom:18px}
-.desc-body p:last-child{margin-bottom:0}
-.desc-highlights{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
-  margin:28px 0 24px;position:relative;z-index:1;
-}
-.desc-highlight{
-  background:var(--c-accent-soft);border:1px solid rgba(59,130,246,.08);
-  border-radius:var(--radius-sm);padding:18px 20px;text-align:center;
-  transition:all .35s var(--ease-out-expo);
-}
-.desc-highlight:hover{transform:translateY(-3px);border-color:rgba(59,130,246,.2);box-shadow:var(--shadow-md)}
-.desc-highlight .dh-num{
-  font-family:var(--font-display);font-size:1.6rem;font-weight:700;
-  color:var(--c-accent);letter-spacing:-.02em;
-}
-.desc-highlight .dh-label{font-size:.7rem;color:var(--c-text-muted);font-weight:600;letter-spacing:.06em;margin-top:4px}
-.desc-clients{margin-top:24px;padding-top:20px;border-top:1px solid var(--c-border);position:relative;z-index:1}
-.desc-clients strong{color:var(--c-text);font-size:.85rem}
-.desc-clients span{color:var(--c-text-secondary);font-size:.88rem}
-.desc-motto{
-  margin-top:20px;padding:16px 24px;
-  background:linear-gradient(135deg,rgba(59,130,246,.04),rgba(34,211,238,.04));
-  border-radius:var(--radius-sm);border:1px solid rgba(59,130,246,.08);
-  font-weight:600;color:var(--c-accent);text-align:center;
-  font-size:.92rem;letter-spacing:.04em;position:relative;z-index:1;
-}
-
-/* ============================================================
-   CLIENTS / TRUSTED BY
-   ============================================================ */
-.clients-section{padding:80px 0 64px;position:relative}
-.clients-section::before{
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:60px;height:3px;
-  background:var(--grad-accent);border-radius:3px;
-}
-.clients-card{max-width:1100px;margin:0 auto;padding:0 48px;text-align:center}
-.clients-label{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:.68rem;font-weight:700;letter-spacing:.18em;
-  color:var(--c-accent);text-transform:uppercase;margin-bottom:12px;
-  font-family:var(--font-body);
-}
-.clients-label::before,.clients-label::after{
-  content:'';width:24px;height:1px;
-  background:rgba(59,130,246,.3);border-radius:1px;
-}
-.clients-title{
-  font-family:var(--font-display);
-  font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;
-  letter-spacing:-.03em;color:var(--c-text);
-  margin-bottom:48px;
-}
-.clients-row{
-  display:flex;align-items:stretch;justify-content:center;gap:28px;
-  flex-wrap:wrap;
-}
-.client-item{
-  flex:0 0 260px;
-  background:var(--c-surface);
-  border:1px solid var(--c-border);
-  border-radius:var(--radius-md);
-  padding:36px 24px;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .5s var(--ease-out-expo);
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow-sm);
-}
-.client-item::after{
-  content:'';position:absolute;top:0;left:24px;right:24px;
-  height:2px;background:var(--grad-accent);
-  border-radius:0 0 4px 4px;
-  opacity:0;transition:opacity .5s;
-}
-.client-item:hover{
-  transform:translateY(-8px);
-  border-color:rgba(59,130,246,.25);
-  box-shadow:var(--shadow-xl),0 0 60px rgba(59,130,246,.06);
-  background:#1e293b;
-}
-.client-item:hover::after{opacity:1}
-.client-item .client-logo-wrap{
-  width:180px;height:90px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.04);
-  border-radius:var(--radius-sm);
-  padding:8px;
-}
-.client-logo{
-  width:100%;height:100%;
-  object-fit:contain;
-  opacity:.85;
-  transition:all .5s var(--ease-out-expo);
-}
-.client-item:hover .client-logo{
-  opacity:1;
-  transform:scale(1.06);
-}
-
-/* ============================================================
-   MAP
-   ============================================================ */
-/* ============================================================
-   MAP / LOCATION
-   ============================================================ */
-.map-section{padding:32px 0 48px}
-.map-card{max-width:1100px;margin:0 auto;padding:0 48px}
-.map-container{
-  width:100%;min-height:200px;
-  background:var(--c-surface);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-xl);
-  border:1px solid var(--c-border);
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:48px 24px;
-}
-.map-overlay{position:relative;z-index:1}
-.map-pin{font-size:3rem;margin-bottom:12px}
-.map-addr{font-size:.85rem;color:var(--c-text-muted);margin-bottom:4px}
-.map-name{font-size:1.2rem;font-weight:700;color:var(--c-text);margin-bottom:20px;font-family:var(--font-display)}
-.map-link{
-  display:inline-block;margin:6px 8px;padding:10px 24px;
-  border-radius:24px;font-size:.85rem;font-weight:600;text-decoration:none;
-  background:var(--c-accent-soft);color:var(--c-accent);
-  border:1px solid rgba(59,130,246,.1);
-  transition:all .3s var(--ease-spring);
-}
-.map-link:hover{transform:translateY(-2px);background:rgba(59,130,246,.18);border-color:rgba(59,130,246,.25)}
-@media(max-width:768px){
-  .map-card{padding:0 20px}
-  .map-container{padding:36px 20px;min-height:160px}
-  .map-link{display:block;margin:6px 0}
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer{
-  border-top:1px solid var(--c-border);
-  padding:40px 48px;text-align:center;
-  font-size:.75rem;color:var(--c-text-muted);
-  background:var(--c-surface);
-}
-.footer a{color:var(--c-text-secondary);text-decoration:none;margin:0 14px;transition:color .3s}
-.footer a:hover{color:var(--c-accent)}
-
-/* ============================================================
-   QUOTE MODAL
-   ============================================================ */
-.modal-overlay{
-  position:fixed;inset:0;z-index:9999;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;
-  transition:opacity .35s var(--ease-out-expo);
-  padding:24px;
-}
-.modal-overlay.active{opacity:1;pointer-events:auto}
-.modal{
-  background:var(--c-surface);border:1px solid var(--c-border);
-  border-radius:var(--radius-lg);padding:40px 36px;
-  max-width:540px;width:100%;max-height:85vh;overflow-y:auto;
-  position:relative;
-  box-shadow:var(--shadow-xl),0 0 100px rgba(59,130,246,.1);
-  transform:translateY(30px) scale(.96);
-  transition:transform .4s var(--ease-spring);
-}
-.modal-overlay.active .modal{transform:translateY(0) scale(1)}
-.modal-close{
-  position:absolute;top:16px;right:16px;
-  width:36px;height:36px;border-radius:50%;
-  background:var(--c-bg-alt);border:1px solid var(--c-border);
-  color:var(--c-text-muted);font-size:1.2rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;line-height:1;
-}
-.modal-close:hover{background:var(--c-border);color:var(--c-text)}
-.modal-title{
-  font-family:var(--font-display);font-size:1.6rem;font-weight:700;
-  letter-spacing:-.03em;color:var(--c-text);margin-bottom:6px;
-}
-.modal-subtitle{font-size:.85rem;color:var(--c-text-muted);margin-bottom:28px;line-height:1.6}
-.form-group{margin-bottom:16px}
-.form-group label{
-  display:block;font-size:.72rem;font-weight:600;
-  letter-spacing:.04em;color:var(--c-text-secondary);margin-bottom:6px;
-}
-.form-group input,.form-group textarea{
-  width:100%;padding:12px 16px;background:var(--c-bg);
-  border:1px solid var(--c-border);border-radius:var(--radius-sm);
-  color:var(--c-text);font-family:var(--font-body);font-size:.9rem;
-  transition:border-color .3s,box-shadow .3s;
-}
-.form-group input:focus,.form-group textarea:focus{
-  outline:none;border-color:var(--c-accent);
-  box-shadow:0 0 0 3px rgba(59,130,246,.12);
-}
-.form-group textarea{min-height:100px;resize:vertical}
-.form-submit{
-  width:100%;padding:14px 28px;background:var(--grad-accent);
-  border:none;border-radius:28px;color:#fff;
-  font-size:.95rem;font-weight:700;letter-spacing:.02em;
-  cursor:pointer;font-family:var(--font-body);
-  transition:all .4s var(--ease-spring);
-  box-shadow:var(--shadow-glow-blue);margin-top:6px;
-}
-.form-submit:hover{
-  transform:translateY(-2px);box-shadow:0 16px 40px rgba(59,130,246,.35);
-}
-.form-submit:disabled{opacity:.5;pointer-events:none}
-.form-success{text-align:center;padding:24px 0}
-.form-success .success-icon{font-size:3.5rem;margin-bottom:14px}
-.form-success h3{font-family:var(--font-display);font-size:1.4rem;color:var(--c-text);margin-bottom:8px}
-.form-success p{color:var(--c-text-secondary);font-size:.88rem;line-height:1.7}
-@media(max-width:768px){
-  .modal{padding:28px 22px}
-  .modal-title{font-size:1.3rem}
-}
-
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(60px);transition:opacity .8s var(--ease-out-expo),transform .8s var(--ease-out-expo)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-img{opacity:0;transform:scale(.92) translateY(20px);transition:opacity .9s var(--ease-out-expo),transform .9s var(--ease-out-expo)}
-.reveal-img.visible{opacity:1;transform:scale(1) translateY(0)}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media(max-width:1024px){
-  .nav{padding:0 28px}
-  .client-item{flex:0 0 220px}
-  .client-item .client-logo-wrap{width:150px;height:75px}
-}
-@media(max-width:768px){
-  .nav-right{display:none}
-  .hamburger{display:flex}
-  .mobile-menu-overlay{display:block}
-  .desc-card{padding:0 20px}
-  .desc-card-inner{padding:32px 24px}
-  .desc-highlights{grid-template-columns:1fr}
-  .clients-card{padding:0 20px}
-  .clients-row{gap:20px}
-  .client-item{flex:0 0 100%;max-width:320px}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  #particles-canvas{display:none}
-}
-</style>
+<title data-i18n="page.title">永益吹塑 — 关于我们</title>
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<canvas id="aurora-canvas" aria-hidden="true"></canvas>
-<canvas id="particles-canvas" aria-hidden="true"></canvas>
-
-<!-- ===== Nav ===== -->
+<!-- Nav -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="product.html" class="nav-logo">
-      <img src="商标.png" alt="永益吹塑" class="nav-logo-img">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img">
     </a>
     <div class="nav-right">
       <ul class="nav-links">
@@ -501,29 +21,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
         <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
         <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
       </ul>
-      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
       <div class="lang-switcher">
         <button onclick="setLang('zh')" data-lang="zh">中文</button>
         <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
         <button onclick="setLang('es')" data-lang="es">ES</button>
       </div>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- Mobile Menu Overlay -->
+<!-- Mobile Menu -->
 <div class="mobile-menu-overlay" id="mobileMenu">
-  <div class="mobile-menu-panel" id="mobilePanel">
+  <div class="mobile-menu-panel">
     <ul class="nav-links">
       <li><a href="index.html" class="active" data-i18n="nav.facility">关于我们</a></li>
       <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
       <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
       <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
     </ul>
-    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">Get a Quote</button>
+    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
     <div class="lang-switcher">
       <button onclick="setLang('zh')" data-lang="zh">中文</button>
       <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
@@ -532,786 +50,169 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   </div>
 </div>
 
-<!-- ===== Hero Image ===== -->
-<section class="hero-section">
-  <div class="hero-card">
-    <div class="hero-img-outer">
-      <div class="hero-ring"></div><div class="hero-dot"></div>
-      <div class="hero-img-wrap">
-        <img src="1212.jpg" alt="大型中空吹塑成型机" loading="eager">
-      </div>
-    </div>
-    <div class="hero-line"></div>
-    <h1 class="hero-title" data-i18n="hero.title">核心吹塑装备</h1>
-    <p class="hero-desc" data-i18n="hero.desc">大型中空吹塑成型机，以精密工艺驱动卓越品质</p>
-    <div class="hero-cta-wrap">
-      <button class="btn-quote-hero" onclick="openQuote()" data-i18n="hero.ctaQuote">Get a Free Quote →</button>
-    </div>
+<!-- Hero Image -->
+<section class="hero-image-section reveal">
+  <div class="hero-img-wrap">
+    <img src="assets/images/1212.webp" alt="永益吹塑工厂" width="1200" height="600">
+  </div>
+  <h1 data-i18n="hero.title">核心吹塑装备</h1>
+  <p class="subtitle" data-i18n="hero.desc">大型中空吹塑成型机，以精密工艺驱动卓越品质</p>
+  <div class="hero-buttons">
+    <button class="btn-primary" onclick="openQuote()" data-i18n="hero.ctaQuote">获取免费报价 →</button>
   </div>
 </section>
 
-
-<!-- ===== Factory Description ===== -->
-<section class="desc-section">
+<!-- Factory Description -->
+<section class="section reveal">
   <div class="desc-card">
-    <div class="desc-card-inner">
-      <div class="desc-title" data-i18n="desc.title">创新技术，精密演绎</div>
-      <div class="desc-subtitle" data-i18n="desc.subtitle">—— 始于 1998，专注吹塑制造</div>
-      <div class="desc-body">
-        <p<p data-i18n="desc.body1">惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。</p>
-        <p<p data-i18n="desc.body2">产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。</p>
+    <h2 data-i18n="desc.title">创新技术，精密演绎</h2>
+    <p class="desc-sub" data-i18n="desc.subtitle">—— 始于 1998，专注吹塑制造</p>
+    <p data-i18n="desc.body1">惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。</p>
+    <p data-i18n="desc.body2">产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。</p>
+    <p data-i18n="desc.body3">工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。</p>
+
+    <div class="highlights-grid">
+      <div class="highlight-item">
+        <div class="hl-num" data-i18n="desc.h1.num">10台</div>
+        <div class="hl-label" data-i18n="desc.h1.label">中空吹塑设备</div>
       </div>
-      <div class="desc-highlights">
-        <div class="desc-highlight"><div class="dh-num" data-i18n="desc.h1.num">10台</div><div class="dh-label" data-i18n="desc.h1.label">中空吹塑设备</div></div>
-        <div class="desc-highlight"><div class="dh-num" data-i18n="desc.h2.num">1998</div><div class="dh-label" data-i18n="desc.h2.label">建厂年份</div></div>
-        <div class="desc-highlight"><div class="dh-num" data-i18n="desc.h3.num">全流程</div><div class="dh-label" data-i18n="desc.h3.label">模具·机械·吹塑</div></div>
+      <div class="highlight-item">
+        <div class="hl-num" data-i18n="desc.h2.num">1998</div>
+        <div class="hl-label" data-i18n="desc.h2.label">建厂年份</div>
       </div>
-      <div class="desc-body">
-        <p<p data-i18n="desc.body3">工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。</p>
+      <div class="highlight-item">
+        <div class="hl-num" data-i18n="desc.h3.num">全流程</div>
+        <div class="hl-label" data-i18n="desc.h3.label">模具·机械·吹塑</div>
       </div>
-      <div class="desc-clients">
-        <strong data-i18n="desc.clients.label">核心客户：</strong>
-        <span data-i18n="desc.clients">天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商</span>
-      </div>
-      <div class="desc-motto" data-i18n="desc.motto">「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌</div>
+    </div>
+
+    <p><strong data-i18n="desc.clients.label">核心客户：</strong><span data-i18n="desc.clients">天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商</span></p>
+    <div class="motto" data-i18n="desc.motto">「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌</div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="clients-section reveal">
+  <p class="clients-label" data-i18n="clients.label">合作伙伴</p>
+  <h2 class="section-title" data-i18n="clients.title">信赖我们的品牌</h2>
+  <div class="clients-grid">
+    <div class="client-card"><img src="assets/images/大众.webp" alt="Volkswagen" loading="lazy"></div>
+    <div class="client-card"><img src="assets/images/通用电气.webp" alt="General Motors" loading="lazy"></div>
+    <div class="client-card"><img src="assets/images/三洋.webp" alt="Sanyo" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="section section-light reveal">
+  <div class="map-card">
+    <div class="map-pin">📍</div>
+    <h2 data-i18n="map.title">永益吹塑厂</h2>
+    <div class="map-address" data-i18n="map.addr">广东省惠州市博罗县石湾镇</div>
+    <div class="map-name" data-i18n="map.name">永益吹塑厂 / 永益科技有限公司</div>
+    <div class="map-links">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=23.138092,113.896648" target="_blank" rel="noopener" data-i18n="map.link1">Google 地图导航 →</a>
+      <a href="https://www.google.com/maps?q=23.138092,113.896648" target="_blank" rel="noopener" data-i18n="map.link2">Google 地图查看 →</a>
     </div>
   </div>
 </section>
 
-<!-- ===== Clients / Trusted By ===== -->
-<section class="clients-section">
-  <div class="clients-card reveal">
-    <div class="clients-label" data-i18n="clients.label">TRUSTED BY</div>
-    <h2 class="clients-title" data-i18n="clients.title">Partners Who Trust Us</h2>
-    <div class="clients-row">
-      <div class="client-item">
-        <div class="client-logo-wrap">
-          <img class="client-logo" src="大众.jpg" alt="Volkswagen" loading="lazy">
-        </div>
-      </div>
-      <div class="client-item">
-        <div class="client-logo-wrap">
-          <img class="client-logo" src="通用电气.png" alt="General Motors" loading="lazy">
-        </div>
-      </div>
-      <div class="client-item">
-        <div class="client-logo-wrap">
-          <img class="client-logo" src="三洋.jpg" alt="Sanyo" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Map ===== -->
-<section class="map-section">
-	  <div class="map-card">
-	    <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:16px;color:var(--c-text)" data-i18n="map.title">永益吹塑厂</h2>
-	    <div class="map-container">
-	        <div class="map-overlay">
-	          <div class="map-pin">📍</div>
-	          <p class="map-addr" data-i18n="map.addr">广东省惠州市惠城区</p>
-	          <p class="map-name" data-i18n="map.name">永益吹塑厂 / 永益科技有限公司</p>
-	          <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=23.138092,113.896648" target="_blank" rel="noopener" data-i18n="map.link1">🚗 Google Maps Directions →</a>
-	          <a class="map-link" href="https://www.google.com/maps?q=23.138092,113.896648" target="_blank" rel="noopener" data-i18n="map.link2">🗺 View on Google Maps →</a>
-	        </div>
-	      </div>
-	  </div>
-	</section>
-
-<!-- ===== Footer ===== -->
-<footer class="footer">
-  <p style="margin-bottom:10px" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</p>
-  <div>
-    <a href="product.html" data-i18n="footer.products">产品展示</a>
-    <a href="hardware.html" data-i18n="footer.hardware">硬件实力</a>
-    <a href="index.html" data-i18n="footer.facility">关于我们</a>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</span>
+    <ul class="footer-links">
+      <li><a href="product.html" data-i18n="footer.products">产品展示</a></li>
+      <li><a href="hardware.html" data-i18n="footer.hardware">硬件实力</a></li>
+      <li><a href="team.html" data-i18n="footer.team">领导团队</a></li>
+    </ul>
   </div>
 </footer>
 
-<script>
-// ============================================================
-// AURORA MESH GRADIENT CANVAS
-// ============================================================
-const Aurora = {
-  canvas: null, ctx: null, blobs: [], animId: null, lastTime: 0,
-
-  config: {
-    blobCount: 6,
-    colors: [
-      [102, 126, 234],   // indigo
-      [6, 182, 212],      // cyan
-      [59, 130, 246],      // blue
-      [167, 139, 250],     // violet
-      [34, 211, 238],      // sky
-      [99, 102, 241],     // indigo-light
-    ],
-  },
-
-  init() {
-    this.canvas = document.getElementById('aurora-canvas');
-    if (!this.canvas) return;
-    this.ctx = this.canvas.getContext('2d');
-    this.resize();
-    this.createBlobs();
-    this.bindEvents();
-    this.lastTime = performance.now();
-    this.animate(this.lastTime);
-  },
-
-  resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.width = window.innerWidth * dpr;
-    this.canvas.height = window.innerHeight * dpr;
-    this.canvas.style.width = window.innerWidth + 'px';
-    this.canvas.style.height = window.innerHeight + 'px';
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(dpr, dpr);
-  },
-
-  createBlobs() {
-    this.blobs = [];
-    for (let i = 0; i < this.config.blobCount; i++) {
-      this.blobs.push({
-        x: Math.random(),
-        y: Math.random(),
-        vx: (Math.random() - 0.5) * 0.012,
-        vy: (Math.random() - 0.5) * 0.012,
-        radius: 0.2 + Math.random() * 0.35,
-        color: this.config.colors[i % this.config.colors.length],
-        phase: Math.random() * Math.PI * 2,
-        speed: 0.015 + Math.random() * 0.04,
-        orbitR: 0.03 + Math.random() * 0.08,
-        orbitCX: 0.2 + Math.random() * 0.6,
-        orbitCY: 0.2 + Math.random() * 0.6,
-        angle: Math.random() * Math.PI * 2,
-      });
-    }
-  },
-
-  animate(timestamp) {
-    const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1);
-    this.lastTime = timestamp;
-    this.update(dt);
-    this.draw();
-    this.animId = requestAnimationFrame(t => this.animate(t));
-  },
-
-  update(dt) {
-    for (const b of this.blobs) {
-      b.angle += b.speed * dt;
-      b.x = b.orbitCX + b.orbitR * Math.cos(b.angle + b.phase);
-      b.y = b.orbitCY + b.orbitR * Math.sin(b.angle * 1.3 + b.phase);
-      b.orbitCX += b.vx * dt;
-      b.orbitCY += b.vy * dt;
-      if (b.orbitCX < -0.1 || b.orbitCX > 1.1) b.vx *= -1;
-      if (b.orbitCY < -0.1 || b.orbitCY > 1.1) b.vy *= -1;
-    }
-  },
-
-  draw() {
-    const w = window.innerWidth, h = window.innerHeight, ctx = this.ctx;
-    ctx.clearRect(0, 0, w, h);
-    for (const b of this.blobs) {
-      const cx = b.x * w, cy = b.y * h, r = b.radius * Math.max(w, h);
-      const [cr, cg, cb] = b.color;
-      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      grad.addColorStop(0, `rgba(${cr},${cg},${cb},0.14)`);
-      grad.addColorStop(0.25, `rgba(${cr},${cg},${cb},0.09)`);
-      grad.addColorStop(0.55, `rgba(${cr},${cg},${cb},0.03)`);
-      grad.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-    }
-  },
-
-  bindEvents() {
-    let rt;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(() => { this.resize(); this.createBlobs(); }, 300);
-    }, { passive: true });
-  },
-};
-
-// ============================================================
-// FLOATING PARTICLES SYSTEM
-// ============================================================
-const Particles = {
-  canvas: null, ctx: null, particles: [], animId: null, lastTime: 0,
-
-  init() {
-    this.canvas = document.getElementById('particles-canvas');
-    if (!this.canvas) return;
-    this.ctx = this.canvas.getContext('2d');
-    this.resize();
-    this.createParticles();
-    this.bindEvents();
-    this.lastTime = performance.now();
-    this.animate(this.lastTime);
-  },
-
-  resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.width = window.innerWidth * dpr;
-    this.canvas.height = window.innerHeight * dpr;
-    this.canvas.style.width = window.innerWidth + 'px';
-    this.canvas.style.height = window.innerHeight + 'px';
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(dpr, dpr);
-  },
-
-  createParticles() {
-    const count = Math.min(Math.floor(window.innerWidth * 0.04), 60);
-    this.particles = [];
-    const shapes = ['circle', 'diamond', 'hexagon'];
-    for (let i = 0; i < count; i++) {
-      this.particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        size: 3 + Math.random() * 8,
-        shape: shapes[Math.floor(Math.random() * shapes.length)],
-        speedY: -0.15 - Math.random() * 0.45,
-        speedX: (Math.random() - 0.5) * 0.3,
-        opacity: 0.08 + Math.random() * 0.2,
-        rotation: Math.random() * 360,
-        rotSpeed: (Math.random() - 0.5) * 0.5,
-        wobbleAmp: Math.random() * 30,
-        wobbleSpeed: 0.005 + Math.random() * 0.02,
-        wobbleOffset: Math.random() * Math.PI * 2,
-        color: Math.random() > 0.5 ? [59, 130, 246] : [34, 211, 238],
-      });
-    }
-  },
-
-  animate(timestamp) {
-    const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1);
-    this.lastTime = timestamp;
-    this.update(dt);
-    this.draw();
-    this.animId = requestAnimationFrame(t => this.animate(t));
-  },
-
-  update(dt) {
-    const w = window.innerWidth, h = window.innerHeight;
-    for (const p of this.particles) {
-      p.y += p.speedY * dt * 60;
-      p.x += p.speedX * dt * 60 + Math.sin(performance.now() * p.wobbleSpeed + p.wobbleOffset) * 0.2;
-      p.rotation += p.rotSpeed;
-      if (p.y < -20) { p.y = h + 20; p.x = Math.random() * w; }
-      if (p.x < -20) p.x = w + 20;
-      if (p.x > w + 20) p.x = -20;
-    }
-  },
-
-  draw() {
-    const ctx = this.ctx, w = window.innerWidth, h = window.innerHeight;
-    ctx.clearRect(0, 0, w, h);
-    for (const p of this.particles) {
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate((p.rotation * Math.PI) / 180);
-      ctx.globalAlpha = p.opacity;
-      ctx.fillStyle = `rgb(${p.color[0]},${p.color[1]},${p.color[2]})`;
-      const s = p.size;
-
-      if (p.shape === 'circle') {
-        ctx.beginPath(); ctx.arc(0, 0, s / 2, 0, Math.PI * 2); ctx.fill();
-      } else if (p.shape === 'diamond') {
-        ctx.beginPath();
-        ctx.moveTo(0, -s / 2); ctx.lineTo(s / 2, 0);
-        ctx.lineTo(0, s / 2); ctx.lineTo(-s / 2, 0);
-        ctx.closePath(); ctx.fill();
-      } else if (p.shape === 'hexagon') {
-        ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          const angle = (Math.PI / 3) * i - Math.PI / 6;
-          const px = (s / 2) * Math.cos(angle);
-          const py = (s / 2) * Math.sin(angle);
-          i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-        }
-        ctx.closePath(); ctx.fill();
-      }
-      ctx.restore();
-    }
-  },
-
-  bindEvents() {
-    let rt;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(() => { this.resize(); this.createParticles(); }, 300);
-    }, { passive: true });
-  },
-};
-
-// ============================================================
-// i18n SYSTEM
-// ============================================================
-const translations = {
-  zh: {
-    'nav.products': '产品展示', 'nav.hardware': '硬件实力', 'nav.facility': '关于我们', 'nav.team': '领导团队', 'nav.contact': '联系我们',
-    'hero.title':'核心吹塑装备','hero.desc':'大型中空吹塑成型机，以精密工艺驱动卓越品质','desc.title':'创新技术，精密演绎','desc.subtitle':'—— 始于 1998，专注吹塑制造','desc.body1':'惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。','desc.body2':'产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。','desc.body3':'工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。','desc.h1.num':'10台','desc.h1.label':'中空吹塑设备','desc.h2.num':'1998','desc.h2.label':'建厂年份','desc.h3.num':'全流程','desc.h3.label':'模具·机械·吹塑','desc.clients.label':'核心客户：','desc.clients':'天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商','desc.motto':'「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌','map.title':'永益吹塑厂','map.addr':'广东省惠州市博罗县石湾镇','map.name':'永益吹塑厂 / 永益科技有限公司','map.link1':'🚗 Google 地图导航 →','map.link2':'🗺 Google 地图查看 →','clients.label':'合作伙伴','clients.title':'信赖我们的品牌','nav.cta':'获取报价','hero.ctaQuote':'获取免费报价 →','quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将在24小时内给您发送详细报价。',
-    'hero.badge': '全新发布',
-    'hero.line1': '匠心', 'hero.line2': '吹塑', 'hero.line3': '重塑品质生活',
-    'hero.subtitle': '从户外装备到儿童乐园，以先进的吹塑工艺打造每一件产品。轻量化、高强度、环保耐用。',
-    'hero.cta': '探索产品', 'hero.contact': '联系我们',
-    'scroll.hint': '向下滚动',
-    'kayak.label': '户外运动', 'kayak.title': '吹塑皮划艇',
-    'kayak.desc': '采用双层吹塑一体成型技术，船体兼具轻盈与坚固。流线型船身设计大幅降低水阻，让每一次划行都畅快淋漓。抗UV材料确保长期日晒不褪色、不老化，是湖泊与河流探险的理想之选。',
-    'kayak.spec1.label': '材质', 'kayak.spec1.value': '高密度聚乙烯 HDPE',
-    'kayak.spec2.label': '工艺', 'kayak.spec2.value': '双层吹塑一体成型',
-    'kayak.spec3.label': '承重', 'kayak.spec3.value': '150 kg',
-    'kayak.spec4.label': '重量', 'kayak.spec4.value': '仅 22 kg',
-    'kayak.tag1': '抗UV防护', 'kayak.tag2': '流线低阻', 'kayak.tag3': '高浮力', 'kayak.tag4': '防撞耐冲击',
-    'cooler.label': '户外冷藏', 'cooler.title': '蓝色保温箱',
-    'cooler.desc': '厚壁吹塑保温箱体配合高密度隔热层，保温时长可达 72 小时。坚固外壳可承重 200 kg，既是冷藏箱也是户外座椅。大容量设计满足全家露营、野餐、垂钓等场景需求。',
-    'cooler.spec1.label': '材质', 'cooler.spec1.value': 'PP+PU发泡隔热层',
-    'cooler.spec2.label': '保温时长', 'cooler.spec2.value': '最长 72 小时',
-    'cooler.spec3.label': '容量', 'cooler.spec3.value': '45 L',
-    'cooler.spec4.label': '承重', 'cooler.spec4.value': '200 kg（座面）',
-    'cooler.tag1': '72h保温', 'cooler.tag2': '可坐设计', 'cooler.tag3': '食品级内胆', 'cooler.tag4': '防滑底部',
-    'table.label': '户外家具', 'table.title': '吹塑户外桌凳套装',
-    'table.desc': '一桌四凳组合，全部采用吹塑一体成型工艺。仿木纹表面处理兼顾美观与实用，防水防晒无需特殊保养。圆角设计安全贴心，轻量化结构方便移动与收纳，让庭院时光更加惬意。',
-    'table.spec1.label': '材质', 'table.spec1.value': 'HDPE 吹塑',
-    'table.spec2.label': '表面', 'table.spec2.value': '仿木纹纹理',
-    'table.spec3.label': '套装', 'table.spec3.value': '1 桌 + 4 凳',
-    'table.spec4.label': '适用', 'table.spec4.value': '庭院/阳台/露营',
-    'table.tag1': '防水防晒', 'table.tag2': '仿木纹理', 'table.tag3': '免保养', 'table.tag4': '轻量便携',
-    'featured.label': '明星产品',
-    'featured.desc': '经典蓝色外观，硬朗线条勾勒出可靠质感。无论是海边派对还是山间露营，它都是保鲜冷藏的得力搭档。厚壁吹塑工艺赋予它出色的抗冲击能力，无惧旅途颠簸。',
-    'featured.tag1': '明星单品', 'featured.tag2': '限时优惠', 'featured.tag3': '现货速发',
-    'slide.label': '儿童户外', 'slide.title': '吹塑儿童滑梯',
-    'slide.desc': '色彩鲜艳、圆润无棱角，每一处细节都为孩子安全考虑。吹塑成型确保滑道光滑顺畅，加宽踏板和稳固底座让攀爬更安心。模块化设计可根据需求自由组合，打造专属的庭院游乐场。',
-    'slide.spec1.label': '材质', 'slide.spec1.value': '食品级 HDPE',
-    'slide.spec2.label': '工艺', 'slide.spec2.value': '一体吹塑成型',
-    'slide.spec3.label': '适用年龄', 'slide.spec3.value': '2-8 岁',
-    'slide.spec4.label': '安全标准', 'slide.spec4.value': 'GB/CE 认证',
-    'slide.tag1': '圆角安全', 'slide.tag2': '防静电', 'slide.tag3': '模块组合', 'slide.tag4': '抗UV不褪色',
-    'playhouse.label': '儿童户外', 'playhouse.title': '吹塑儿童游戏屋',
-    'playhouse.desc': '打造属于孩子的小小世界。吹塑面板拼装结构，安装简便且稳固耐用。仿真门窗设计激发想象力，通风透光的内舱空间让孩子在安全环境中尽情玩乐。梦幻配色融入任何庭院景观。',
-    'playhouse.spec1.label': '材质', 'playhouse.spec1.value': 'HDPE 吹塑面板',
-    'playhouse.spec2.label': '结构', 'playhouse.spec2.value': '拼装式模块',
-    'playhouse.spec3.label': '适用年龄', 'playhouse.spec3.value': '2-6 岁',
-    'playhouse.spec4.label': '安全标准', 'playhouse.spec4.value': 'GB/CE/ASTM',
-    'playhouse.tag1': '仿真门窗', 'playhouse.tag2': '通风设计', 'playhouse.tag3': '易拼装', 'playhouse.tag4': '梦幻配色',
-    'grid.label': '全部产品', 'grid.title': '探索完整系列',
-    'grid.subtitle': '每一款产品都经过严格的品质检测，从原料到成品，全程可追溯。',
-    'grid.kayak': '双层吹塑一体成型，高浮力、抗冲击，湖泊河流探险的理想搭档。',
-    'grid.cooler': '72小时长效保温，坚固可坐，露营野餐必备的冷藏专家。',
-    'grid.table': '仿木纹吹塑工艺，防水防晒免保养，点亮庭院好时光。',
-    'grid.slide': '圆润安全设计，模块化组合，打造专属庭院游乐场。',
-    'grid.playhouse': '拼装式吹塑面板，仿真门窗设计，给孩子一个梦想空间。',
-    'grid.cooler2.title': '保温箱（户外款）',
-    'grid.cooler2': '大容量、高保温，专为户外深度玩家量身定制。',
-    'stats.years': '年行业经验', 'stats.products': '产品品类', 'stats.partners': '合作伙伴', 'stats.cert': '质量认证',
-    'cta.label': '联系我们', 'cta.title': '为您的需求定制方案',
-    'cta.subtitle': '无论是批量采购还是 OEM 定制，我们的团队都将为您提供专业的一站式吹塑制品解决方案。',
-    'cta.btn': '立即咨询 →',
-    'common.learnMore': '了解更多',
-    'footer.copyright': '© 2026 永益吹塑制品厂. 保留所有权利。', 'footer.products':'产品展示', 'footer.hardware':'硬件实力', 'footer.facility':'关于我们', 'footer.team':'领导团队',
-  },
-  en: {
-    'nav.products': 'Products', 'nav.hardware': 'Hardware', 'nav.facility': 'About Us', 'nav.team': 'Leadership', 'nav.contact': 'Contact',
-    'hero.title':'Core Blow Molding Equipment','hero.desc':'Large-scale hollow blow molding machine, driving excellence through precision engineering','desc.title':'Innovation & Precision','desc.subtitle':'—— Est. 1998, Blow Molding Specialists','desc.body1':'Established in 1998, Huizhou Yongyi Technology Co., Ltd. is a professional blow molding manufacturer. Our facility operates 6 large-scale blow molding machines and 4 fully automatic transparent-line machines, producing hollow plastic tool boxes, childrens blow-molded toys, and various packaging containers.','desc.body2':'Our products serve power tool packaging, hand tool kits, toy gifts, Halloween and Christmas toys, and daily chemical packaging. We manufacture large blow-molded products and custom shapes including humidifier tanks, AC housings, ventilation ducts, automotive cooler boxes, windshield washer tanks, oil cans, fuel tanks, road barriers, traffic signs, highway reflectors, large artificial plants, modular playground equipment, and more.','desc.body3':'With strong technical expertise and an in-house design team, our mold workshop and machinery manufacturing department can design and produce custom molds and blow molding machines. We are a fully integrated manufacturer combining machinery, mold design, and blow molding production.','desc.h1.num':'10 Units','desc.h1.label':'Blow Molding Machines','desc.h2.num':'1998','desc.h2.label':'Year Established','desc.h3.num':'Full Chain','desc.h3.label':'Mold · Machine · Molding','desc.clients.label':'Key Clients:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Certified Supplier','desc.motto':'"Quality First, Service Supreme" — Welcome global partners','map.title':'Yongyi Blow Molding Factory','map.addr':'Shiwan Town, Boluo County, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navigate via Google Maps →','map.link2':'🗺 View on Google Maps →','clients.label':'TRUSTED BY','clients.title':'Partners Who Trust Us','nav.cta':'Get a Quote','hero.ctaQuote':'Get a Free Quote →','quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will get back to you with a detailed quote within 24 hours.',
-    'hero.badge': 'New Release',
-    'hero.line1': 'Artisan', 'hero.line2': 'Blow Molding', 'hero.line3': 'Redefining Quality Living',
-    'hero.subtitle': 'From outdoor gear to playgrounds, we craft every product with advanced blow molding technology. Lightweight, high-strength, eco-friendly and durable.',
-    'hero.cta': 'Explore Products', 'hero.contact': 'Contact Us',
-    'scroll.hint': 'Scroll Down',
-    'kayak.label': 'Outdoor Sports', 'kayak.title': 'Blow Molded Kayak',
-    'kayak.desc': 'Built with double-layer blow molding technology, the hull is both lightweight and rugged. The streamlined design significantly reduces water resistance, making every paddle smooth and enjoyable. UV-resistant materials ensure no fading or aging under prolonged sunlight.',
-    'kayak.spec1.label': 'Material', 'kayak.spec1.value': 'High-Density Polyethylene HDPE',
-    'kayak.spec2.label': 'Process', 'kayak.spec2.value': 'Double-Layer Blow Molding',
-    'kayak.spec3.label': 'Load Capacity', 'kayak.spec3.value': '150 kg',
-    'kayak.spec4.label': 'Weight', 'kayak.spec4.value': 'Only 22 kg',
-    'kayak.tag1': 'UV Protection', 'kayak.tag2': 'Low Drag', 'kayak.tag3': 'High Buoyancy', 'kayak.tag4': 'Impact Resistant',
-    'cooler.label': 'Outdoor Cooling', 'cooler.title': 'Blue Cooler Box',
-    'cooler.desc': 'Thick-walled blow-molded insulation body with high-density thermal layer provides up to 72 hours of cooling. The rugged exterior supports up to 200 kg — both a cooler and an outdoor seat.',
-    'cooler.spec1.label': 'Material', 'cooler.spec1.value': 'PP + PU Foam Insulation',
-    'cooler.spec2.label': 'Cooling Duration', 'cooler.spec2.value': 'Up to 72 Hours',
-    'cooler.spec3.label': 'Capacity', 'cooler.spec3.value': '45 L',
-    'cooler.spec4.label': 'Load Capacity', 'cooler.spec4.value': '200 kg (Seat)',
-    'cooler.tag1': '72h Cooling', 'cooler.tag2': 'Sittable', 'cooler.tag3': 'Food-Grade', 'cooler.tag4': 'Non-Slip',
-    'table.label': 'Outdoor Furniture', 'table.title': 'Outdoor Table & Stool Set',
-    'table.desc': 'A complete set with wood-grain finish combines aesthetics with practicality. Waterproof and sunproof with zero maintenance required. Rounded corners for safety.',
-    'table.spec1.label': 'Material', 'table.spec1.value': 'HDPE Blow Molded',
-    'table.spec2.label': 'Surface', 'table.spec2.value': 'Wood-Grain Texture',
-    'table.spec3.label': 'Set Includes', 'table.spec3.value': '1 Table + 4 Stools',
-    'table.spec4.label': 'Ideal For', 'table.spec4.value': 'Garden/Balcony/Camping',
-    'table.tag1': 'Waterproof', 'table.tag2': 'Wood Texture', 'table.tag3': 'Zero Maintenance', 'table.tag4': 'Lightweight',
-    'featured.label': 'Featured Product',
-    'featured.desc': 'Classic blue exterior with bold lines that convey reliability. Thick-wall blow molding gives it outstanding impact resistance to handle any journey.',
-    'featured.tag1': 'Star Product', 'featured.tag2': 'Limited Offer', 'featured.tag3': 'In Stock',
-    'slide.label': 'Kids Outdoor', 'slide.title': 'Children\'s Slide',
-    'slide.desc': 'Bright colors with smooth rounded edges — every detail designed for child safety. Modular design allows flexible configurations.',
-    'slide.spec1.label': 'Material', 'slide.spec1.value': 'Food-Grade HDPE',
-    'slide.spec2.label': 'Process', 'slide.spec2.value': 'One-Piece Blow Molding',
-    'slide.spec3.label': 'Age Range', 'slide.spec3.value': '2-8 Years',
-    'slide.spec4.label': 'Safety', 'slide.spec4.value': 'GB/CE Certified',
-    'slide.tag1': 'Rounded Safety', 'slide.tag2': 'Anti-Static', 'slide.tag3': 'Modular', 'slide.tag4': 'UV-Resistant',
-    'playhouse.label': 'Kids Outdoor', 'playhouse.title': 'Children\'s Playhouse',
-    'playhouse.desc': 'Create a little world for children. Modular assembly structure is easy to install and remarkably durable with dreamy colors.',
-    'playhouse.spec1.label': 'Material', 'playhouse.spec1.value': 'HDPE Panels',
-    'playhouse.spec2.label': 'Structure', 'playhouse.spec2.value': 'Modular Assembly',
-    'playhouse.spec3.label': 'Age Range', 'playhouse.spec3.value': '2-6 Years',
-    'playhouse.spec4.label': 'Safety', 'playhouse.spec4.value': 'GB/CE/ASTM',
-    'playhouse.tag1': 'Realistic Details', 'playhouse.tag2': 'Ventilated', 'playhouse.tag3': 'Easy Assembly', 'playhouse.tag4': 'Dreamy Colors',
-    'grid.label': 'All Products', 'grid.title': 'Explore the Full Collection',
-    'grid.subtitle': 'Every product undergoes rigorous quality testing, fully traceable from raw materials to finished goods.',
-    'grid.kayak': 'Double-layer blow molding, high buoyancy, impact resistant — ideal for lake and river adventures.',
-    'grid.cooler': '72-hour cooling performance, rugged and sittable — the essential cooling expert.',
-    'grid.table': 'Wood-grain blow molding, waterproof and maintenance-free — brighten up your garden moments.',
-    'grid.slide': 'Rounded safety design, modular — build your own backyard playground.',
-    'grid.playhouse': 'Snap-together panels, realistic details — give children a dream space.',
-    'grid.cooler2.title': 'Cooler Box (Outdoor Edition)',
-    'grid.cooler2': 'Large capacity, high-performance cooling, tailored for outdoor enthusiasts.',
-    'stats.years': 'Years of Experience', 'stats.products': 'Product Categories', 'stats.partners': 'Global Partners', 'stats.cert': 'Quality Certified',
-    'cta.label': 'Contact Us', 'cta.title': 'Custom Solutions for Your Needs',
-    'cta.subtitle': 'Whether bulk purchasing or OEM customization, our team provides professional one-stop blow molding solutions.',
-    'cta.btn': 'Inquire Now →',
-    'common.learnMore': 'Learn More',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. All rights reserved.', 'footer.products':'Products', 'footer.hardware':'Hardware', 'footer.facility':'About Us', 'footer.team':'Leadership',
-  },
-  es: {
-    'nav.products': 'Productos', 'nav.hardware': 'Maquinaria', 'nav.facility': 'Sobre Nosotros', 'nav.team': 'Liderazgo', 'nav.contact': 'Contacto',
-    'hero.title':'Equipo Central de Soplado','hero.desc':'Máquina de moldeo por soplado hueco a gran escala, impulsando la excelencia mediante ingeniería de precisión','desc.title':'Innovación y Precisión','desc.subtitle':'—— Desde 1998, Especialistas en Moldeo por Soplado','desc.body1':'Fundada en 1998, Huizhou Yongyi Technology Co., Ltd. es un fabricante profesional de productos de moldeo por soplado. Nuestra fábrica cuenta con 6 máquinas de soplado a gran escala y 4 máquinas automáticas de línea transparente, produciendo cajas de herramientas de plástico hueco, juguetes infantiles y diversos envases.','desc.body2':'Nuestros productos se utilizan en embalajes para herramientas eléctricas y manuales, juguetes, artículos de Halloween y Navidad, y productos químicos diarios. Fabricamos grandes productos soplados y piezas personalizadas.','desc.body3':'Con gran experiencia técnica y un equipo de diseño propio, nuestro taller de moldes y departamento de maquinaria pueden diseñar y fabricar moldes personalizados y máquinas de soplado. Somos un fabricante integrado.','desc.h1.num':'10 Unidades','desc.h1.label':'Máquinas de Soplado','desc.h2.num':'1998','desc.h2.label':'Año de Fundación','desc.h3.num':'Cadena Completa','desc.h3.label':'Molde · Máquina · Soplado','desc.clients.label':'Clientes Clave:','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Proveedor Certificado','desc.motto':'"Calidad Primero, Servicio Supremo" — Bienvenidos socios globales','map.title':'Fábrica Yongyi de Soplado','map.addr':'Shiwan, Boluo, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology','map.link1':'🚗 Navegar con Google Maps →','map.link2':'🗺 Ver en Google Maps →','clients.label':'CONFÍAN EN NOSOTROS','clients.title':'Marcas Que Confían En Nosotros','nav.cta':'Solicitar Presupuesto','hero.ctaQuote':'Obtener Presupuesto Gratis →','quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.',
-    'hero.badge': 'Nuevo Lanzamiento',
-    'hero.line1': 'Artesanal', 'hero.line2': 'Moldeo por Soplado', 'hero.line3': 'Redefiniendo la Calidad de Vida',
-    'hero.subtitle': 'Desde equipos para exteriores hasta parques infantiles, fabricamos cada producto con tecnología avanzada. Ligero, resistente, ecológico y duradero.',
-    'hero.cta': 'Explorar Productos', 'hero.contact': 'Contacto',
-    'scroll.hint': 'Desplazar',
-    'kayak.label': 'Deportes', 'kayak.title': 'Kayak de Soplado',
-    'kayak.desc': 'Construido con tecnología de doble capa, el casco es ligero y resistente. Diseño aerodinámico que reduce la resistencia al agua.',
-    'kayak.spec1.label': 'Material', 'kayak.spec1.value': 'HDPE',
-    'kayak.spec2.label': 'Proceso', 'kayak.spec2.value': 'Doble Capa',
-    'kayak.spec3.label': 'Carga', 'kayak.spec3.value': '150 kg',
-    'kayak.spec4.label': 'Peso', 'kayak.spec4.value': 'Solo 22 kg',
-    'kayak.tag1': 'Protección UV', 'kayak.tag2': 'Baja Resistencia', 'kayak.tag3': 'Alta Flotabilidad', 'kayak.tag4': 'Resistente',
-    'cooler.label': 'Refrigeración', 'cooler.title': 'Nevera Azul',
-    'cooler.desc': 'Cuerpo de paredes gruesas con capa aislante de alta densidad, hasta 72 horas de refrigeración. Soporta hasta 200 kg.',
-    'cooler.spec1.label': 'Material', 'cooler.spec1.value': 'PP + Espuma PU',
-    'cooler.spec2.label': 'Enfriamiento', 'cooler.spec2.value': 'Hasta 72 Horas',
-    'cooler.spec3.label': 'Capacidad', 'cooler.spec3.value': '45 L',
-    'cooler.spec4.label': 'Carga', 'cooler.spec4.value': '200 kg (Asiento)',
-    'cooler.tag1': '72h Frío', 'cooler.tag2': 'Sentable', 'cooler.tag3': 'Grado Alimenticio', 'cooler.tag4': 'Antideslizante',
-    'table.label': 'Muebles', 'table.title': 'Juego de Mesa y Taburetes',
-    'table.desc': 'Juego completo con acabado de veta de madera. Impermeable, resistente al sol y sin mantenimiento.',
-    'table.spec1.label': 'Material', 'table.spec1.value': 'HDPE',
-    'table.spec2.label': 'Superficie', 'table.spec2.value': 'Textura Madera',
-    'table.spec3.label': 'Incluye', 'table.spec3.value': '1 Mesa + 4 Taburetes',
-    'table.spec4.label': 'Ideal Para', 'table.spec4.value': 'Jardín/Balcón/Camping',
-    'table.tag1': 'Impermeable', 'table.tag2': 'Textura Madera', 'table.tag3': 'Sin Mantenimiento', 'table.tag4': 'Ligero',
-    'featured.label': 'Destacado',
-    'featured.desc': 'Exterior azul clásico con líneas audaces. Moldeo por soplado de pared gruesa para resistencia excepcional.',
-    'featured.tag1': 'Estrella', 'featured.tag2': 'Oferta Limitada', 'featured.tag3': 'En Stock',
-    'slide.label': 'Infantil', 'slide.title': 'Tobogán Infantil',
-    'slide.desc': 'Colores vibrantes con bordes suaves. Diseño modular para configuraciones flexibles.',
-    'slide.spec1.label': 'Material', 'slide.spec1.value': 'HDPE Alimenticio',
-    'slide.spec2.label': 'Proceso', 'slide.spec2.value': 'Una Pieza',
-    'slide.spec3.label': 'Edad', 'slide.spec3.value': '2-8 Años',
-    'slide.spec4.label': 'Seguridad', 'slide.spec4.value': 'GB/CE',
-    'slide.tag1': 'Seguro', 'slide.tag2': 'Anti-Estático', 'slide.tag3': 'Modular', 'slide.tag4': 'Resistente UV',
-    'playhouse.label': 'Infantil', 'playhouse.title': 'Casita Infantil',
-    'playhouse.desc': 'Crea un pequeño mundo. Estructura modular fácil de instalar con colores de ensueño.',
-    'playhouse.spec1.label': 'Material', 'playhouse.spec1.value': 'Paneles HDPE',
-    'playhouse.spec2.label': 'Estructura', 'playhouse.spec2.value': 'Ensamblaje Modular',
-    'playhouse.spec3.label': 'Edad', 'playhouse.spec3.value': '2-6 Años',
-    'playhouse.spec4.label': 'Seguridad', 'playhouse.spec4.value': 'GB/CE/ASTM',
-    'playhouse.tag1': 'Detalles Realistas', 'playhouse.tag2': 'Ventilado', 'playhouse.tag3': 'Fácil Montaje', 'playhouse.tag4': 'Colores de Ensueño',
-    'grid.label': 'Productos', 'grid.title': 'Colección Completa',
-    'grid.subtitle': 'Cada producto bajo rigurosas pruebas de calidad.',
-    'grid.kayak': 'Doble capa, alta flotabilidad, resistente a impactos.',
-    'grid.cooler': '72 horas de refrigeración, resistente y sentable.',
-    'grid.table': 'Veta de madera, impermeable y sin mantenimiento.',
-    'grid.slide': 'Diseño seguro, combinaciones modulares.',
-    'grid.playhouse': 'Paneles ensamblables, detalles realistas.',
-    'grid.cooler2.title': 'Nevera (Edición Exterior)',
-    'grid.cooler2': 'Gran capacidad, alto rendimiento.',
-    'stats.years': 'Años de Experiencia', 'stats.products': 'Categorías', 'stats.partners': 'Socios', 'stats.cert': 'Certificado',
-    'cta.label': 'Contacto', 'cta.title': 'Soluciones Personalizadas',
-    'cta.subtitle': 'Soluciones profesionales integrales de moldeo por soplado.',
-    'cta.btn': 'Consultar →',
-    'common.learnMore': 'Más Información',
-    'footer.copyright': '© 2026 Yongyi Blow Molding. Todos los derechos reservados.', 'footer.products':'Productos', 'footer.hardware':'Maquinaria', 'footer.facility':'Sobre Nosotros', 'footer.team':'Liderazgo',
-  }
-};
-
-function setLang(lang) {
-  localStorage.setItem('blowmold-lang', lang);
-  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'es' ? 'es' : 'en';
-  document.querySelectorAll('.lang-switcher button').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  const dict = translations[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (dict[key]) el.textContent = dict[key];
-  });
-  document.title = {
-    zh: '永益吹塑 — 高端吹塑制品',
-    en: 'Yongyi Blow Molding — Premium Blow Molded Products',
-    es: 'Yongyi Blow Molding — Productos Premium'
-  }[lang];
-}
-
-function getLang() {
-  const saved = localStorage.getItem('blowmold-lang');
-  if (saved && translations[saved]) return saved;
-  return 'en';
-}
-
-document.addEventListener('DOMContentLoaded', () => { setLang(getLang()); });
-
-// ============================================================
-// SCROLL REVEAL
-// ============================================================
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      if (entry.target.classList.contains('reveal-stagger')) {
-        entry.target.querySelectorAll(':scope > *').forEach((child, i) => {
-          child.style.transitionDelay = `${i * 0.06}s`;
-          child.classList.add('visible');
-        });
-      }
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-img, .reveal-stagger').forEach(el => observer.observe(el));
-
-// ============================================================
-// NAV SCROLL
-// ============================================================
-let lastScroll = 0;
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll > 200) {
-    nav.classList.toggle('hidden', currentScroll > lastScroll);
-    nav.classList.toggle('scrolled', true);
-  } else {
-    nav.classList.remove('hidden', 'scrolled');
-  }
-  lastScroll = currentScroll;
-}, { passive: true });
-
-// ============================================================
-// MOBILE MENU TOGGLE
-// ============================================================
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobilePanel = document.getElementById('mobilePanel');
-
-function openMobileMenu() {
-  hamburger.classList.add('open');
-  mobileMenu.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMobileMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
-});
-
-// Click overlay to close
-mobileMenu.addEventListener('click', (e) => {
-  if (e.target === mobileMenu) closeMobileMenu();
-});
-
-// Close on nav link click
-mobilePanel.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeMobileMenu);
-});
-
-// Close on Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-});
-
-// ============================================================
-// IMAGE PARALLAX
-// ============================================================
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.visual .img-wrap, .featured-card img').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight;
-    if (rect.bottom > 0 && rect.top < vh) {
-      const progress = (vh - rect.top) / (vh + rect.height);
-      el.style.transform = `translateY(${progress * 28 - 14}px)`;
-    }
-  });
-}, { passive: true });
-
-// ============================================================
-// COUNTER ANIMATION
-// ============================================================
-let countersAnimated = false;
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !countersAnimated) {
-      countersAnimated = true;
-      document.querySelectorAll('.counter').forEach(counter => {
-        const target = parseInt(counter.dataset.target);
-        const duration = 2000;
-        const start = performance.now();
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-          counter.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      });
-    }
-  });
-}, { threshold: 0.5 });
-
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) counterObserver.observe(statsBar);
-
-// ============================================================
-// 3D TILT ON GRID CARDS
-// ============================================================
-document.querySelectorAll('.grid-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -8;
-    const rotateY = ((x - centerX) / centerX) * 8;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-  });
-});
-
-// ============================================================
-// 3D TILT ON FEATURED CARD
-// ============================================================
-const featuredCard = document.querySelector('.featured-card');
-if (featuredCard) {
-  featuredCard.addEventListener('mousemove', (e) => {
-    const rect = featuredCard.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -4;
-    const rotateY = ((x - centerX) / centerX) * 4;
-    featuredCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  });
-  featuredCard.addEventListener('mouseleave', () => {
-    featuredCard.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0)';
-  });
-}
-
-// ============================================================
-// ============================================================
-// BOOT
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
-  Aurora.init();
-  Particles.init();
-});
-
-
-// ============================================================
-// QUOTE MODAL & FORM
-// ============================================================
-function openQuote(){document.getElementById('quoteModal').classList.add('active');document.body.style.overflow='hidden'}
-function closeQuote(){document.getElementById('quoteModal').classList.remove('active');document.body.style.overflow=''}
-
-document.addEventListener('DOMContentLoaded',function(){
-  var modal=document.getElementById('quoteModal');
-  if(!modal)return;
-
-  modal.addEventListener('click',function(e){if(e.target===this)closeQuote()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuote()});
-
-  var quoteForm=document.getElementById('quoteForm');
-
-  quoteForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var btn=quoteForm.querySelector('.form-submit');
-    var origText=btn.textContent;
-    btn.disabled=true;btn.textContent='Sending...';
-
-    var formData=new FormData(quoteForm);
-    formData.append('access_key','f0766eed-e23f-46c4-be74-07189bffd2dc');
-    formData.append('subject','New Quote Request - Yongyi Blow Molding');
-
-    console.log('Submitting to Web3Forms...');
-    fetch('https://api.web3forms.com/submit',{method:'POST',body:formData})
-      .then(function(r){return r.json()})
-      .then(function(data){
-        console.log('Web3Forms response:',data);
-        if(data.success){
-          document.getElementById('formFields').style.display='none';
-          document.getElementById('formSuccess').style.display='block';
-        }else{
-          alert('Server error: '+(data.message||'Unknown')+'. Please try again or email us at 13711898174@163.com');
-          btn.disabled=false;btn.textContent=origText;
-        }
-      })
-      .catch(function(err){
-        console.error('Web3Forms error:',err);
-        alert('Network error. Please check your connection and try again, or email us directly at 13711898174@163.com');
-        btn.disabled=false;btn.textContent=origText;
-      });
-  });
-});
-
-</script>
-
-<!-- ===== Quote Modal ===== -->
+<!-- Quote Modal -->
 <div class="modal-overlay" id="quoteModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeQuote()" aria-label="Close">&times;</button>
-    <div id="formFields">
-      <div class="modal-title" data-i18n="quote.title">Get a Free Quote</div>
-      <div class="modal-subtitle" data-i18n="quote.subtitle">Fill out the form below and we'll get back to you within 24 hours.</div>
-      <form id="quoteForm" enctype="multipart/form-data">
-        <div class="form-group">
-          <label data-i18n="quote.name">Your Name *</label>
-          <input type="text" name="name" required placeholder="John Doe">
-        </div>
-        <div class="form-group">
-          <label data-i18n="quote.email">Email Address *</label>
-          <input type="email" name="email" required placeholder="john@company.com">
-        </div>
-        <div class="form-group">
-          <label data-i18n="quote.company">Company (Optional)</label>
-          <input type="text" name="company" placeholder="Your Company Ltd.">
-        </div>
-        <div class="form-group">
-          <label data-i18n="quote.phone">Phone (Optional)</label>
-          <input type="tel" name="phone" placeholder="+86 138 0000 0000">
-        </div>
-        <div class="form-group">
-          <label data-i18n="quote.message">Message / Requirements</label>
-          <textarea name="message" placeholder="Describe your project, quantity, material preferences..."></textarea>
-        </div>
-        <button type="submit" class="form-submit" data-i18n="quote.submit">Submit Request →</button>
-      </form>
-    </div>
-    <div class="form-success" id="formSuccess" style="display:none">
-      <div class="success-icon">✅</div>
-      <h3 data-i18n="quote.successTitle">Thank You!</h3>
-      <p data-i18n="quote.successMsg">Your inquiry has been submitted. Our team will review your files and get back to you with a detailed quote within 24 hours.</p>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeQuote()">✕</button>
+    <h2 data-i18n="quote.title">获取免费报价</h2>
+    <p class="modal-sub" data-i18n="quote.subtitle">填写以下表单，我们将在24小时内回复您。</p>
+    <form id="quoteForm">
+      <div class="form-group">
+        <label data-i18n="quote.name">您的姓名 *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.email">邮箱地址 *</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.company">公司名称（选填）</label>
+        <input type="text" name="company">
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.phone">联系电话（选填）</label>
+        <input type="tel" name="phone">
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.message">留言 / 需求描述</label>
+        <textarea name="message"></textarea>
+      </div>
+      <button type="submit" class="form-submit" data-i18n="quote.submit">提交询价 →</button>
+    </form>
+    <div class="form-success">
+      <div class="check">✓</div>
+      <h3 data-i18n="quote.successTitle">感谢您的询价！</h3>
+      <p data-i18n="quote.successMsg">您的询价已提交。我们的团队将在24小时内给您发送详细报价。</p>
     </div>
   </div>
 </div>
 
+<script src="assets/js/main.js" defer></script>
+<script>
+// Page-specific translations
+mergeTranslations({
+  zh: {
+    'page.title':'永益吹塑 — 关于我们',
+    'hero.title':'核心吹塑装备','hero.desc':'大型中空吹塑成型机，以精密工艺驱动卓越品质','hero.ctaQuote':'获取免费报价 →',
+    'desc.title':'创新技术，精密演绎','desc.subtitle':'—— 始于 1998，专注吹塑制造',
+    'desc.body1':'惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。',
+    'desc.body2':'产品适用于各类电动工具和手动组套工具的包装，以及玩具礼品、万圣节玩具、圣诞玩具、各类日用化工产品的包装。可以生产加工各种大型吹塑产品及各类异型件吹塑成形，如家用空气加湿器水壶、空调外壳、通风管道、汽车冷藏箱、雨刷器水壶、机油壶、汽车油箱、路障、路标、路桩、防眩板、高速公路反光板、大型仿真植物、组合游乐设施、儿童组合秋千、人体模型。',
+    'desc.body3':'工厂技术力量雄厚，拥有专业的产品设计人员。工厂设有模具车间和机械制造车间，可以代客设计加工各类模具及各类吹塑机的设计制造。是一家集机械制造、模具设计、吹塑产品加工于一身的专业吹塑厂。',
+    'desc.h1.num':'10台','desc.h1.label':'中空吹塑设备','desc.h2.num':'1998','desc.h2.label':'建厂年份','desc.h3.num':'全流程','desc.h3.label':'模具·机械·吹塑',
+    'desc.clients.label':'核心客户：','desc.clients':'天津一汽 · 大众汽车 · 三洋电器 · 美国通用汽车部件 等知名企业合格供应商',
+    'desc.motto':'「 质量第一，服务至上 」— 热忱欢迎海内外客商前来惠顾，共创辉煌',
+    'map.title':'永益吹塑厂','map.addr':'广东省惠州市博罗县石湾镇','map.name':'永益吹塑厂 / 永益科技有限公司',
+    'map.link1':'Google 地图导航 →','map.link2':'Google 地图查看 →',
+    'clients.label':'合作伙伴','clients.title':'信赖我们的品牌',
+  },
+  en: {
+    'page.title':'Yongyi Blow Molding — About Us',
+    'hero.title':'Core Blow Molding Equipment','hero.desc':'Large-scale hollow blow molding machine, driving excellence through precision engineering','hero.ctaQuote':'Get a Free Quote →',
+    'desc.title':'Innovation & Precision','desc.subtitle':'—— Est. 1998, Blow Molding Specialists',
+    'desc.body1':'Established in 1998, Huizhou Yongyi Technology Co., Ltd. is a professional blow molding manufacturer. Our facility operates 6 large-scale blow molding machines and 4 fully automatic transparent-line machines, producing hollow plastic tool boxes, children\'s blow-molded toys, and various packaging containers.',
+    'desc.body2':'Our products serve power tool packaging, hand tool kits, toy gifts, Halloween and Christmas toys, and daily chemical packaging. We manufacture large blow-molded products and custom shapes including humidifier tanks, AC housings, ventilation ducts, automotive cooler boxes, windshield washer tanks, oil cans, fuel tanks, road barriers, traffic signs, highway reflectors, large artificial plants, modular playground equipment, and more.',
+    'desc.body3':'With strong technical expertise and an in-house design team, our mold workshop and machinery manufacturing department can design and produce custom molds and blow molding machines. We are a fully integrated manufacturer combining machinery, mold design, and blow molding production.',
+    'desc.h1.num':'10 Units','desc.h1.label':'Blow Molding Machines','desc.h2.num':'1998','desc.h2.label':'Year Established','desc.h3.num':'Full Chain','desc.h3.label':'Mold · Machine · Molding',
+    'desc.clients.label':'Key Clients: ','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Certified Supplier',
+    'desc.motto':'"Quality First, Service Supreme" — Welcome global partners',
+    'map.title':'Yongyi Blow Molding Factory','map.addr':'Shiwan Town, Boluo County, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology',
+    'map.link1':'Navigate via Google Maps →','map.link2':'View on Google Maps →',
+    'clients.label':'TRUSTED BY','clients.title':'Partners Who Trust Us',
+  },
+  es: {
+    'page.title':'Yongyi Blow Molding — Sobre Nosotros',
+    'hero.title':'Equipo Central de Soplado','hero.desc':'Máquina de moldeo por soplado hueco a gran escala, impulsando la excelencia mediante ingeniería de precisión','hero.ctaQuote':'Obtener Presupuesto Gratis →',
+    'desc.title':'Innovación y Precisión','desc.subtitle':'—— Desde 1998, Especialistas en Moldeo por Soplado',
+    'desc.body1':'Fundada en 1998, Huizhou Yongyi Technology Co., Ltd. es un fabricante profesional de productos de moldeo por soplado. Nuestra fábrica cuenta con 6 máquinas de soplado a gran escala y 4 máquinas automáticas de línea transparente, produciendo cajas de herramientas de plástico hueco, juguetes infantiles y diversos envases.',
+    'desc.body2':'Nuestros productos se utilizan en embalajes para herramientas eléctricas y manuales, juguetes, artículos de Halloween y Navidad, y productos químicos diarios. Fabricamos grandes productos soplados y piezas personalizadas.',
+    'desc.body3':'Con gran experiencia técnica y un equipo de diseño propio, nuestro taller de moldes y departamento de maquinaria pueden diseñar y fabricar moldes personalizados y máquinas de soplado. Somos un fabricante integrado.',
+    'desc.h1.num':'10 Unidades','desc.h1.label':'Máquinas de Soplado','desc.h2.num':'1998','desc.h2.label':'Año de Fundación','desc.h3.num':'Cadena Completa','desc.h3.label':'Molde · Máquina · Soplado',
+    'desc.clients.label':'Clientes Clave: ','desc.clients':'FAW-Toyota · Volkswagen · Sanyo Electric · GM Parts — Proveedor Certificado',
+    'desc.motto':'"Calidad Primero, Servicio Supremo" — Bienvenidos socios globales',
+    'map.title':'Fábrica Yongyi de Soplado','map.addr':'Shiwan, Boluo, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology',
+    'map.link1':'Navegar con Google Maps →','map.link2':'Ver en Google Maps →',
+    'clients.label':'CONFÍAN EN NOSOTROS','clients.title':'Marcas Que Confían En Nosotros',
+  }
+});
+setLang(getLang());
+</script>
 </body>
 </html>
