@@ -551,7 +551,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 
 .product-card .img-wrap{
-  position:relative;aspect-ratio:1;overflow:hidden;background:var(--c-bg-light);
+  position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--c-bg-light);
 }
 .product-card .img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
