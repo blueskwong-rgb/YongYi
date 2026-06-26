@@ -637,19 +637,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
    ============================================================ */
 .hero-glow{position:relative;overflow:hidden}
 .hero-glow::before{
-  content:'';position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:1;
-  height:400px;
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,113,227,.12) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 60% at 30% 5%, rgba(100,140,220,.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 70% 10%, rgba(180,200,240,.05) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 35% at 50% 45%, rgba(0,113,227,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 30% at 35% 50%, rgba(80,140,230,.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 25% at 65% 42%, rgba(140,180,240,.08) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 15% at 50% 90%, rgba(0,113,227,.04) 0%, transparent 60%);
 }
 .hero-glow::after{
-  content:'';position:absolute;top:60px;left:50%;transform:translateX(-50%);pointer-events:none;z-index:1;
-  width:60%;height:1px;
-  background:linear-gradient(90deg, transparent, rgba(0,113,227,.25) 20%, rgba(0,113,227,.4) 50%, rgba(0,113,227,.25) 80%, transparent);
+  content:'';position:absolute;top:43%;left:50%;transform:translateX(-50%);pointer-events:none;z-index:1;
+  width:70%;height:2px;
+  background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.12) 15%, rgba(0,113,227,.5) 50%, rgba(0,113,227,.12) 85%, transparent 95%);
+  border-radius:1px;
 }
 .hero-glow>*{position:relative;z-index:2}
+
+/* Text glow accent */
+.hero-glow .hero-badge,
+.hero-glow h1,
+.hero-glow .subtitle{position:relative}
+.hero-glow h1::first-line{text-shadow:0 0 60px rgba(0,113,227,.08)}
 
 @media(prefers-reduced-motion:reduce){
   .hero-glow::before,.hero-glow::after{display:none}
