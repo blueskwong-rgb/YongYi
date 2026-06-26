@@ -631,3 +631,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   .carousel-arrow.prev{left:8px}
   .carousel-arrow.next{right:8px}
 }
+
+/* ============================================================
+   HORIZON GLOW HERO EFFECT
+   ============================================================ */
+.hero-glow{position:relative;overflow:hidden}
+.hero-glow::before{
+  content:'';position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:1;
+  height:400px;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,113,227,.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 30% 5%, rgba(100,140,220,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 70% 10%, rgba(180,200,240,.05) 0%, transparent 55%);
+}
+.hero-glow::after{
+  content:'';position:absolute;top:60px;left:50%;transform:translateX(-50%);pointer-events:none;z-index:1;
+  width:60%;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(0,113,227,.25) 20%, rgba(0,113,227,.4) 50%, rgba(0,113,227,.25) 80%, transparent);
+}
+.hero-glow>*{position:relative;z-index:2}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-glow::before,.hero-glow::after{display:none}
+}
