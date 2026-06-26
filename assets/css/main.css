@@ -652,11 +652,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 }
 .hero-glow>*{position:relative;z-index:2}
 
-/* Text glow accent */
-.hero-glow .hero-badge,
-.hero-glow h1,
-.hero-glow .subtitle{position:relative}
-.hero-glow h1::first-line{text-shadow:0 0 60px rgba(0,113,227,.08)}
+/* About Us page — glow lower to match text below carousel */
+.hero-image-section.hero-glow::before{
+  background:
+    radial-gradient(ellipse 70% 30% at 50% 78%, rgba(0,113,227,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 25% at 35% 80%, rgba(80,140,230,.12) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 20% at 65% 76%, rgba(140,180,240,.10) 0%, transparent 48%);
+}
+.hero-image-section.hero-glow::after{
+  top:74%;width:65%;
+  background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.15) 15%, rgba(0,113,227,.55) 50%, rgba(0,113,227,.15) 85%, transparent 95%);
+}
 
 @media(prefers-reduced-motion:reduce){
   .hero-glow::before,.hero-glow::after{display:none}
