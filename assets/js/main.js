@@ -205,4 +205,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize language
   const lang = getLang();
   setLang(lang);
+
+  // Factory Carousel (only on index.html)
+  var carousel = document.getElementById('factoryCarousel');
+  if (carousel) {
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var dots = document.querySelectorAll('#carouselDots button');
+    var total = slides.length;
+    var index = 0;
+    var timer;
+
+    window.carouselGo = function(i) {
+      index = i;
+      slides.forEach(function(s,x){ s.classList.toggle('active', x===i); });
+      dots.forEach(function(d,x){ d.classList.toggle('active', x===i); });
+    };
+    window.carouselPrev = function() {
+      carouselGo((index - 1 + total) % total);
+      clearInterval(timer);
+      timer = setInterval(window.carouselNext, 5000);
+    };
+    window.carouselNext = function() {
+      carouselGo((index + 1) % total);
+      clearInterval(timer);
+      timer = setInterval(window.carouselNext, 5000);
+    };
+    timer = setInterval(window.carouselNext, 5000);
+    carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    carousel.addEventListener('mouseleave', function(){ timer = setInterval(window.carouselNext, 5000); });
+  }
 });
