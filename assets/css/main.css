@@ -664,16 +664,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.15) 15%, rgba(0,113,227,.55) 50%, rgba(0,113,227,.15) 85%, transparent 95%);
 }
 
-/* Hardware page — glow below badge, higher position */
+/* Hardware page — glow between badge and h1 */
 .hero-glow-high::before{
   background:
-    radial-gradient(ellipse 70% 30% at 50% 28%, rgba(0,113,227,.18) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 25% at 35% 32%, rgba(80,140,230,.10) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 20% at 65% 26%, rgba(140,180,240,.08) 0%, transparent 48%);
+    radial-gradient(ellipse 70% 22% at 50% 16%, rgba(0,113,227,.2) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 18% at 35% 18%, rgba(80,140,230,.10) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 15% at 65% 14%, rgba(140,180,240,.08) 0%, transparent 48%);
 }
 .hero-glow-high::after{
-  top:25%;width:65%;
-  background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.15) 15%, rgba(0,113,227,.5) 50%, rgba(0,113,227,.15) 85%, transparent 95%);
+  top:17%;width:55%;
+  background:linear-gradient(90deg, transparent 5%, rgba(0,113,227,.18) 15%, rgba(0,113,227,.55) 50%, rgba(0,113,227,.18) 85%, transparent 95%);
 }
 
 @media(prefers-reduced-motion:reduce){
