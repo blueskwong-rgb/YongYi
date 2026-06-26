@@ -52,8 +52,24 @@
 
 <!-- Hero Image -->
 <section class="hero-image-section reveal">
-  <div class="hero-img-wrap" style="max-width:720px;margin:0 auto 48px">
-    <img src="assets/images/工厂全景.webp" alt="永益吹塑工厂全景" width="720" height="420">
+  <!-- Factory Carousel -->
+  <div class="factory-carousel" id="factoryCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active"><img src="assets/images/工厂全景.webp" alt="工厂全景" width="860" height="484"></div>
+      <div class="carousel-slide"><img src="assets/images/吹塑机器1.webp" alt="大型吹塑机" width="860" height="484"></div>
+      <div class="carousel-slide"><img src="assets/images/吹塑机器2.webp" alt="多层共挤设备" width="860" height="484"></div>
+      <div class="carousel-slide"><img src="assets/images/吹塑机器3.webp" alt="五轴CNC加工中心" width="860" height="484"></div>
+      <div class="carousel-slide"><img src="assets/images/吹塑机器4.webp" alt="全自动后处理产线" width="860" height="484"></div>
+    </div>
+    <button class="carousel-arrow prev" onclick="carouselPrev()" aria-label="上一张">‹</button>
+    <button class="carousel-arrow next" onclick="carouselNext()" aria-label="下一张">›</button>
+    <div class="carousel-dots" id="carouselDots">
+      <button class="active" onclick="carouselGo(0)"></button>
+      <button onclick="carouselGo(1)"></button>
+      <button onclick="carouselGo(2)"></button>
+      <button onclick="carouselGo(3)"></button>
+      <button onclick="carouselGo(4)"></button>
+    </div>
   </div>
   <h1 data-i18n="hero.title">现代工厂 · 精密制造</h1>
   <p class="subtitle" data-i18n="hero.desc">超过 20,000 平米现代化厂房，集机械制造、模具设计、吹塑加工于一体</p>
@@ -166,6 +182,25 @@
 </div>
 
 <script src="assets/js/main.js"></script>
+<script>
+// Factory Carousel
+let carouselIndex = 0;
+const carouselTotal = 5;
+let carouselTimer;
+
+function carouselGo(i) {
+  carouselIndex = i;
+  document.querySelectorAll('#factoryCarousel .carousel-slide').forEach((s,idx) => s.classList.toggle('active', idx===i));
+  document.querySelectorAll('#carouselDots button').forEach((d,idx) => d.classList.toggle('active', idx===i));
+}
+function carouselPrev() { carouselGo((carouselIndex - 1 + carouselTotal) % carouselTotal); resetTimer(); }
+function carouselNext() { carouselGo((carouselIndex + 1) % carouselTotal); resetTimer(); }
+function resetTimer() { clearInterval(carouselTimer); carouselTimer = setInterval(carouselNext, 5000); }
+carouselTimer = setInterval(carouselNext, 5000);
+// Pause on hover
+document.getElementById('factoryCarousel').addEventListener('mouseenter', () => clearInterval(carouselTimer));
+document.getElementById('factoryCarousel').addEventListener('mouseleave', () => { carouselTimer = setInterval(carouselNext, 5000); });
+</script>
 <script>
 // Page-specific translations
 mergeTranslations({
