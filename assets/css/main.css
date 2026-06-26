@@ -161,7 +161,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 .hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
 /* Hero with Image */
-.hero-image-section{padding:100px var(--content-px) 0;text-align:center}
+.hero-image-section{padding:60px var(--content-px) 0;text-align:center}
 .hero-image-section .hero-img-wrap{max-width:var(--content-max);margin:0 auto 48px;
   border-radius:var(--radius-md);overflow:hidden}
 .hero-image-section .hero-img-wrap img{width:100%;display:block}
