@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="page.title">永益吹塑 — 高端吹塑制品</title>
+<title data-i18n="page.title">永益吹塑 — 产品展示</title>
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -49,216 +49,185 @@
 <!-- Hero -->
 <section class="hero reveal">
   <div class="hero-inner">
-    <div class="hero-badge" data-i18n="hero.badge">全新发布</div>
-    <h1 data-i18n="hero.line1">匠心</h1>
-    <h1 data-i18n="hero.line2" style="margin-top:0;font-size:clamp(2rem,4vw,3rem);color:var(--c-text-secondary)">吹塑 · 重塑品质生活</h1>
-    <p class="subtitle" data-i18n="hero.subtitle">从户外装备到儿童乐园，以先进的吹塑工艺打造每一件产品。轻量化、高强度、环保耐用。</p>
-    <div class="hero-buttons">
-      <a href="#products" class="btn-primary" data-i18n="hero.cta">探索产品</a>
-      <button class="btn-outline" onclick="openQuote()" data-i18n="hero.contact">联系我们</button>
+    <div class="hero-badge" data-i18n="hero.badge">产品目录</div>
+    <h1 data-i18n="hero.title">高端吹塑制品</h1>
+    <p class="subtitle" data-i18n="hero.subtitle">从户外装备到工业包装，12大品类满足多元需求</p>
+  </div>
+</section>
+
+<!-- Category Filters -->
+<section class="section reveal" style="padding-bottom:0">
+  <div class="container">
+    <div class="category-filters" id="categoryFilters">
+      <button class="cat-btn active" data-cat="all" data-i18n="filter.all">全部</button>
+      <button class="cat-btn" data-cat="outdoor" data-i18n="filter.outdoor">户外运动</button>
+      <button class="cat-btn" data-cat="kids" data-i18n="filter.kids">儿童用品</button>
+      <button class="cat-btn" data-cat="industrial" data-i18n="filter.industrial">工业包装</button>
+      <button class="cat-btn" data-cat="home" data-i18n="filter.home">家居户外</button>
     </div>
   </div>
 </section>
 
-<!-- Product 1: Kayak -->
-<section class="section reveal" id="products">
-  <div class="product-row">
-    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑皮划艇.webp" alt="吹塑皮划艇" loading="lazy" width="600" height="400"></div></div>
-    <div class="info">
-      <span class="section-label" data-i18n="kayak.label">户外运动</span>
-      <h3 data-i18n="kayak.title">吹塑皮划艇</h3>
-      <p class="section-desc" data-i18n="kayak.desc">采用双层吹塑一体成型技术，船体兼具轻盈与坚固。流线型船身设计大幅降低水阻，让每一次划行都畅快淋漓。抗UV材料确保长期日晒不褪色、不老化，是湖泊与河流探险的理想之选。</p>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="spec-label" data-i18n="kayak.spec1.label">材质</div><div class="spec-value" data-i18n="kayak.spec1.value">高密度聚乙烯 HDPE</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="kayak.spec2.label">工艺</div><div class="spec-value" data-i18n="kayak.spec2.value">双层吹塑一体成型</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="kayak.spec3.label">承重</div><div class="spec-value" data-i18n="kayak.spec3.value">150 kg</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="kayak.spec4.label">重量</div><div class="spec-value" data-i18n="kayak.spec4.value">仅 22 kg</div></div>
-      </div>
-      <div class="tag-row">
-        <span class="tag" data-i18n="kayak.tag1">抗UV防护</span>
-        <span class="tag" data-i18n="kayak.tag2">流线低阻</span>
-        <span class="tag" data-i18n="kayak.tag3">高浮力</span>
-        <span class="tag" data-i18n="kayak.tag4">防撞耐冲击</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Product 2: Cooler -->
-<section class="section section-light reveal">
-  <div class="product-row reverse">
-    <div class="visual"><div class="img-wrap"><img src="assets/images/蓝色保温箱.webp" alt="蓝色保温箱" loading="lazy" width="600" height="400"></div></div>
-    <div class="info">
-      <span class="section-label" data-i18n="cooler.label">户外冷藏</span>
-      <h3 data-i18n="cooler.title">蓝色保温箱</h3>
-      <p class="section-desc" data-i18n="cooler.desc">厚壁吹塑保温箱体配合高密度隔热层，保温时长可达 72 小时。坚固外壳可承重 200 kg，既是冷藏箱也是户外座椅。大容量设计满足全家露营、野餐、垂钓等场景需求。</p>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="spec-label" data-i18n="cooler.spec1.label">材质</div><div class="spec-value" data-i18n="cooler.spec1.value">PP+PU发泡隔热层</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="cooler.spec2.label">保温时长</div><div class="spec-value" data-i18n="cooler.spec2.value">最长 72 小时</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="cooler.spec3.label">容量</div><div class="spec-value" data-i18n="cooler.spec3.value">45 L</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="cooler.spec4.label">承重</div><div class="spec-value" data-i18n="cooler.spec4.value">200 kg（座面）</div></div>
-      </div>
-      <div class="tag-row">
-        <span class="tag" data-i18n="cooler.tag1">72h保温</span>
-        <span class="tag" data-i18n="cooler.tag2">可坐设计</span>
-        <span class="tag" data-i18n="cooler.tag3">食品级内胆</span>
-        <span class="tag" data-i18n="cooler.tag4">防滑底部</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Product 3: Table Set -->
+<!-- Product Grid -->
 <section class="section reveal">
-  <div class="product-row">
-    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑户外桌凳.webp" alt="吹塑户外桌凳套装" loading="lazy" width="600" height="400"></div></div>
-    <div class="info">
-      <span class="section-label" data-i18n="table.label">户外家具</span>
-      <h3 data-i18n="table.title">吹塑户外桌凳套装</h3>
-      <p class="section-desc" data-i18n="table.desc">一桌四凳组合，全部采用吹塑一体成型工艺。仿木纹表面处理兼顾美观与实用，防水防晒无需特殊保养。圆角设计安全贴心，轻量化结构方便移动与收纳，让庭院时光更加惬意。</p>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="spec-label" data-i18n="table.spec1.label">材质</div><div class="spec-value" data-i18n="table.spec1.value">HDPE 吹塑</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="table.spec2.label">表面</div><div class="spec-value" data-i18n="table.spec2.value">仿木纹纹理</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="table.spec3.label">套装</div><div class="spec-value" data-i18n="table.spec3.value">1 桌 + 4 凳</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="table.spec4.label">适用</div><div class="spec-value" data-i18n="table.spec4.value">庭院/阳台/露营</div></div>
-      </div>
-      <div class="tag-row">
-        <span class="tag" data-i18n="table.tag1">防水防晒</span>
-        <span class="tag" data-i18n="table.tag2">仿木纹理</span>
-        <span class="tag" data-i18n="table.tag3">免保养</span>
-        <span class="tag" data-i18n="table.tag4">轻量便携</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <div class="product-grid" id="productGrid">
 
-<!-- Featured Banner -->
-<section class="section section-light reveal">
-  <div class="featured-banner">
-    <div class="banner-text">
-      <span class="section-label" data-i18n="featured.label">明星产品</span>
-      <h3 data-i18n="cooler.title">蓝色保温箱</h3>
-      <p data-i18n="featured.desc">经典蓝色外观，硬朗线条勾勒出可靠质感。无论是海边派对还是山间露营，它都是保鲜冷藏的得力搭档。厚壁吹塑工艺赋予它出色的抗冲击能力，无惧旅途颠簸。</p>
-      <div class="tag-row">
-        <span class="tag" data-i18n="featured.tag1">明星单品</span>
-        <span class="tag" data-i18n="featured.tag2">限时优惠</span>
-        <span class="tag" data-i18n="featured.tag3">现货速发</span>
+    <!-- 1. Kayak - outdoor -->
+    <div class="product-card" data-cat="outdoor">
+      <div class="img-wrap">
+        <span class="badge badge-best" data-i18n="p1.badge">热卖</span>
+        <img src="assets/images/吹塑皮划艇.webp" alt="吹塑皮划艇" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p1.title">吹塑皮划艇</h3>
+        <p class="card-specs" data-i18n="p1.specs">双层吹塑一体成型 · 150kg承重 · 仅22kg</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
       </div>
     </div>
-    <div class="banner-img"><img src="assets/images/蓝色保温箱使用场景.webp" alt="保温箱使用场景" loading="lazy" width="600" height="320"></div>
-  </div>
-</section>
 
-<!-- Product 4: Slide -->
-<section class="section reveal" id="kids">
-  <div class="product-row reverse">
-    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑儿童滑梯.webp" alt="吹塑儿童滑梯" loading="lazy" width="600" height="400"></div></div>
-    <div class="info">
-      <span class="section-label" data-i18n="slide.label">儿童户外</span>
-      <h3 data-i18n="slide.title">吹塑儿童滑梯</h3>
-      <p class="section-desc" data-i18n="slide.desc">色彩鲜艳、圆润无棱角，每一处细节都为孩子安全考虑。吹塑成型确保滑道光滑顺畅，加宽踏板和稳固底座让攀爬更安心。模块化设计可根据需求自由组合。</p>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="spec-label" data-i18n="slide.spec1.label">材质</div><div class="spec-value" data-i18n="slide.spec1.value">食品级 HDPE</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="slide.spec2.label">工艺</div><div class="spec-value" data-i18n="slide.spec2.value">一体吹塑成型</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="slide.spec3.label">适用年龄</div><div class="spec-value" data-i18n="slide.spec3.value">2-8 岁</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="slide.spec4.label">安全标准</div><div class="spec-value" data-i18n="slide.spec4.value">GB/CE 认证</div></div>
+    <!-- 2. Cooler Box - outdoor -->
+    <div class="product-card" data-cat="outdoor">
+      <div class="img-wrap">
+        <span class="badge badge-best" data-i18n="p2.badge">热卖</span>
+        <img src="assets/images/蓝色保温箱.webp" alt="蓝色保温箱" loading="lazy" width="500" height="500">
       </div>
-      <div class="tag-row">
-        <span class="tag" data-i18n="slide.tag1">圆角安全</span>
-        <span class="tag" data-i18n="slide.tag2">防静电</span>
-        <span class="tag" data-i18n="slide.tag3">模块组合</span>
-        <span class="tag" data-i18n="slide.tag4">抗UV不褪色</span>
+      <div class="card-body">
+        <h3 data-i18n="p2.title">蓝色保温箱</h3>
+        <p class="card-specs" data-i18n="p2.specs">72h保温 · 45L容量 · 可坐设计</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Product 5: Playhouse -->
-<section class="section section-light reveal">
-  <div class="product-row">
-    <div class="visual"><div class="img-wrap"><img src="assets/images/吹塑儿童游戏屋.webp" alt="吹塑儿童游戏屋" loading="lazy" width="600" height="400"></div></div>
-    <div class="info">
-      <span class="section-label" data-i18n="playhouse.label">儿童户外</span>
-      <h3 data-i18n="playhouse.title">吹塑儿童游戏屋</h3>
-      <p class="section-desc" data-i18n="playhouse.desc">打造属于孩子的小小世界。吹塑面板拼装结构，安装简便且稳固耐用。仿真门窗设计激发想象力，通风透光的内舱空间让孩子在安全环境中尽情玩乐。</p>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="spec-label" data-i18n="playhouse.spec1.label">材质</div><div class="spec-value" data-i18n="playhouse.spec1.value">HDPE 吹塑面板</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="playhouse.spec2.label">结构</div><div class="spec-value" data-i18n="playhouse.spec2.value">拼装式模块</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="playhouse.spec3.label">适用年龄</div><div class="spec-value" data-i18n="playhouse.spec3.value">2-6 岁</div></div>
-        <div class="spec-item"><div class="spec-label" data-i18n="playhouse.spec4.label">安全标准</div><div class="spec-value" data-i18n="playhouse.spec4.value">GB/CE/ASTM</div></div>
+    <!-- 3. Table Set - outdoor -->
+    <div class="product-card" data-cat="outdoor">
+      <div class="img-wrap">
+        <img src="assets/images/吹塑户外桌凳.webp" alt="吹塑户外桌凳" loading="lazy" width="500" height="500">
       </div>
-      <div class="tag-row">
-        <span class="tag" data-i18n="playhouse.tag1">仿真门窗</span>
-        <span class="tag" data-i18n="playhouse.tag2">通风设计</span>
-        <span class="tag" data-i18n="playhouse.tag3">易拼装</span>
-        <span class="tag" data-i18n="playhouse.tag4">梦幻配色</span>
+      <div class="card-body">
+        <h3 data-i18n="p3.title">吹塑户外桌凳套装</h3>
+        <p class="card-specs" data-i18n="p3.specs">1桌4凳 · 仿木纹 · 防水防晒免保养</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Grid Catalog -->
-<section class="section section-light reveal">
-  <div style="text-align:center;margin-bottom:48px">
-    <span class="section-label" data-i18n="grid.label">全部产品</span>
-    <h2 class="section-title" style="text-align:center" data-i18n="grid.title">探索完整系列</h2>
-    <p class="section-desc" style="text-align:center;margin:0 auto" data-i18n="grid.subtitle">每一款产品都经过严格的品质检测，从原料到成品，全程可追溯。</p>
-  </div>
-  <div class="grid-catalog">
-    <div class="grid-card">
-      <img src="assets/images/吹塑皮划艇.webp" alt="吹塑皮划艇" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="kayak.title">吹塑皮划艇</h4><p data-i18n="grid.kayak">双层吹塑一体成型，高浮力、抗冲击，湖泊河流探险的理想搭档。</p></div>
+    <!-- 4. Slide - kids -->
+    <div class="product-card" data-cat="kids">
+      <div class="img-wrap">
+        <span class="badge badge-hot" data-i18n="p4.badge">爆款</span>
+        <img src="assets/images/吹塑儿童滑梯.webp" alt="吹塑儿童滑梯" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p4.title">吹塑儿童滑梯</h3>
+        <p class="card-specs" data-i18n="p4.specs">圆角安全 · 模块组合 · 2-8岁适用</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
     </div>
-    <div class="grid-card">
-      <img src="assets/images/蓝色保温箱.webp" alt="蓝色保温箱" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="cooler.title">蓝色保温箱</h4><p data-i18n="grid.cooler">72小时长效保温，坚固可坐，露营野餐必备的冷藏专家。</p></div>
-    </div>
-    <div class="grid-card">
-      <img src="assets/images/吹塑户外桌凳.webp" alt="户外桌凳" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="table.title">吹塑户外桌凳套装</h4><p data-i18n="grid.table">仿木纹吹塑工艺，防水防晒免保养，点亮庭院好时光。</p></div>
-    </div>
-    <div class="grid-card">
-      <img src="assets/images/吹塑儿童滑梯.webp" alt="儿童滑梯" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="slide.title">吹塑儿童滑梯</h4><p data-i18n="grid.slide">圆润安全设计，模块化组合，打造专属庭院游乐场。</p></div>
-    </div>
-    <div class="grid-card">
-      <img src="assets/images/吹塑儿童游戏屋.webp" alt="儿童游戏屋" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="playhouse.title">吹塑儿童游戏屋</h4><p data-i18n="grid.playhouse">拼装式吹塑面板，仿真门窗设计，给孩子一个梦想空间。</p></div>
-    </div>
-    <div class="grid-card">
-      <img src="assets/images/蓝色保温箱使用场景.webp" alt="保温箱户外款" loading="lazy" width="400" height="200">
-      <div class="grid-card-body"><h4 data-i18n="grid.cooler2.title">保温箱（户外款）</h4><p data-i18n="grid.cooler2">大容量、高保温，专为户外深度玩家量身定制。</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- Stats -->
-<section class="stats-section reveal">
-  <div class="stats-row">
-    <div class="stat-item">
-      <div class="stat-number"><span data-count="20">20</span>+</div>
-      <div class="stat-label" data-i18n="stats.years">年行业经验</div>
+    <!-- 5. Playhouse - kids -->
+    <div class="product-card" data-cat="kids">
+      <div class="img-wrap">
+        <span class="badge badge-new" data-i18n="p5.badge">新品</span>
+        <img src="assets/images/吹塑儿童游戏屋.webp" alt="吹塑儿童游戏屋" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p5.title">吹塑儿童游戏屋</h3>
+        <p class="card-specs" data-i18n="p5.specs">仿真门窗 · 易拼装 · 梦幻配色</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
     </div>
-    <div class="stat-item">
-      <div class="stat-number"><span data-count="50">50</span>+</div>
-      <div class="stat-label" data-i18n="stats.products">产品品类</div>
+
+    <!-- 6. Tool Box - industrial -->
+    <div class="product-card" data-cat="industrial">
+      <div class="img-wrap">
+        <img src="assets/images/toolbox.webp" alt="吹塑工具箱" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p6.title">吹塑工具箱</h3>
+        <p class="card-specs" data-i18n="p6.specs">中空吹塑 · 抗冲击 · 工业级防护</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
     </div>
-    <div class="stat-item">
-      <div class="stat-number"><span data-count="300">300</span>+</div>
-      <div class="stat-label" data-i18n="stats.partners">合作伙伴</div>
+
+    <!-- 7. Traffic Cone - industrial -->
+    <div class="product-card" data-cat="industrial">
+      <div class="img-wrap">
+        <img src="assets/images/cone.webp" alt="吹塑路锥" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p7.title">吹塑路锥</h3>
+        <p class="card-specs" data-i18n="p7.specs">高可见度 · 抗UV · 交通安全设施</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
     </div>
-    <div class="stat-item">
-      <div class="stat-number" data-i18n="stats.cert">ISO 认证</div>
-      <div class="stat-label" data-i18n="stats.cert">质量认证</div>
+
+    <!-- 8. Chemical Drum - industrial -->
+    <div class="product-card" data-cat="industrial">
+      <div class="img-wrap">
+        <img src="assets/images/drum.webp" alt="吹塑化工桶" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p8.title">吹塑化工桶</h3>
+        <p class="card-specs" data-i18n="p8.specs">25L-200L · 耐腐蚀 · 食品级可选</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
     </div>
+
+    <!-- 9. Fuel Tank - industrial -->
+    <div class="product-card" data-cat="industrial">
+      <div class="img-wrap">
+        <img src="assets/images/fueltank.webp" alt="吹塑汽车油箱" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p9.title">吹塑汽车油箱</h3>
+        <p class="card-specs" data-i18n="p9.specs">高密度HDPE · 防渗漏 · 多层共挤</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
+    </div>
+
+    <!-- 10. Water Tank - home -->
+    <div class="product-card" data-cat="home">
+      <div class="img-wrap">
+        <img src="assets/images/watertank.webp" alt="吹塑水箱" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p10.title">吹塑储水箱</h3>
+        <p class="card-specs" data-i18n="p10.specs">家用/农用 · 耐候性强 · 多种容量</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
+    </div>
+
+    <!-- 11. Pallet - industrial -->
+    <div class="product-card" data-cat="industrial">
+      <div class="img-wrap">
+        <img src="assets/images/pallet.webp" alt="吹塑托盘" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p11.title">吹塑托盘</h3>
+        <p class="card-specs" data-i18n="p11.specs">重型物流 · 可堆叠 · 耐酸碱腐蚀</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
+    </div>
+
+    <!-- 12. Humidifier Tank - home -->
+    <div class="product-card" data-cat="home">
+      <div class="img-wrap">
+        <img src="assets/images/humidifier.webp" alt="吹塑加湿器水壶" loading="lazy" width="500" height="500">
+      </div>
+      <div class="card-body">
+        <h3 data-i18n="p12.title">吹塑加湿器水壶</h3>
+        <p class="card-specs" data-i18n="p12.specs">家电配件 · 异型吹塑 · 精准配合</p>
+        <button class="card-btn" onclick="openQuote()" data-i18n="common.inquire">立即询价</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section reveal">
-  <span class="section-label" data-i18n="cta.label">联系我们</span>
-  <h2 data-i18n="cta.title">为您的需求定制方案</h2>
-  <p class="subtitle" data-i18n="cta.subtitle">无论是批量采购还是 OEM 定制，我们的团队都将为您提供专业的一站式吹塑制品解决方案。</p>
+  <span class="section-label" data-i18n="cta.label">批量采购</span>
+  <h2 data-i18n="cta.title">寻找专属定制方案？</h2>
+  <p class="subtitle" data-i18n="cta.subtitle">支持 OEM/ODM 定制，提供全流程吹塑制品解决方案</p>
   <button class="btn-primary" onclick="openQuote()" data-i18n="cta.btn">立即咨询 →</button>
 </section>
 
@@ -296,90 +265,75 @@
 
 <script src="assets/js/main.js"></script>
 <script>
+// Category filter
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+});
+
 mergeTranslations({
   zh: {
-    'page.title':'永益吹塑 — 高端吹塑制品',
-    'hero.badge':'全新发布','hero.line1':'匠心','hero.line2':'吹塑 · 重塑品质生活','hero.subtitle':'从户外装备到儿童乐园，以先进的吹塑工艺打造每一件产品。轻量化、高强度、环保耐用。','hero.cta':'探索产品','hero.contact':'联系我们',
-    'kayak.label':'户外运动','kayak.title':'吹塑皮划艇','kayak.desc':'采用双层吹塑一体成型技术，船体兼具轻盈与坚固。流线型船身设计大幅降低水阻，让每一次划行都畅快淋漓。抗UV材料确保长期日晒不褪色、不老化，是湖泊与河流探险的理想之选。',
-    'kayak.spec1.label':'材质','kayak.spec1.value':'高密度聚乙烯 HDPE','kayak.spec2.label':'工艺','kayak.spec2.value':'双层吹塑一体成型','kayak.spec3.label':'承重','kayak.spec3.value':'150 kg','kayak.spec4.label':'重量','kayak.spec4.value':'仅 22 kg',
-    'kayak.tag1':'抗UV防护','kayak.tag2':'流线低阻','kayak.tag3':'高浮力','kayak.tag4':'防撞耐冲击',
-    'cooler.label':'户外冷藏','cooler.title':'蓝色保温箱','cooler.desc':'厚壁吹塑保温箱体配合高密度隔热层，保温时长可达 72 小时。坚固外壳可承重 200 kg，既是冷藏箱也是户外座椅。大容量设计满足全家露营、野餐、垂钓等场景需求。',
-    'cooler.spec1.label':'材质','cooler.spec1.value':'PP+PU发泡隔热层','cooler.spec2.label':'保温时长','cooler.spec2.value':'最长 72 小时','cooler.spec3.label':'容量','cooler.spec3.value':'45 L','cooler.spec4.label':'承重','cooler.spec4.value':'200 kg（座面）',
-    'cooler.tag1':'72h保温','cooler.tag2':'可坐设计','cooler.tag3':'食品级内胆','cooler.tag4':'防滑底部',
-    'table.label':'户外家具','table.title':'吹塑户外桌凳套装','table.desc':'一桌四凳组合，全部采用吹塑一体成型工艺。仿木纹表面处理兼顾美观与实用，防水防晒无需特殊保养。圆角设计安全贴心，轻量化结构方便移动与收纳，让庭院时光更加惬意。',
-    'table.spec1.label':'材质','table.spec1.value':'HDPE 吹塑','table.spec2.label':'表面','table.spec2.value':'仿木纹纹理','table.spec3.label':'套装','table.spec3.value':'1 桌 + 4 凳','table.spec4.label':'适用','table.spec4.value':'庭院/阳台/露营',
-    'table.tag1':'防水防晒','table.tag2':'仿木纹理','table.tag3':'免保养','table.tag4':'轻量便携',
-    'featured.label':'明星产品','featured.desc':'经典蓝色外观，硬朗线条勾勒出可靠质感。无论是海边派对还是山间露营，它都是保鲜冷藏的得力搭档。厚壁吹塑工艺赋予它出色的抗冲击能力，无惧旅途颠簸。',
-    'featured.tag1':'明星单品','featured.tag2':'限时优惠','featured.tag3':'现货速发',
-    'slide.label':'儿童户外','slide.title':'吹塑儿童滑梯','slide.desc':'色彩鲜艳、圆润无棱角，每一处细节都为孩子安全考虑。吹塑成型确保滑道光滑顺畅，加宽踏板和稳固底座让攀爬更安心。模块化设计可根据需求自由组合。',
-    'slide.spec1.label':'材质','slide.spec1.value':'食品级 HDPE','slide.spec2.label':'工艺','slide.spec2.value':'一体吹塑成型','slide.spec3.label':'适用年龄','slide.spec3.value':'2-8 岁','slide.spec4.label':'安全标准','slide.spec4.value':'GB/CE 认证',
-    'slide.tag1':'圆角安全','slide.tag2':'防静电','slide.tag3':'模块组合','slide.tag4':'抗UV不褪色',
-    'playhouse.label':'儿童户外','playhouse.title':'吹塑儿童游戏屋','playhouse.desc':'打造属于孩子的小小世界。吹塑面板拼装结构，安装简便且稳固耐用。仿真门窗设计激发想象力，通风透光的内舱空间让孩子在安全环境中尽情玩乐。',
-    'playhouse.spec1.label':'材质','playhouse.spec1.value':'HDPE 吹塑面板','playhouse.spec2.label':'结构','playhouse.spec2.value':'拼装式模块','playhouse.spec3.label':'适用年龄','playhouse.spec3.value':'2-6 岁','playhouse.spec4.label':'安全标准','playhouse.spec4.value':'GB/CE/ASTM',
-    'playhouse.tag1':'仿真门窗','playhouse.tag2':'通风设计','playhouse.tag3':'易拼装','playhouse.tag4':'梦幻配色',
-    'grid.label':'全部产品','grid.title':'探索完整系列','grid.subtitle':'每一款产品都经过严格的品质检测，从原料到成品，全程可追溯。',
-    'grid.kayak':'双层吹塑一体成型，高浮力、抗冲击，湖泊河流探险的理想搭档。','grid.cooler':'72小时长效保温，坚固可坐，露营野餐必备的冷藏专家。',
-    'grid.table':'仿木纹吹塑工艺，防水防晒免保养，点亮庭院好时光。','grid.slide':'圆润安全设计，模块化组合，打造专属庭院游乐场。',
-    'grid.playhouse':'拼装式吹塑面板，仿真门窗设计，给孩子一个梦想空间。','grid.cooler2.title':'保温箱（户外款）','grid.cooler2':'大容量、高保温，专为户外深度玩家量身定制。',
-    'stats.years':'年行业经验','stats.products':'产品品类','stats.partners':'合作伙伴','stats.cert':'质量认证',
-    'cta.label':'联系我们','cta.title':'为您的需求定制方案','cta.subtitle':'无论是批量采购还是 OEM 定制，我们的团队都将为您提供专业的一站式吹塑制品解决方案。','cta.btn':'立即咨询 →',
+    'page.title':'永益吹塑 — 产品展示',
+    'hero.badge':'产品目录','hero.title':'高端吹塑制品','hero.subtitle':'从户外装备到工业包装，12大品类满足多元需求',
+    'filter.all':'全部','filter.outdoor':'户外运动','filter.kids':'儿童用品','filter.industrial':'工业包装','filter.home':'家居户外',
+    'common.inquire':'立即询价',
+    'p1.badge':'热卖','p1.title':'吹塑皮划艇','p1.specs':'双层吹塑一体成型 · 150kg承重 · 仅22kg',
+    'p2.badge':'热卖','p2.title':'蓝色保温箱','p2.specs':'72h保温 · 45L容量 · 可坐设计',
+    'p3.title':'吹塑户外桌凳套装','p3.specs':'1桌4凳 · 仿木纹 · 防水防晒免保养',
+    'p4.badge':'爆款','p4.title':'吹塑儿童滑梯','p4.specs':'圆角安全 · 模块组合 · 2-8岁适用',
+    'p5.badge':'新品','p5.title':'吹塑儿童游戏屋','p5.specs':'仿真门窗 · 易拼装 · 梦幻配色',
+    'p6.title':'吹塑工具箱','p6.specs':'中空吹塑 · 抗冲击 · 工业级防护',
+    'p7.title':'吹塑路锥','p7.specs':'高可见度 · 抗UV · 交通安全设施',
+    'p8.title':'吹塑化工桶','p8.specs':'25L-200L · 耐腐蚀 · 食品级可选',
+    'p9.title':'吹塑汽车油箱','p9.specs':'高密度HDPE · 防渗漏 · 多层共挤',
+    'p10.title':'吹塑储水箱','p10.specs':'家用/农用 · 耐候性强 · 多种容量',
+    'p11.title':'吹塑托盘','p11.specs':'重型物流 · 可堆叠 · 耐酸碱腐蚀',
+    'p12.title':'吹塑加湿器水壶','p12.specs':'家电配件 · 异型吹塑 · 精准配合',
+    'cta.label':'批量采购','cta.title':'寻找专属定制方案？','cta.subtitle':'支持 OEM/ODM 定制，提供全流程吹塑制品解决方案','cta.btn':'立即咨询 →',
   },
   en: {
-    'page.title':'Yongyi Blow Molding — Premium Products',
-    'hero.badge':'New Release','hero.line1':'Artisan','hero.line2':'Blow Molding · Redefining Quality Living','hero.subtitle':'From outdoor gear to playgrounds, we craft every product with advanced blow molding technology. Lightweight, high-strength, eco-friendly and durable.','hero.cta':'Explore Products','hero.contact':'Contact Us',
-    'kayak.label':'Outdoor Sports','kayak.title':'Blow Molded Kayak','kayak.desc':'Built with double-layer blow molding technology, the hull is both lightweight and rugged. Streamlined design reduces water resistance. UV-resistant materials ensure no fading under prolonged sunlight.',
-    'kayak.spec1.label':'Material','kayak.spec1.value':'High-Density Polyethylene HDPE','kayak.spec2.label':'Process','kayak.spec2.value':'Double-Layer Blow Molding','kayak.spec3.label':'Load Capacity','kayak.spec3.value':'150 kg','kayak.spec4.label':'Weight','kayak.spec4.value':'Only 22 kg',
-    'kayak.tag1':'UV Protection','kayak.tag2':'Low Drag','kayak.tag3':'High Buoyancy','kayak.tag4':'Impact Resistant',
-    'cooler.label':'Outdoor Cooling','cooler.title':'Blue Cooler Box','cooler.desc':'Thick-walled blow-molded insulation body provides up to 72 hours of cooling. Rugged exterior supports up to 200 kg — both a cooler and an outdoor seat.',
-    'cooler.spec1.label':'Material','cooler.spec1.value':'PP + PU Foam Insulation','cooler.spec2.label':'Cooling Duration','cooler.spec2.value':'Up to 72 Hours','cooler.spec3.label':'Capacity','cooler.spec3.value':'45 L','cooler.spec4.label':'Load Capacity','cooler.spec4.value':'200 kg (Seat)',
-    'cooler.tag1':'72h Cooling','cooler.tag2':'Sittable','cooler.tag3':'Food-Grade','cooler.tag4':'Non-Slip',
-    'table.label':'Outdoor Furniture','table.title':'Outdoor Table & Stool Set','table.desc':'Complete set with wood-grain finish combines aesthetics with practicality. Waterproof and sunproof with zero maintenance required. Rounded corners for safety.',
-    'table.spec1.label':'Material','table.spec1.value':'HDPE Blow Molded','table.spec2.label':'Surface','table.spec2.value':'Wood-Grain Texture','table.spec3.label':'Set Includes','table.spec3.value':'1 Table + 4 Stools','table.spec4.label':'Ideal For','table.spec4.value':'Garden/Balcony/Camping',
-    'table.tag1':'Waterproof','table.tag2':'Wood Texture','table.tag3':'Zero Maintenance','table.tag4':'Lightweight',
-    'featured.label':'Featured Product','featured.desc':'Classic blue exterior with bold lines that convey reliability. Thick-wall blow molding gives outstanding impact resistance to handle any journey.',
-    'featured.tag1':'Star Product','featured.tag2':'Limited Offer','featured.tag3':'In Stock',
-    'slide.label':'Kids Outdoor','slide.title':'Children\'s Slide','slide.desc':'Bright colors with smooth rounded edges — every detail designed for child safety. Modular design allows flexible configurations.',
-    'slide.spec1.label':'Material','slide.spec1.value':'Food-Grade HDPE','slide.spec2.label':'Process','slide.spec2.value':'One-Piece Blow Molding','slide.spec3.label':'Age Range','slide.spec3.value':'2-8 Years','slide.spec4.label':'Safety','slide.spec4.value':'GB/CE Certified',
-    'slide.tag1':'Rounded Safety','slide.tag2':'Anti-Static','slide.tag3':'Modular','slide.tag4':'UV-Resistant',
-    'playhouse.label':'Kids Outdoor','playhouse.title':'Children\'s Playhouse','playhouse.desc':'Create a little world for children. Modular assembly structure is easy to install and remarkably durable with dreamy colors.',
-    'playhouse.spec1.label':'Material','playhouse.spec1.value':'HDPE Panels','playhouse.spec2.label':'Structure','playhouse.spec2.value':'Modular Assembly','playhouse.spec3.label':'Age Range','playhouse.spec3.value':'2-6 Years','playhouse.spec4.label':'Safety','playhouse.spec4.value':'GB/CE/ASTM',
-    'playhouse.tag1':'Realistic Details','playhouse.tag2':'Ventilated','playhouse.tag3':'Easy Assembly','playhouse.tag4':'Dreamy Colors',
-    'grid.label':'All Products','grid.title':'Explore the Full Collection','grid.subtitle':'Every product undergoes rigorous quality testing, fully traceable from raw materials to finished goods.',
-    'grid.kayak':'Double-layer blow molding, high buoyancy, impact resistant — ideal for lake and river adventures.',
-    'grid.cooler':'72-hour cooling performance, rugged and sittable — the essential cooling expert.',
-    'grid.table':'Wood-grain blow molding, waterproof and maintenance-free — brighten up your garden moments.',
-    'grid.slide':'Rounded safety design, modular — build your own backyard playground.',
-    'grid.playhouse':'Snap-together panels, realistic details — give children a dream space.',
-    'grid.cooler2.title':'Cooler Box (Outdoor Edition)','grid.cooler2':'Large capacity, high-performance cooling, tailored for outdoor enthusiasts.',
-    'stats.years':'Years of Experience','stats.products':'Product Categories','stats.partners':'Global Partners','stats.cert':'Quality Certified',
-    'cta.label':'Contact Us','cta.title':'Custom Solutions for Your Needs','cta.subtitle':'Whether bulk purchasing or OEM customization, our team provides professional one-stop blow molding solutions.','cta.btn':'Inquire Now →',
+    'page.title':'Yongyi — Products',
+    'hero.badge':'PRODUCT CATALOG','hero.title':'Premium Blow Molded Products','hero.subtitle':'From outdoor gear to industrial packaging, 12 categories for diverse needs',
+    'filter.all':'All','filter.outdoor':'Outdoor','filter.kids':'Kids','filter.industrial':'Industrial','filter.home':'Home & Garden',
+    'common.inquire':'Inquire Now',
+    'p1.badge':'Best Seller','p1.title':'Blow Molded Kayak','p1.specs':'Double-layer molding · 150kg load · Only 22kg',
+    'p2.badge':'Best Seller','p2.title':'Blue Cooler Box','p2.specs':'72h cooling · 45L capacity · Sittable design',
+    'p3.title':'Outdoor Table & Stool Set','p3.specs':'1 Table + 4 Stools · Wood grain · Waterproof',
+    'p4.badge':'Hot','p4.title':'Children\'s Slide','p4.specs':'Rounded safety · Modular · Ages 2-8',
+    'p5.badge':'New','p5.title':'Children\'s Playhouse','p5.specs':'Realistic details · Easy assembly · Dreamy colors',
+    'p6.title':'Blow Molded Tool Box','p6.specs':'Hollow molding · Impact resistant · Industrial grade',
+    'p7.title':'Blow Molded Traffic Cone','p7.specs':'High visibility · UV resistant · Road safety',
+    'p8.title':'Blow Molded Chemical Drum','p8.specs':'25L-200L · Chemical resistant · Food-grade option',
+    'p9.title':'Blow Molded Fuel Tank','p9.specs':'HDPE · Leak-proof · Multi-layer co-extrusion',
+    'p10.title':'Blow Molded Water Tank','p10.specs':'Home/Agricultural · Weather resistant · Multiple sizes',
+    'p11.title':'Blow Molded Pallet','p11.specs':'Heavy-duty logistics · Stackable · Acid resistant',
+    'p12.title':'Blow Molded Humidifier Tank','p12.specs':'Appliance parts · Custom shape · Precise fit',
+    'cta.label':'Bulk Purchase','cta.title':'Looking for Custom Solutions?','cta.subtitle':'OEM/ODM customization available, full-process blow molding solutions','cta.btn':'Inquire Now →',
   },
   es: {
-    'page.title':'Yongyi Blow Molding — Productos Premium',
-    'hero.badge':'Nuevo Lanzamiento','hero.line1':'Artesanal','hero.line2':'Moldeo por Soplado · Redefiniendo Calidad','hero.subtitle':'Desde equipos para exteriores hasta parques infantiles, fabricamos cada producto con tecnología avanzada.','hero.cta':'Explorar Productos','hero.contact':'Contacto',
-    'kayak.label':'Deportes','kayak.title':'Kayak de Soplado','kayak.desc':'Construido con tecnología de doble capa, el casco es ligero y resistente. Diseño aerodinámico que reduce la resistencia al agua.',
-    'kayak.spec1.label':'Material','kayak.spec1.value':'HDPE','kayak.spec2.label':'Proceso','kayak.spec2.value':'Doble Capa','kayak.spec3.label':'Carga','kayak.spec3.value':'150 kg','kayak.spec4.label':'Peso','kayak.spec4.value':'Solo 22 kg',
-    'kayak.tag1':'Protección UV','kayak.tag2':'Baja Resistencia','kayak.tag3':'Alta Flotabilidad','kayak.tag4':'Resistente',
-    'cooler.label':'Refrigeración','cooler.title':'Nevera Azul','cooler.desc':'Cuerpo de paredes gruesas con capa aislante de alta densidad, hasta 72 horas de refrigeración. Soporta hasta 200 kg.',
-    'cooler.spec1.label':'Material','cooler.spec1.value':'PP + Espuma PU','cooler.spec2.label':'Enfriamiento','cooler.spec2.value':'Hasta 72 Horas','cooler.spec3.label':'Capacidad','cooler.spec3.value':'45 L','cooler.spec4.label':'Carga','cooler.spec4.value':'200 kg (Asiento)',
-    'cooler.tag1':'72h Frío','cooler.tag2':'Sentable','cooler.tag3':'Grado Alimenticio','cooler.tag4':'Antideslizante',
-    'table.label':'Muebles','table.title':'Juego de Mesa y Taburetes','table.desc':'Juego completo con acabado de veta de madera. Impermeable, resistente al sol y sin mantenimiento.',
-    'table.spec1.label':'Material','table.spec1.value':'HDPE','table.spec2.label':'Superficie','table.spec2.value':'Textura Madera','table.spec3.label':'Incluye','table.spec3.value':'1 Mesa + 4 Taburetes','table.spec4.label':'Ideal Para','table.spec4.value':'Jardín/Balcón/Camping',
-    'table.tag1':'Impermeable','table.tag2':'Textura Madera','table.tag3':'Sin Mantenimiento','table.tag4':'Ligero',
-    'featured.label':'Destacado','featured.desc':'Exterior azul clásico con líneas audaces. Moldeo por soplado de pared gruesa para resistencia excepcional.',
-    'featured.tag1':'Estrella','featured.tag2':'Oferta Limitada','featured.tag3':'En Stock',
-    'slide.label':'Infantil','slide.title':'Tobogán Infantil','slide.desc':'Colores vibrantes con bordes suaves. Diseño modular para configuraciones flexibles.',
-    'slide.spec1.label':'Material','slide.spec1.value':'HDPE Alimenticio','slide.spec2.label':'Proceso','slide.spec2.value':'Una Pieza','slide.spec3.label':'Edad','slide.spec3.value':'2-8 Años','slide.spec4.label':'Seguridad','slide.spec4.value':'GB/CE',
-    'slide.tag1':'Seguro','slide.tag2':'Anti-Estático','slide.tag3':'Modular','slide.tag4':'Resistente UV',
-    'playhouse.label':'Infantil','playhouse.title':'Casita Infantil','playhouse.desc':'Crea un pequeño mundo. Estructura modular fácil de instalar con colores de ensueño.',
-    'playhouse.spec1.label':'Material','playhouse.spec1.value':'Paneles HDPE','playhouse.spec2.label':'Estructura','playhouse.spec2.value':'Ensamblaje Modular','playhouse.spec3.label':'Edad','playhouse.spec3.value':'2-6 Años','playhouse.spec4.label':'Seguridad','playhouse.spec4.value':'GB/CE/ASTM',
-    'playhouse.tag1':'Detalles Realistas','playhouse.tag2':'Ventilado','playhouse.tag3':'Fácil Montaje','playhouse.tag4':'Colores de Ensueño',
-    'grid.label':'Productos','grid.title':'Colección Completa','grid.subtitle':'Cada producto bajo rigurosas pruebas de calidad.',
-    'grid.kayak':'Doble capa, alta flotabilidad, resistente a impactos.','grid.cooler':'72 horas de refrigeración, resistente y sentable.',
-    'grid.table':'Veta de madera, impermeable y sin mantenimiento.','grid.slide':'Diseño seguro, combinaciones modulares.',
-    'grid.playhouse':'Paneles ensamblables, detalles realistas.','grid.cooler2.title':'Nevera (Edición Exterior)','grid.cooler2':'Gran capacidad, alto rendimiento.',
-    'stats.years':'Años de Experiencia','stats.products':'Categorías','stats.partners':'Socios','stats.cert':'Certificado',
-    'cta.label':'Contacto','cta.title':'Soluciones Personalizadas','cta.subtitle':'Soluciones profesionales integrales de moldeo por soplado.','cta.btn':'Consultar →',
+    'page.title':'Yongyi — Productos',
+    'hero.badge':'CATÁLOGO','hero.title':'Productos Premium de Soplado','hero.subtitle':'Desde equipamiento outdoor hasta envases industriales, 12 categorías',
+    'filter.all':'Todo','filter.outdoor':'Aire Libre','filter.kids':'Infantil','filter.industrial':'Industrial','filter.home':'Hogar & Jardín',
+    'common.inquire':'Consultar',
+    'p1.badge':'Más Vendido','p1.title':'Kayak de Soplado','p1.specs':'Doble capa · 150kg carga · Solo 22kg',
+    'p2.badge':'Más Vendido','p2.title':'Nevera Azul','p2.specs':'72h frío · 45L · Diseño sentable',
+    'p3.title':'Juego Mesa y Taburetes','p3.specs':'1 Mesa + 4 Taburetes · Vetas madera · Impermeable',
+    'p4.badge':'Popular','p4.title':'Tobogán Infantil','p4.specs':'Seguro · Modular · Edad 2-8',
+    'p5.badge':'Nuevo','p5.title':'Casita Infantil','p5.specs':'Detalles realistas · Fácil montaje · Colores vivos',
+    'p6.title':'Caja de Herramientas','p6.specs':'Moldeo hueco · Anti-impacto · Grado industrial',
+    'p7.title':'Cono de Tráfico','p7.specs':'Alta visibilidad · Anti-UV · Seguridad vial',
+    'p8.title':'Bidón Químico','p8.specs':'25L-200L · Anticorrosivo · Grado alimenticio',
+    'p9.title':'Tanque Combustible','p9.specs':'HDPE · Antifugas · Co-extrusión multicapa',
+    'p10.title':'Tanque de Agua','p10.specs':'Hogar/Agricultura · Resistente · Múltiples tamaños',
+    'p11.title':'Palet de Soplado','p11.specs':'Logística pesada · Apilable · Antiácido',
+    'p12.title':'Tanque Humidificador','p12.specs':'Repuestos · Forma personalizada · Ajuste preciso',
+    'cta.label':'Compra al por Mayor','cta.title':'¿Busca Soluciones Personalizadas?','cta.subtitle':'OEM/ODM disponible, soluciones integrales de soplado','cta.btn':'Consultar →',
   }
 });
 setLang(getLang());
