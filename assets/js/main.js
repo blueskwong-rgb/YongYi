@@ -249,10 +249,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // Bind language switcher buttons — runs independently of DOMContentLoaded
 (function bindLangButtons(){
   var buttons = document.querySelectorAll('.lang-switcher button');
+  // Visual indicator that binding ran
+  if (buttons.length > 0) {
+    buttons[0].style.border = '3px solid lime';
+    buttons[0].title = 'Lang bind OK! ' + buttons.length + ' buttons found';
+  }
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function() {
       var lang = this.getAttribute('data-lang');
-      if (lang && typeof setLang === 'function') setLang(lang);
+      if (lang && typeof setLang === 'function') {
+        this.style.background = (lang==='en'?'#0071e3':lang==='es'?'#ff6b35':'#e4002b');
+        this.style.color = '#fff';
+        setLang(lang);
+      }
       return false;
     };
   }
