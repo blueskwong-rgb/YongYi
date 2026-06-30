@@ -37,7 +37,14 @@ function mergeTranslations(pageTrans) {
 
 /* --- Language --- */
 function getLang() {
-  return localStorage.getItem('blowmold-lang') || 'en';
+  // URL query param takes priority (for hreflang support)
+  const urlParams = new URLSearchParams(window.location.search);
+  const hl = urlParams.get('hl');
+  if (hl && ['zh','en','es'].includes(hl)) {
+    localStorage.setItem('blowmold-lang', hl);
+    return hl;
+  }
+  return localStorage.getItem('blowmold-lang') || 'zh';
 }
 
 function setLang(lang) {

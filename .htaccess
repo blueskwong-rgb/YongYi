@@ -1,26 +1,57 @@
-# Disable all LiteSpeed optimization features that can break inline scripts
+# ============================================================
+# Yongyi Blow Molding — .htaccess
+# ============================================================
+
+# --- URL Rewriting: remove .html extension ---
+RewriteEngine On
+
+# Remove trailing slash (except for root)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Rewrite clean URLs to .html files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [L]
+
+# --- Force HTTPS (uncomment after SSL is installed) ---
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# --- Gzip compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Caching ---
+# HTML: short cache (updates reflect quickly, version params bypass when needed)
+<FilesMatch "\.(html|htm)$">
+  Header set Cache-Control "public, max-age=3600, must-revalidate"
+</FilesMatch>
+
+# Static assets: long cache (version query strings handle invalidation)
+<FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|ico)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# --- MIME types ---
+<IfModule mime_module>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType application/json .json
+</IfModule>
+
+# --- UTF-8 ---
+AddDefaultCharset UTF-8
+
+# --- Disable LiteSpeed optimization (can break inline scripts) ---
 <IfModule LiteSpeed>
   CacheDisable public /
   CacheDisable private /
 </IfModule>
 
-# Disable mod_pagespeed if present
+# --- Disable mod_pagespeed ---
 <IfModule pagespeed_module>
   ModPagespeed off
 </IfModule>
-
-# Fix MIME types
-<IfModule mime_module>
-  AddType application/javascript .js
-  AddType text/css .css
-</IfModule>
-
-# Disable caching for HTML (so updates show immediately)
-<FilesMatch "\.(html|htm)$">
-  Header set Cache-Control "no-cache, no-store, must-revalidate"
-  Header set Pragma "no-cache"
-  Header set Expires 0
-</FilesMatch>
-
-# UTF-8 encoding
-AddDefaultCharset UTF-8

@@ -682,3 +682,94 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
 @media(prefers-reduced-motion:reduce){
   .hero-glow::before,.hero-glow::after{display:none}
 }
+
+/* --- Breadcrumb Navigation --- */
+.breadcrumb-nav {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 16px var(--content-px) 0;
+}
+.breadcrumb-nav ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--c-text-secondary);
+}
+.breadcrumb-nav a {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+.breadcrumb-nav a:hover { text-decoration: underline; }
+.breadcrumb-nav [aria-current="page"] { color: var(--c-text); font-weight: 500; }
+.breadcrumb-nav li:not(:last-child)::after {
+  content: '›';
+  margin-left: 8px;
+  color: var(--c-text-tertiary);
+}
+
+/* --- FAQ --- */
+.faq-item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--c-border-light);
+}
+.faq-item:first-child { padding-top: 0; }
+.faq-q {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--c-text);
+  margin-bottom: 8px;
+}
+.faq-a {
+  font-size: 16px;
+  color: var(--c-text-tertiary);
+  line-height: 1.7;
+}
+
+/* --- Product Detail --- */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.product-detail h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.product-detail h3 {
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.product-detail p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--c-text-tertiary);
+  margin-bottom: 12px;
+}
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.spec-table th, .spec-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--c-border-light);
+  font-size: 15px;
+}
+.spec-table th {
+  color: var(--c-text-secondary);
+  font-weight: 500;
+  width: 120px;
+  white-space: nowrap;
+}
+.spec-table td { color: var(--c-text); }
+
+/* --- Contact Page --- */
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr !important; }
+  .product-detail { grid-template-columns: 1fr !important; }
+}
