@@ -244,4 +244,13 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
     carousel.addEventListener('mouseleave', function(){ timer = setInterval(window.carouselNext, 5000); });
   }
+
+  // Bind language switcher buttons (all pages)
+  document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+    btn.onclick = function() {
+      var lang = this.getAttribute('data-lang');
+      if (lang && typeof setLang === 'function') setLang(lang);
+      return false;
+    };
+  });
 });
