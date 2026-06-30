@@ -30,6 +30,7 @@ const sharedTranslations = {
 
 // Merge page-specific translations
 let translations = {};
+window._translations = translations; // expose for debugging
 
 function mergeTranslations(pageTrans) {
   translations = { zh:{}, en:{}, es:{} };
@@ -252,7 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function() {
       var lang = this.getAttribute('data-lang');
-      if (lang && typeof setLang === 'function') setLang(lang);
+      if (lang && typeof setLang === 'function') {
+        var d = translations[lang] || {};
+        var firstKey = Object.keys(d)[0] || 'NONE';
+        alert('Lang: '+lang+' | Keys: '+Object.keys(d).length+' | First: '+firstKey+'='+(d[firstKey]||'?'));
+        setLang(lang);
+      }
       return false;
     };
   }
