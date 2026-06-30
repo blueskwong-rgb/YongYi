@@ -249,10 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Bind language switcher buttons — runs independently of DOMContentLoaded
 (function bindLangButtons(){
   var buttons = document.querySelectorAll('.lang-switcher button');
-  // Visual indicator that binding ran
   if (buttons.length > 0) {
     buttons[0].style.border = '3px solid lime';
-    buttons[0].title = 'Lang bind OK! ' + buttons.length + ' buttons found';
   }
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function() {
@@ -260,6 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lang && typeof setLang === 'function') {
         this.style.background = (lang==='en'?'#0071e3':lang==='es'?'#ff6b35':'#e4002b');
         this.style.color = '#fff';
+        // Diagnostic: check translations
+        var t = (typeof translations !== 'undefined') ? translations : {};
+        var d = t[lang] || {};
+        var keys = Object.keys(d).length;
+        var first = Object.keys(d).slice(0,3).map(function(k){return k+'='+d[k];}).join(' | ');
+        this.title = 'lang='+lang+' dictKeys='+keys+' ['+first+']';
         setLang(lang);
       }
       return false;
