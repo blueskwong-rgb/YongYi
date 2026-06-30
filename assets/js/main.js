@@ -258,12 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lang && typeof setLang === 'function') {
         this.style.background = (lang==='en'?'#0071e3':lang==='es'?'#ff6b35':'#e4002b');
         this.style.color = '#fff';
-        // Diagnostic: check translations
         var t = (typeof translations !== 'undefined') ? translations : {};
         var d = t[lang] || {};
         var keys = Object.keys(d).length;
-        var first = Object.keys(d).slice(0,3).map(function(k){return k+'='+d[k];}).join(' | ');
-        this.title = 'lang='+lang+' dictKeys='+keys+' ['+first+']';
+        alert('lang='+lang+' | dict keys='+keys+' | i18n elems='+document.querySelectorAll('[data-i18n]').length);
         setLang(lang);
       }
       return false;
