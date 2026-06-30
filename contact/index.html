@@ -14,51 +14,51 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"联系我们 — 永益吹塑","description":"通过此页面联系永益吹塑获取报价和咨询","url":"https://yy-hz.com/contact/"}</script>
 </head>
 <body>
-<nav class="nav" id="nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img"></a><div class="nav-right"><ul class="nav-links"><li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li><li><a href="index.html" data-i18n="nav.products">产品展示</a></li><li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li><li><a href="../team.html" data-i18n="nav.team">领导团队</a></li></ul><button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button><div class="lang-switcher"><button onclick="setLang('zh')" data-lang="zh">中文</button><button onclick="setLang('en')" data-lang="en" class="active">EN</button><button onclick="setLang('es')" data-lang="es">ES</button></div></div><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu-overlay" id="mobileMenu"><div class="mobile-menu-panel"><ul class="nav-links"><li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li><li><a href="index.html" data-i18n="nav.products">产品展示</a></li><li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li><li><a href="../team.html" data-i18n="nav.team">领导团队</a></li></ul><button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button><div class="lang-switcher"><button onclick="setLang('zh')" data-lang="zh">中文</button><button onclick="setLang('en')" data-lang="en" class="active">EN</button><button onclick="setLang('es')" data-lang="es">ES</button></div></div></div>
-<nav class="breadcrumb-nav" aria-label="breadcrumb"><ol><li><a href="../index.html">首页</a></li><li aria-current="page">联系我们</li></ol></nav>
+<nav class="nav" id="nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img"></a><div class="nav-right"><ul class="nav-links"><li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li><li><a href="../product.html" data-i18n="nav.products">产品展示</a></li><li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li><li><a href="../team.html" data-i18n="nav.team">领导团队</a></li></ul><button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button><div class="lang-switcher"><button onclick="setLang('zh')" data-lang="zh">中文</button><button onclick="setLang('en')" data-lang="en" class="active">EN</button><button onclick="setLang('es')" data-lang="es">ES</button></div></div><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu-overlay" id="mobileMenu"><div class="mobile-menu-panel"><ul class="nav-links"><li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li><li><a href="../product.html" data-i18n="nav.products">产品展示</a></li><li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li><li><a href="../team.html" data-i18n="nav.team">领导团队</a></li></ul><button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button><div class="lang-switcher"><button onclick="setLang('zh')" data-lang="zh">中文</button><button onclick="setLang('en')" data-lang="en" class="active">EN</button><button onclick="setLang('es')" data-lang="es">ES</button></div></div></div>
+<nav class="breadcrumb-nav" aria-label="breadcrumb"><ol><li><a href="../index.html" data-i18n="breadcrumb.home">首页</a></li><li aria-current="page" data-i18n="breadcrumb.contact">联系我们</li></ol></nav>
 
-<section class="hero hero-glow reveal"><div class="hero-inner"><div class="hero-badge">CONTACT</div><h1>联系我们</h1><p class="subtitle">获取免费报价，我们将在24小时内回复您的咨询</p></div></section>
+<section class="hero hero-glow reveal"><div class="hero-inner"><div class="hero-badge" data-i18n="hero.badge">CONTACT</div><h1 data-i18n="hero.title">联系我们</h1><p class="subtitle" data-i18n="hero.subtitle">获取免费报价，我们将在24小时内回复您的咨询</p></div></section>
 
 <section class="section reveal"><div class="contact-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:0 auto">
   <div class="contact-form-wrapper">
-    <h2 style="margin-bottom:24px">发送询价</h2>
+    <h2 style="margin-bottom:24px" data-i18n="contact.formTitle">发送询价</h2>
     <form id="contactForm" style="display:flex;flex-direction:column;gap:20px">
-      <div class="form-group"><label>您的姓名 *</label><input type="text" name="name" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
-      <div class="form-group"><label>邮箱地址 *</label><input type="email" name="email" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
-      <div class="form-group"><label>公司名称（选填）</label><input type="text" name="company" style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
-      <div class="form-group"><label>联系电话（选填）</label><input type="tel" name="phone" style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
-      <div class="form-group"><label>留言 / 需求描述 *</label><textarea name="message" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px;min-height:120px;resize:vertical"></textarea></div>
-      <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:17px">提交询价 →</button>
+      <div class="form-group"><label data-i18n="quote.name">您的姓名 *</label><input type="text" name="name" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
+      <div class="form-group"><label data-i18n="quote.email">邮箱地址 *</label><input type="email" name="email" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
+      <div class="form-group"><label data-i18n="quote.company">公司名称（选填）</label><input type="text" name="company" style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
+      <div class="form-group"><label data-i18n="quote.phone">联系电话（选填）</label><input type="tel" name="phone" style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px"></div>
+      <div class="form-group"><label data-i18n="quote.message">留言 / 需求描述 *</label><textarea name="message" required style="width:100%;padding:12px 16px;border:1px solid var(--c-border);border-radius:12px;font-size:16px;min-height:120px;resize:vertical"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:17px" data-i18n="quote.submit">提交询价 →</button>
     </form>
     <div class="form-success" style="display:none;text-align:center;padding:40px 0">
       <div style="font-size:48px;margin-bottom:16px">✓</div>
-      <h3>感谢您的询价！</h3>
-      <p>您的询价已提交。我们的团队将在24小时内给您发送详细报价。</p>
+      <h3 data-i18n="quote.successTitle">感谢您的询价！</h3>
+      <p data-i18n="quote.successMsg">您的询价已提交。我们的团队将在24小时内给您发送详细报价。</p>
     </div>
   </div>
   <div class="contact-info">
-    <h2 style="margin-bottom:24px">联系信息</h2>
+    <h2 style="margin-bottom:24px" data-i18n="contact.infoTitle">联系信息</h2>
     <div style="background:var(--c-bg-light);padding:32px;border-radius:18px">
-      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">工厂地址</strong><p style="font-size:16px">广东省惠州市博罗县石湾镇</p></div>
-      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">公司名称</strong><p style="font-size:16px">惠州市永益科技有限公司 / 永益吹塑制品厂</p></div>
-      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">建厂年份</strong><p style="font-size:16px">1998 年</p></div>
-      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">工厂规模</strong><p style="font-size:16px">20,000+ ㎡ 现代化厂房 · 10+ 台吹塑设备 · ISO 9001 认证</p></div>
-      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">主营业务</strong><p style="font-size:16px">中空吹塑加工 · 模具设计与制造 · 吹塑设备制造</p></div>
-      <div><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px">覆盖市场</strong><p style="font-size:16px">中国 · 欧美 · 东南亚等 30+ 国家和地区</p></div>
+      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.addrLabel">工厂地址</strong><p style="font-size:16px" data-i18n="map.addr">广东省惠州市博罗县石湾镇</p></div>
+      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.companyLabel">公司名称</strong><p style="font-size:16px" data-i18n="map.name">惠州市永益科技有限公司 / 永益吹塑制品厂</p></div>
+      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.yearLabel">建厂年份</strong><p style="font-size:16px" data-i18n="contact.yearValue">1998 年</p></div>
+      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.scaleLabel">工厂规模</strong><p style="font-size:16px" data-i18n="contact.scaleValue">20,000+ ㎡ 现代化厂房 · 10+ 台吹塑设备 · ISO 9001 认证</p></div>
+      <div style="margin-bottom:24px"><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.bizLabel">主营业务</strong><p style="font-size:16px" data-i18n="contact.bizValue">中空吹塑加工 · 模具设计与制造 · 吹塑设备制造</p></div>
+      <div><strong style="display:block;font-size:14px;color:var(--c-text-secondary);margin-bottom:4px" data-i18n="contact.marketLabel">覆盖市场</strong><p style="font-size:16px" data-i18n="contact.marketValue">中国 · 欧美 · 东南亚等 30+ 国家和地区</p></div>
     </div>
     <div style="margin-top:24px;padding:24px;background:var(--c-bg-light);border-radius:18px">
-      <strong style="display:block;margin-bottom:8px">📍 导航到工厂</strong>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=23.138092,113.896648" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:none">Google 地图导航 →</a>
+      <strong style="display:block;margin-bottom:8px" data-i18n="contact.navLabel">📍 导航到工厂</strong>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=23.138092,113.896648" target="_blank" rel="noopener" style="color:var(--c-accent);text-decoration:none" data-i18n="map.link1">Google 地图导航 →</a>
     </div>
   </div>
 </div></section>
 
-<section class="cta-section reveal"><h2>还有更多问题？</h2><p class="subtitle">查看我们的常见问题页面，或直接联系我们</p><a href="../faq/index.html" class="btn-primary" style="display:inline-block;text-decoration:none">查看FAQ →</a></section>
+<section class="cta-section reveal"><h2 data-i18n="cta.moreTitle">还有更多问题？</h2><p class="subtitle" data-i18n="cta.moreSub">查看我们的常见问题页面，或直接联系我们</p><a href="../faq/index.html" class="btn-primary" style="display:inline-block;text-decoration:none" data-i18n="cta.moreBtn">查看FAQ →</a></section>
 
-<footer class="site-footer"><div class="footer-inner"><span class="footer-copy">© 2026 永益吹塑制品厂. 保留所有权利。</span><ul class="footer-links"><li><a href="index.html">产品展示</a></li><li><a href="../hardware.html">硬件实力</a></li><li><a href="../team.html">领导团队</a></li><li><a href="../faq/index.html">常见问题</a></li></ul></div></footer>
+<footer class="site-footer"><div class="footer-inner"><span class="footer-copy" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</span><ul class="footer-links"><li><a href="../product.html" data-i18n="footer.products">产品展示</a></li><li><a href="../hardware.html" data-i18n="footer.hardware">硬件实力</a></li><li><a href="../team.html" data-i18n="footer.team">领导团队</a></li><li><a href="../faq/index.html" data-i18n="footer.faq">常见问题</a></li></ul></div></footer>
 
-<script src="../assets/js/main.js?v=1782812988"></script>
+<script src="../assets/js/main.js?v=1783015300"></script>
 <script>
 
 // Fix: Use event listeners instead of inline onclick (file:// CSP issue)
@@ -91,6 +91,81 @@ document.addEventListener("DOMContentLoaded", function(){
     'quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.'
   }
 });
+translations.zh['breadcrumb.home']='首页';
+translations.zh['breadcrumb.contact']='联系我们';
+translations.zh['hero.badge']='CONTACT';
+translations.zh['hero.title']='联系我们';
+translations.zh['hero.subtitle']='获取免费报价，我们将在24小时内回复您的咨询';
+translations.zh['contact.formTitle']='发送询价';
+translations.zh['contact.infoTitle']='联系信息';
+translations.zh['contact.addrLabel']='工厂地址';
+translations.zh['contact.companyLabel']='公司名称';
+translations.zh['contact.yearLabel']='建厂年份';
+translations.zh['contact.scaleLabel']='工厂规模';
+translations.zh['contact.bizLabel']='主营业务';
+translations.zh['contact.marketLabel']='覆盖市场';
+translations.zh['contact.yearValue']='1998 年';
+translations.zh['contact.scaleValue']='20,000+ ㎡ 现代化厂房 · 10+ 台吹塑设备 · ISO 9001 认证';
+translations.zh['contact.bizValue']='中空吹塑加工 · 模具设计与制造 · 吹塑设备制造';
+translations.zh['contact.marketValue']='中国 · 欧美 · 东南亚等 30+ 国家和地区';
+translations.zh['contact.navLabel']='📍 导航到工厂';
+translations.zh['map.addr']='广东省惠州市博罗县石湾镇';
+translations.zh['map.name']='惠州市永益科技有限公司 / 永益吹塑制品厂';
+translations.zh['map.link1']='Google 地图导航 →';
+translations.zh['cta.moreTitle']='还有更多问题？';
+translations.zh['cta.moreSub']='查看我们的常见问题页面，或直接联系我们';
+translations.zh['cta.moreBtn']='查看FAQ →';
+translations.zh['footer.faq']='常见问题';
+translations.en['breadcrumb.home']='Home';
+translations.en['breadcrumb.contact']='Contact Us';
+translations.en['hero.badge']='CONTACT';
+translations.en['hero.title']='Contact Us';
+translations.en['hero.subtitle']='Get a free quote — we\'ll reply to your inquiry within 24 hours';
+translations.en['contact.formTitle']='Send an Inquiry';
+translations.en['contact.infoTitle']='Contact Information';
+translations.en['contact.addrLabel']='Factory Address';
+translations.en['contact.companyLabel']='Company Name';
+translations.en['contact.yearLabel']='Established';
+translations.en['contact.scaleLabel']='Factory Scale';
+translations.en['contact.bizLabel']='Main Business';
+translations.en['contact.marketLabel']='Markets Served';
+translations.en['contact.yearValue']='Since 1998';
+translations.en['contact.scaleValue']='20,000+ ㎡ modern facility · 10+ blow molding machines · ISO 9001 certified';
+translations.en['contact.bizValue']='Hollow blow molding · Mold design & manufacturing · Blow molding equipment manufacturing';
+translations.en['contact.marketValue']='China · Europe & Americas · Southeast Asia — 30+ countries & regions';
+translations.en['contact.navLabel']='Navigate to Factory';
+translations.en['map.addr']='Shiwan Town, Boluo County, Huizhou City, Guangdong Province, China';
+translations.en['map.name']='Huizhou Yongyi Technology Co., Ltd. / Yongyi Blow Molding Factory';
+translations.en['map.link1']='Google Maps Navigation →';
+translations.en['cta.moreTitle']='Still Have Questions?';
+translations.en['cta.moreSub']='Check our FAQ page or contact us directly';
+translations.en['cta.moreBtn']='View FAQ →';
+translations.en['footer.faq']='FAQ';
+translations.es['breadcrumb.home']='Inicio';
+translations.es['breadcrumb.contact']='Contacto';
+translations.es['hero.badge']='CONTACTO';
+translations.es['hero.title']='Contacto';
+translations.es['hero.subtitle']='Solicite un presupuesto gratis — le responderemos en 24 horas';
+translations.es['contact.formTitle']='Enviar Consulta';
+translations.es['contact.infoTitle']='Información de Contacto';
+translations.es['contact.addrLabel']='Dirección de la Fábrica';
+translations.es['contact.companyLabel']='Nombre de la Empresa';
+translations.es['contact.yearLabel']='Año de Fundación';
+translations.es['contact.scaleLabel']='Escala de la Fábrica';
+translations.es['contact.bizLabel']='Negocio Principal';
+translations.es['contact.marketLabel']='Mercados Atendidos';
+translations.es['contact.yearValue']='Desde 1998';
+translations.es['contact.scaleValue']='20,000+ ㎡ instalación moderna · 10+ máquinas de moldeo por soplado · Certificado ISO 9001';
+translations.es['contact.bizValue']='Moldeo por soplado hueco · Diseño y fabricación de moldes · Fabricación de equipos de soplado';
+translations.es['contact.marketValue']='China · Europa y América · Sudeste Asiático — 30+ países y regiones';
+translations.es['contact.navLabel']='📍 Navegar a la Fábrica';
+translations.es['map.addr']='Ciudad de Shiwan, Condado de Boluo, Ciudad de Huizhou, Provincia de Guangdong, China';
+translations.es['map.name']='Huizhou Yongyi Technology Co., Ltd. / Yongyi Blow Molding Factory';
+translations.es['map.link1']='Navegación de Google Maps →';
+translations.es['cta.moreTitle']='¿Más Preguntas?';
+translations.es['cta.moreSub']='Consulte nuestra página de preguntas frecuentes o contáctenos directamente';
+translations.es['cta.moreBtn']='Ver FAQ →';
+translations.es['footer.faq']='FAQ';
 setLang(getLang());
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
