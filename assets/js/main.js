@@ -9,18 +9,21 @@ const sharedTranslations = {
     'nav.products':'产品展示','nav.hardware':'硬件实力','nav.facility':'关于我们','nav.team':'领导团队','nav.cta':'获取报价',
     'footer.copyright':'© 2026 永益吹塑制品厂. 保留所有权利。','footer.products':'产品展示','footer.hardware':'硬件实力','footer.facility':'关于我们','footer.team':'领导团队',
     'quote.title':'获取免费报价','quote.subtitle':'填写以下表单，我们将在24小时内回复您。','quote.name':'您的姓名 *','quote.email':'邮箱地址 *','quote.company':'公司名称（选填）','quote.phone':'联系电话（选填）','quote.message':'留言 / 需求描述','quote.submit':'提交询价 →','quote.successTitle':'感谢您的询价！','quote.successMsg':'您的询价已提交。我们的团队将在24小时内给您发送详细报价。',
+    'p.detail.title':'产品详情','p.spec.title':'规格参数','p.related.title':'相关产品推荐','p.cta2.title':'需要定制方案？','p.cta2.subtitle':'支持 OEM/ODM 定制，提供全流程吹塑制品解决方案','p.cta2.btn':'立即咨询 →','p.cta':'获取免费报价 →',
     'common.learnMore':'了解更多','common.close':'关闭',
   },
   en: {
     'nav.products':'Products','nav.hardware':'Hardware','nav.facility':'About Us','nav.team':'Leadership','nav.cta':'Get a Quote',
     'footer.copyright':'© 2026 Yongyi Blow Molding. All rights reserved.','footer.products':'Products','footer.hardware':'Hardware','footer.facility':'About Us','footer.team':'Leadership',
     'quote.title':'Get a Free Quote','quote.subtitle':'Fill out the form below and we\'ll get back to you within 24 hours.','quote.name':'Your Name *','quote.email':'Email Address *','quote.company':'Company (Optional)','quote.phone':'Phone (Optional)','quote.message':'Message / Requirements','quote.submit':'Submit Request →','quote.successTitle':'Thank You!','quote.successMsg':'Your inquiry has been submitted. Our team will get back to you with a detailed quote within 24 hours.',
+    'p.detail.title':'Product Details','p.spec.title':'Specifications','p.related.title':'Related Products','p.cta2.title':'Need a Custom Solution?','p.cta2.subtitle':'OEM/ODM customization available, full-process blow molding solutions','p.cta2.btn':'Inquire Now →','p.cta':'Get a Free Quote →',
     'common.learnMore':'Learn More','common.close':'Close',
   },
   es: {
     'nav.products':'Productos','nav.hardware':'Maquinaria','nav.facility':'Sobre Nosotros','nav.team':'Liderazgo','nav.cta':'Solicitar Presupuesto',
     'footer.copyright':'© 2026 Yongyi Blow Molding. Todos los derechos reservados.','footer.products':'Productos','footer.hardware':'Maquinaria','footer.facility':'Sobre Nosotros','footer.team':'Liderazgo',
     'quote.title':'Solicitar Presupuesto Gratis','quote.subtitle':'Complete el formulario y le responderemos en 24 horas.','quote.name':'Su Nombre *','quote.email':'Correo Electrónico *','quote.company':'Empresa (Opcional)','quote.phone':'Teléfono (Opcional)','quote.message':'Mensaje / Requisitos','quote.submit':'Enviar Consulta →','quote.successTitle':'¡Gracias!','quote.successMsg':'Su consulta ha sido enviada. Nuestro equipo le enviará un presupuesto detallado en 24 horas.',
+    'p.detail.title':'Detalles del Producto','p.spec.title':'Especificaciones','p.related.title':'Productos Relacionados','p.cta2.title':'¿Necesita una Solución Personalizada?','p.cta2.subtitle':'OEM/ODM disponible, soluciones integrales de moldeo por soplado','p.cta2.btn':'Consultar Ahora →','p.cta':'Obtener Presupuesto Gratis →',
     'common.learnMore':'Más Información','common.close':'Cerrar',
   }
 };
