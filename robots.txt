@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /assets/
+Disallow: /contact/
+Disallow: /faq/
 
 Sitemap: https://yy-hz.com/sitemap.xml
