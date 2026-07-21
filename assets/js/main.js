@@ -1,6 +1,6 @@
 /* ============================================================
    Yongyi Blow Molding — Shared JavaScript
-   Apple-Style, minimal, production-grade
+   SEO-optimized: URL-path language detection, clean URL nav
    ============================================================ */
 
 /* --- Shared Translations (nav, footer, modal, common) --- */
@@ -52,58 +52,85 @@ function mergeTranslations(pageTrans) {
   window._translations = translations; // keep debug ref in sync
 }
 
-/* --- Language --- */
+/* --- Language: URL path detection (SEO-optimized) --- */
+const LANG_FROM_PATH = (function(){
+  var m = window.location.pathname.match(/^\/(en|zh|es)\//);
+  return m ? m[1] : null;
+})();
+
 function getLang() {
-  // URL query param takes priority (for hreflang support)
-  const urlParams = new URLSearchParams(window.location.search);
-  const hl = urlParams.get('hl');
-  if (hl && ['zh','en','es'].includes(hl)) {
-    localStorage.setItem('blowmold-lang', hl);
+  // Priority 1: URL path prefix (/en/, /zh/, /es/)
+  if (LANG_FROM_PATH) return LANG_FROM_PATH;
+  // Priority 2: ?hl= query param (legacy redirect support)
+  var urlParams = new URLSearchParams(window.location.search);
+  var hl = urlParams.get('hl');
+  if (hl && ['zh','en','es'].indexOf(hl) !== -1) {
+    // Redirect to path-based URL (SEO canonical)
+    var cleanPath = window.location.pathname;
+    var newPath = '/' + hl + (cleanPath === '/' ? '' : cleanPath);
+    window.location.replace(newPath + window.location.search.replace(/[?&]hl=[^&]*/, '').replace(/^\?$/, ''));
     return hl;
   }
-  return localStorage.getItem('blowmold-lang') || 'zh';
+  // Priority 3: localStorage preference
+  var saved = localStorage.getItem('blowmold-lang');
+  if (saved && ['zh','en','es'].indexOf(saved) !== -1) return saved;
+  // Default: Chinese
+  return 'zh';
 }
 
 function setLang(lang) {
   localStorage.setItem('blowmold-lang', lang);
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'es' ? 'es' : 'en';
-  document.querySelectorAll('.lang-switcher button').forEach(btn => {
+  document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
-  const dict = translations[lang];
+  var dict = translations[lang];
   if (!dict) return;
   // textContent (primary)
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.dataset.i18n;
     if (dict[key]) el.textContent = dict[key];
   });
   // alt attributes on images
-  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
-    const key = el.dataset.i18nAlt;
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+    var key = el.dataset.i18nAlt;
     if (dict[key]) el.setAttribute('alt', dict[key]);
   });
   // aria-label attributes
-  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-    const key = el.dataset.i18nAria;
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
+    var key = el.dataset.i18nAria;
     if (dict[key]) el.setAttribute('aria-label', dict[key]);
   });
   // Update page title
   if (dict['page.title']) document.title = dict['page.title'];
+  // Update meta description (if i18n key exists)
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && dict['page.desc']) metaDesc.setAttribute('content', dict['page.desc']);
+  // Update og:title and og:description
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle && dict['page.title']) ogTitle.setAttribute('content', dict['page.title']);
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc && dict['page.desc']) ogDesc.setAttribute('content', dict['page.desc']);
+  // Update og:locale
+  var ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogLocale) {
+    ogLocale.setAttribute('content', lang === 'zh' ? 'zh_CN' : lang === 'es' ? 'es_ES' : 'en_US');
+  }
 }
 
 /* --- Navigation --- */
-const nav = document.getElementById('nav');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+var nav = document.getElementById('nav');
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
 
 if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
+  hamburger.addEventListener('click', function() {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
 
-  mobileMenu.addEventListener('click', (e) => {
+  mobileMenu.addEventListener('click', function(e) {
     if (e.target === mobileMenu) {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
@@ -111,15 +138,15 @@ if (hamburger && mobileMenu) {
     }
   });
 
-  document.querySelectorAll('.mobile-menu-panel a, .mobile-menu-panel .nav-cta').forEach(link => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll('.mobile-menu-panel a, .mobile-menu-panel .nav-cta').forEach(function(link) {
+    link.addEventListener('click', function() {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
@@ -129,24 +156,24 @@ if (hamburger && mobileMenu) {
 }
 
 /* --- Scroll Reveal --- */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
 }, { threshold: 0.1, rootMargin: '-40px 0px' });
 
-document.querySelectorAll('.reveal, .reveal-img').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal, .reveal-img').forEach(function(el) { revealObserver.observe(el); });
 
 /* --- Counter Animation --- */
 function animateCounter(el, target, duration) {
-  const start = 0;
-  const startTime = performance.now();
+  var start = 0;
+  var startTime = performance.now();
   function update(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    var elapsed = now - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
     el.textContent = Math.floor(start + (target - start) * eased);
     if (progress < 1) requestAnimationFrame(update);
     else el.textContent = target;
@@ -154,11 +181,11 @@ function animateCounter(el, target, duration) {
   requestAnimationFrame(update);
 }
 
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+var counterObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      entry.target.querySelectorAll('[data-count]').forEach(el => {
-        const target = parseInt(el.dataset.count, 10);
+      entry.target.querySelectorAll('[data-count]').forEach(function(el) {
+        var target = parseInt(el.dataset.count, 10);
         animateCounter(el, target, 2000);
       });
       counterObserver.unobserve(entry.target);
@@ -166,12 +193,12 @@ const counterObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-const statsSection = document.querySelector('.stats-section');
+var statsSection = document.querySelector('.stats-section');
 if (statsSection) counterObserver.observe(statsSection);
 
 /* --- Quote Modal --- */
 function openQuote() {
-  const modal = document.getElementById('quoteModal');
+  var modal = document.getElementById('quoteModal');
   if (modal) {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -179,13 +206,13 @@ function openQuote() {
 }
 
 function closeQuote() {
-  const modal = document.getElementById('quoteModal');
+  var modal = document.getElementById('quoteModal');
   if (modal) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
     // Reset form
-    const form = modal.querySelector('form');
-    const success = modal.querySelector('.form-success');
+    var form = modal.querySelector('form');
+    var success = modal.querySelector('.form-success');
     if (form && success) {
       form.style.display = 'block';
       success.style.display = 'none';
@@ -194,51 +221,40 @@ function closeQuote() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   // Close modal on overlay click
-  const modal = document.getElementById('quoteModal');
+  var modal = document.getElementById('quoteModal');
   if (modal) {
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', function(e) {
       if (e.target === modal) closeQuote();
     });
   }
   // Close on Escape
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeQuote();
   });
 
-  // Handle form submission
-  const quoteForm = document.getElementById('quoteForm');
+  // Configure form for traditional submission (web3forms redirects to thank-you)
+  var quoteForm = document.getElementById('quoteForm');
   if (quoteForm) {
-    quoteForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const submitBtn = form.querySelector('.form-submit');
-      submitBtn.textContent = (translations[getLang()] && translations[getLang()]['form.sending']) || 'Sending...';
-      submitBtn.disabled = true;
-      try {
-        const formData = new FormData(form);
-        formData.append('access_key', 'f0766eed-e23f-46c4-be74-07189bffd2dc');
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          modal.querySelector('.form-success').style.display = 'block';
-        } else {
-          alert('Submission failed. Please email us at 13711898174@163.com');
-        }
-      } catch (err) {
-        alert('Network error. Please email us at 13711898174@163.com');
-      }
-      submitBtn.textContent = translations[getLang()]?.['quote.submit'] || 'Submit Request →';
-      submitBtn.disabled = false;
-    });
+    quoteForm.action = 'https://api.web3forms.com/submit';
+    quoteForm.method = 'POST';
+    if (!quoteForm.querySelector('[name=access_key]')) {
+      var ak = document.createElement('input');
+      ak.type = 'hidden'; ak.name = 'access_key';
+      ak.value = 'f0766eed-e23f-46c4-be74-07189bffd2dc';
+      quoteForm.appendChild(ak);
+    }
+    if (!quoteForm.querySelector('[name=redirect]')) {
+      var rd = document.createElement('input');
+      rd.type = 'hidden'; rd.name = 'redirect';
+      rd.value = window.location.origin + '/thank-you/';
+      quoteForm.appendChild(rd);
+    }
   }
 
   // Initialize language
-  const lang = getLang();
+  var lang = getLang();
   setLang(lang);
 
   // Factory Carousel (only on index.html)
@@ -271,16 +287,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-// Bind language switcher buttons — runs independently of DOMContentLoaded
+
+// Bind language switcher buttons — attaches event listeners
 (function bindLangButtons(){
   var buttons = document.querySelectorAll('.lang-switcher button');
   for (var i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function() {
-      var lang = this.getAttribute('data-lang');
-      if (lang && typeof setLang === 'function') {
-        setLang(lang);
-      }
-      return false;
-    };
+    (function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var lang = btn.getAttribute('data-lang');
+        if (lang) setLang(lang);
+      });
+    })(buttons[i]);
   }
 })();

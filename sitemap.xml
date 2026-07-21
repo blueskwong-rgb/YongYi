@@ -1,50 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://yy-hz.com/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/?hl=zh"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/?hl=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/?hl=es"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/"/>
   </url>
+  <!-- Products Listing -->
   <url>
     <loc>https://yy-hz.com/products/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/"/>
   </url>
-  <url><loc>https://yy-hz.com/products/kayak/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/cooler-box/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/table-set/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://yy-hz.com/products/slide/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/playhouse/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://yy-hz.com/products/tool-box/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/traffic-cone/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://yy-hz.com/products/chemical-drum/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/vent-duct/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://yy-hz.com/products/water-tank/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://yy-hz.com/products/pallet/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://yy-hz.com/products/humidifier/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Product Detail Pages -->
   <url>
-    <loc>https://yy-hz.com/hardware/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://yy-hz.com/products/kayak/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/kayak/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/kayak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/kayak/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/kayak/"/>
   </url>
   <url>
-    <loc>https://yy-hz.com/team/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://yy-hz.com/products/cooler-box/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/cooler-box/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/cooler-box/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/cooler-box/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/cooler-box/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/table-set/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/table-set/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/table-set/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/table-set/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/table-set/"/>
   </url>
   <url>
-    <loc>https://yy-hz.com/product/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://yy-hz.com/products/slide/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/slide/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/slide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/slide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/slide/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/playhouse/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/playhouse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/playhouse/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/playhouse/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/playhouse/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/tool-box/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/tool-box/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/tool-box/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/tool-box/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/tool-box/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/traffic-cone/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/traffic-cone/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/traffic-cone/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/traffic-cone/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/traffic-cone/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/chemical-drum/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/chemical-drum/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/chemical-drum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/chemical-drum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/chemical-drum/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/vent-duct/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/vent-duct/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/vent-duct/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/vent-duct/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/vent-duct/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/water-tank/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/water-tank/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/water-tank/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/water-tank/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/water-tank/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/pallet/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/pallet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/pallet/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/pallet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/pallet/"/>
+  </url>
+  <url>
+    <loc>https://yy-hz.com/products/humidifier/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/products/humidifier/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/products/humidifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/products/humidifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/products/humidifier/"/>
+  </url>
+  <!-- Hardware -->
+  <url>
+    <loc>https://yy-hz.com/hardware/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/hardware/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/hardware/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/hardware/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/hardware/"/>
+  </url>
+  <!-- Team -->
+  <url>
+    <loc>https://yy-hz.com/team/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/team/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/team/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/team/"/>
+  </url>
+  <!-- Contact -->
+  <url>
+    <loc>https://yy-hz.com/contact/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/contact/"/>
+  </url>
+  <!-- FAQ -->
+  <url>
+    <loc>https://yy-hz.com/faq/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yy-hz.com/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yy-hz.com/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yy-hz.com/faq/"/>
   </url>
 </urlset>

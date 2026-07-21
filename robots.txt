@@ -1,7 +1,13 @@
+# ============================================================
+# Yongyi Blow Molding — robots.txt (SEO-optimized)
+# Allow: all important indexable pages
+# Block: parameter URLs, thank-you page, assets directory
+# ============================================================
+
 User-agent: *
 Allow: /
+Disallow: /*?hl=
+Disallow: /thank-you/
 Disallow: /assets/
-Disallow: /contact/
-Disallow: /faq/
 
 Sitemap: https://yy-hz.com/sitemap.xml

@@ -11,6 +11,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
+<!-- Preload critical assets -->
+<link rel="preload" href="assets/css/main.css?v=1782481841" as="style">
+<link rel="preload" href="assets/images/商标.webp" as="image">
+
 <!-- Open Graph -->
 <meta property="og:title" content="永益吹塑 — 专业吹塑加工制造 | 中空吹塑厂">
 <meta property="og:description" content="1998年创立，20000㎡工厂，集模具设计、机械制造、吹塑加工于一体。天津一汽、大众汽车合格供应商。">
@@ -18,17 +22,21 @@
 <meta property="og:url" content="https://yy-hz.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:site_name" content="永益吹塑">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="永益吹塑 — 专业吹塑加工制造 | 中空吹塑厂">
 <meta name="twitter:description" content="1998年创立，20000㎡工厂，集模具设计、机械制造、吹塑加工于一体。">
 <meta name="twitter:image" content="https://yy-hz.com/assets/images/工厂全景1.webp">
+<meta name="twitter:image:alt" content="永益吹塑工厂全景">
 
-<!-- hreflang -->
-<link rel="alternate" hreflang="zh" href="https://yy-hz.com/?hl=zh">
-<link rel="alternate" hreflang="en" href="https://yy-hz.com/?hl=en">
-<link rel="alternate" hreflang="es" href="https://yy-hz.com/?hl=es">
+<!-- hreflang: path-based language URLs (no redirects) -->
+<link rel="alternate" hreflang="zh" href="https://yy-hz.com/zh/">
+<link rel="alternate" hreflang="en" href="https://yy-hz.com/en/">
+<link rel="alternate" hreflang="es" href="https://yy-hz.com/es/">
 <link rel="alternate" hreflang="x-default" href="https://yy-hz.com/">
 
 <link rel="stylesheet" href="assets/css/main.css?v=1782481841">
@@ -42,6 +50,7 @@
   "alternateName": "永益科技有限公司",
   "url": "https://yy-hz.com",
   "logo": "https://yy-hz.com/assets/images/商标.webp",
+  "image": "https://yy-hz.com/assets/images/工厂全景1.webp",
   "description": "专业吹塑产品加工企业，集机械制造、模具设计、吹塑加工于一体",
   "foundingDate": "1998",
   "address": {
@@ -55,7 +64,8 @@
     "contactType": "sales",
     "url": "https://yy-hz.com/",
     "availableLanguage": ["Chinese", "English", "Spanish"]
-  }
+  },
+  "sameAs": []
 }
 </script>
 <script type="application/ld+json">
@@ -64,6 +74,7 @@
   "@type": "WebSite",
   "name": "永益吹塑",
   "url": "https://yy-hz.com",
+  "inLanguage": ["zh-CN", "en", "es"],
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://yy-hz.com/search?q={search_term_string}",
@@ -78,19 +89,19 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img">
+      <img src="assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img" width="120" height="40">
     </a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="index.html" class="active" data-i18n="nav.facility">关于我们</a></li>
-        <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
+        <li><a href="products/index.html" data-i18n="nav.products">产品展示</a></li>
         <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
         <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
       </ul>
       <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
       <div class="lang-switcher">
         <button onclick="setLang('zh')" data-lang="zh">中文</button>
-        <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
+        <button onclick="setLang('en')" data-lang="en">EN</button>
         <button onclick="setLang('es')" data-lang="es">ES</button>
       </div>
     </div>
@@ -103,14 +114,14 @@
   <div class="mobile-menu-panel">
     <ul class="nav-links">
       <li><a href="index.html" class="active" data-i18n="nav.facility">关于我们</a></li>
-      <li><a href="product.html" data-i18n="nav.products">产品展示</a></li>
+      <li><a href="products/index.html" data-i18n="nav.products">产品展示</a></li>
       <li><a href="hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
       <li><a href="team.html" data-i18n="nav.team">领导团队</a></li>
     </ul>
     <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
     <div class="lang-switcher">
       <button onclick="setLang('zh')" data-lang="zh">中文</button>
-      <button onclick="setLang('en')" data-lang="en" class="active">EN</button>
+      <button onclick="setLang('en')" data-lang="en">EN</button>
       <button onclick="setLang('es')" data-lang="es">ES</button>
     </div>
   </div>
@@ -121,11 +132,11 @@
   <!-- Factory Carousel -->
   <div class="factory-carousel" id="factoryCarousel">
     <div class="carousel-track">
-      <div class="carousel-slide active"><img src="assets/images/工厂全景1.webp" alt="工厂全景" width="860" height="484"></div>
-      <div class="carousel-slide"><img src="assets/images/工厂全景2.webp" alt="工厂全景" width="860" height="484"></div>
-      <div class="carousel-slide"><img src="assets/images/工厂全景3.webp" alt="工厂全景" width="860" height="484"></div>
-      <div class="carousel-slide"><img src="assets/images/工厂全景4.webp" alt="工厂全景" width="860" height="484"></div>
-      <div class="carousel-slide"><img src="assets/images/工厂全景5.webp" alt="工厂全景" width="860" height="484"></div>
+      <div class="carousel-slide active"><img src="assets/images/工厂全景1.webp" alt="工厂全景" width="860" height="484" fetchpriority="high"></div>
+      <div class="carousel-slide"><img src="assets/images/工厂全景2.webp" alt="工厂全景" width="860" height="484" loading="lazy"></div>
+      <div class="carousel-slide"><img src="assets/images/工厂全景3.webp" alt="工厂全景" width="860" height="484" loading="lazy"></div>
+      <div class="carousel-slide"><img src="assets/images/工厂全景4.webp" alt="工厂全景" width="860" height="484" loading="lazy"></div>
+      <div class="carousel-slide"><img src="assets/images/工厂全景5.webp" alt="工厂全景" width="860" height="484" loading="lazy"></div>
     </div>
     <button class="carousel-arrow prev" onclick="carouselPrev()" aria-label="上一张">‹</button>
     <button class="carousel-arrow next" onclick="carouselNext()" aria-label="下一张">›</button>
@@ -178,9 +189,9 @@
   <p class="clients-label" data-i18n="clients.label">合作伙伴</p>
   <h2 class="section-title" data-i18n="clients.title">信赖我们的品牌</h2>
   <div class="clients-grid">
-    <div class="client-card"><img src="assets/images/大众.webp" alt="Volkswagen" loading="lazy"></div>
-    <div class="client-card"><img src="assets/images/通用电气.webp" alt="General Motors" loading="lazy"></div>
-    <div class="client-card"><img src="assets/images/三洋.webp" alt="Sanyo" loading="lazy"></div>
+    <div class="client-card"><img src="assets/images/大众.webp" alt="Volkswagen" loading="lazy" width="200" height="80"></div>
+    <div class="client-card"><img src="assets/images/通用电气.webp" alt="General Motors" loading="lazy" width="200" height="80"></div>
+    <div class="client-card"><img src="assets/images/三洋.webp" alt="Sanyo" loading="lazy" width="200" height="80"></div>
   </div>
 </section>
 
@@ -203,7 +214,7 @@
   <div class="footer-inner">
     <span class="footer-copy" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</span>
     <ul class="footer-links">
-      <li><a href="product.html" data-i18n="footer.products">产品展示</a></li>
+      <li><a href="products/index.html" data-i18n="footer.products">产品展示</a></li>
       <li><a href="hardware.html" data-i18n="footer.hardware">硬件实力</a></li>
       <li><a href="team.html" data-i18n="footer.team">领导团队</a></li>
     </ul>
@@ -252,7 +263,8 @@
 // Page-specific translations
 mergeTranslations({
   zh: {
-    'page.title':'永益吹塑 — 关于我们',
+    'page.title':'永益吹塑 — 专业吹塑加工制造 | 中空吹塑厂',
+    'page.desc':'永益科技创建于1998年，20000㎡现代化厂房，10台中空吹塑设备，集模具设计、机械制造、吹塑加工于一体。天津一汽、大众汽车合格供应商。',
     'hero.title':'现代工厂 · 精密制造','hero.desc':'超过 20,000 平米现代化厂房，集机械制造、模具设计、吹塑加工于一体','hero.ctaQuote':'获取免费报价 →',
     'desc.title':'创新技术，精密演绎','desc.subtitle':'—— 始于 1998，专注吹塑制造',
     'desc.body1':'惠州市永益科技有限公司创建于1998年，是一家专业的吹塑产品加工企业。现今工厂拥有Φ100和Φ120螺杆的大型中空吹塑机6台，拥有Φ65和Φ80的双杠位透明线全自动吹塑机4台，能够生产各类中空塑料工具箱、儿童吹塑玩具及各种类型的包装容器。',
@@ -264,9 +276,11 @@ mergeTranslations({
     'map.title':'永益吹塑厂','map.addr':'广东省惠州市博罗县石湾镇','map.name':'永益吹塑厂 / 永益科技有限公司',
     'map.link1':'Google 地图导航 →','map.link2':'Google 地图查看 →',
     'clients.label':'合作伙伴','clients.title':'信赖我们的品牌',
+    'breadcrumb.home':'首页'
   },
   en: {
-    'page.title':'Yongyi Blow Molding — About Us',
+    'page.title':'Yongyi Blow Molding — Professional Blow Molding Manufacturing',
+    'page.desc':'Founded in 1998, Yongyi Technology offers 20,000sqm of modern facilities with 10 blow molding machines, integrating mold design, machinery manufacturing, and blow molding. Certified supplier to Volkswagen and FAW-Toyota.',
     'hero.title':'Modern Factory · Precision Manufacturing','hero.desc':'Over 20,000 sqm of modern facilities, integrating machinery, mold design, and blow molding','hero.ctaQuote':'Get a Free Quote →',
     'desc.title':'Innovation & Precision','desc.subtitle':'—— Est. 1998, Blow Molding Specialists',
     'desc.body1':'Established in 1998, Huizhou Yongyi Technology Co., Ltd. is a professional blow molding manufacturer. Our facility operates 6 large-scale blow molding machines and 4 fully automatic transparent-line machines, producing hollow plastic tool boxes, children\'s blow-molded toys, and various packaging containers.',
@@ -278,9 +292,11 @@ mergeTranslations({
     'map.title':'Yongyi Blow Molding Factory','map.addr':'Shiwan Town, Boluo County, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology',
     'map.link1':'Navigate via Google Maps →','map.link2':'View on Google Maps →',
     'clients.label':'TRUSTED BY','clients.title':'Partners Who Trust Us',
+    'breadcrumb.home':'Home'
   },
   es: {
-    'page.title':'Yongyi Blow Molding — Sobre Nosotros',
+    'page.title':'Yongyi Blow Molding — Fabricación Profesional de Moldeo por Soplado',
+    'page.desc':'Fundada en 1998, Yongyi Technology cuenta con 20,000m² de instalaciones modernas y 10 máquinas de soplado. Proveedor certificado de Volkswagen y FAW-Toyota.',
     'hero.title':'Fábrica Moderna · Fabricación de Precisión','hero.desc':'Más de 20,000 m² de instalaciones modernas, integrando maquinaria, diseño de moldes y soplado','hero.ctaQuote':'Obtener Presupuesto Gratis →',
     'desc.title':'Innovación y Precisión','desc.subtitle':'—— Desde 1998, Especialistas en Moldeo por Soplado',
     'desc.body1':'Fundada en 1998, Huizhou Yongyi Technology Co., Ltd. es un fabricante profesional de productos de moldeo por soplado. Nuestra fábrica cuenta con 6 máquinas de soplado a gran escala y 4 máquinas automáticas de línea transparente, produciendo cajas de herramientas de plástico hueco, juguetes infantiles y diversos envases.',
@@ -292,6 +308,7 @@ mergeTranslations({
     'map.title':'Fábrica Yongyi de Soplado','map.addr':'Shiwan, Boluo, Huizhou, Guangdong','map.name':'Yongyi Blow Molding / Yongyi Technology',
     'map.link1':'Navegar con Google Maps →','map.link2':'Ver en Google Maps →',
     'clients.label':'CONFÍAN EN NOSOTROS','clients.title':'Marcas Que Confían En Nosotros',
+    'breadcrumb.home':'Inicio'
   }
 });
 setLang(getLang());
@@ -302,7 +319,7 @@ setLang(getLang());
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "关于我们", "item": "https://yy-hz.com/" }
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://yy-hz.com/" }
   ]
 }
 </script>

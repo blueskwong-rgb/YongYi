@@ -1,31 +1,66 @@
 # ============================================================
-# Yongyi Blow Molding — .htaccess
+# Yongyi Blow Molding — .htaccess (SEO-optimized)
 # ============================================================
 
-# --- URL Rewriting: remove .html extension ---
 RewriteEngine On
 
-# Remove trailing slash (except for root)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/$ /$1 [R=301,L]
+# --- 0. Directory index (ensure subdirectories serve index.html) ---
+DirectoryIndex index.html
 
-# Rewrite clean URLs to .html files
+# --- 1. Force HTTPS ---
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# --- 2. Specific redirects (must precede general .html redirect) ---
+RewriteRule ^product\.html$ /products/ [R=301,L]
+RewriteRule ^product/$ /products/ [R=301,L]
+RewriteRule ^products/index\.html$ /products/ [R=301,L]
+RewriteRule ^products/index/$ /products/ [R=301,L]
+
+# --- 3. External redirect: .html → clean URL (avoid duplicate content) ---
+RewriteCond %{THE_REQUEST} \s/(.+)\.html[\s?]
+RewriteRule ^(.+)\.html$ /$1/ [R=301,L]
+
+# --- 4. Language-prefix internal rewrites ---
+# /en/ /zh/ /es/ root → index.html
+RewriteRule ^(en|zh|es)/$ /index.html [L]
+# Directory-based pages (use index.html in subdirectories)
+RewriteRule ^(en|zh|es)/products/$ /products/index.html [L]
+RewriteRule ^(en|zh|es)/contact/$ /contact/index.html [L]
+RewriteRule ^(en|zh|es)/faq/$ /faq/index.html [L]
+RewriteRule ^(en|zh|es)/thank-you/$ /thank-you/index.html [L]
+# /en/path/ /zh/path/ /es/path/ → /path.html (file-based pages)
+RewriteRule ^(en|zh|es)/(.+)/$ /$2.html [L]
+
+# --- 5. Add trailing slash to clean URLs (SEO consistency) ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)$ $1.html [L]
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,4}$
+RewriteCond %{REQUEST_URI} !(.+)/$
+RewriteRule ^(.+)$ /$1/ [R=301,L]
 
-# --- Force HTTPS (uncomment after SSL is installed) ---
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# --- 6. Internal rewrite: clean URL → .html file ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1.html [L]
+
+# --- 7. Block ?hl= URLs from indexing (X-Robots-Tag header) ---
+RewriteCond %{QUERY_STRING} (^|&)hl=
+RewriteRule ^ - [E=NOINDEX:1]
+Header set X-Robots-Tag "noindex, follow" env=NOINDEX
+
+# ============================================================
+# Performance & Security
+# ============================================================
 
 # --- Gzip compression ---
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
-  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
 # --- Caching ---
-# HTML: short cache (updates reflect quickly, version params bypass when needed)
+# HTML: short cache (updates reflect quickly)
 <FilesMatch "\.(html|htm)$">
   Header set Cache-Control "public, max-age=3600, must-revalidate"
 </FilesMatch>
@@ -40,10 +75,19 @@ RewriteRule ^([^\.]+)$ $1.html [L]
   AddType application/javascript .js
   AddType text/css .css
   AddType application/json .json
+  AddType image/webp .webp
 </IfModule>
 
 # --- UTF-8 ---
 AddDefaultCharset UTF-8
+
+# --- Security headers ---
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
 
 # --- Disable LiteSpeed optimization (can break inline scripts) ---
 <IfModule LiteSpeed>

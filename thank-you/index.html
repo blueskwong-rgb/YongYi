@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page.title">感谢询价 — 永益吹塑</title>
+<meta name="description" content="您的询价已成功提交。永益吹塑团队将在24小时内与您联系，提供详细报价方案。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://yy-hz.com/thank-you/">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="感谢询价 — 永益吹塑">
+<meta property="og:description" content="您的询价已成功提交，我们将在24小时内回复。">
+<meta property="og:image" content="https://yy-hz.com/assets/images/工厂全景1.webp">
+<meta property="og:url" content="https://yy-hz.com/thank-you/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:site_name" content="永益吹塑">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="感谢询价 — 永益吹塑">
+<meta name="twitter:description" content="您的询价已成功提交，我们将在24小时内回复。">
+<meta name="twitter:image" content="https://yy-hz.com/assets/images/工厂全景1.webp">
+<link rel="stylesheet" href="../assets/css/main.css?v=1782481841">
+
+<style>
+/* ============================================================
+   THANK-YOU PAGE — Specific Styles
+   ============================================================ */
+
+/* --- Animated Checkmark --- */
+.thankyou-check {
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 32px;
+  width: 88px; height: 88px;
+}
+.thankyou-check svg { width: 100%; height: 100%; }
+
+/* Circle draw animation */
+.check-circle {
+  fill: none;
+  stroke: #34c759;
+  stroke-width: 3;
+  stroke-dasharray: 289;
+  stroke-dashoffset: 289;
+  animation: drawCircle .6s cubic-bezier(.25,.1,.25,1) .2s forwards;
+}
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Checkmark draw animation */
+.check-mark {
+  fill: none;
+  stroke: #34c759;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 56;
+  stroke-dashoffset: 56;
+  animation: drawCheck .4s cubic-bezier(.25,.1,.25,1) .7s forwards;
+}
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Scale-in for the whole check container */
+.thankyou-check {
+  animation: checkScale .5s cubic-bezier(.25,.1,.25,1) .1s both;
+}
+@keyframes checkScale {
+  from { transform: scale(.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Process Timeline --- */
+.timeline {
+  display: flex; gap: 0; align-items: flex-start;
+  max-width: var(--content-max); margin: 48px auto 0;
+  position: relative;
+}
+.timeline-step {
+  flex: 1; text-align: center; position: relative;
+  padding: 0 20px;
+}
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-border) 0%, var(--c-border-light) 50%, var(--c-border-light) 100%);
+  z-index: 0;
+}
+.timeline-dot {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--c-white);
+  border: 2px solid var(--c-border-light);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  position: relative; z-index: 1;
+  font-size: 1.1rem; font-weight: 600; color: var(--c-text-tertiary);
+  transition: all .6s var(--ease-apple);
+}
+.timeline-dot .dot-icon {
+  font-size: 1.2rem; line-height: 1;
+}
+.timeline-step h3 {
+  font-size: 1.05rem; font-weight: 600;
+  letter-spacing: -.01em; margin-bottom: 8px;
+  color: var(--c-text);
+}
+.timeline-step p {
+  font-size: .88rem; color: var(--c-text-secondary);
+  line-height: 1.533; max-width: 260px; margin: 0 auto;
+}
+
+/* Staggered reveal overrides */
+.timeline-step.reveal { transition-delay: 0s; }
+.timeline-step:nth-child(1).reveal.visible { transition-delay: .1s; }
+.timeline-step:nth-child(2).reveal.visible { transition-delay: .25s; }
+.timeline-step:nth-child(3).reveal.visible { transition-delay: .4s; }
+
+/* --- Trust Strip --- */
+.trust-strip {
+  display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+  max-width: var(--content-max); margin: 0 auto;
+}
+.trust-item {
+  text-align: center;
+  padding: 24px 32px;
+  border-radius: var(--radius-sm);
+  background: var(--c-white);
+  border: 1px solid var(--c-border-light);
+  min-width: 140px;
+  transition: all .4s var(--ease-apple);
+}
+.trust-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.trust-num {
+  font-size: 1.8rem; font-weight: 600; color: var(--c-text);
+  letter-spacing: -.02em; line-height: 1.1;
+}
+.trust-label {
+  font-size: .82rem; color: var(--c-text-secondary); margin-top: 6px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column; gap: 0; margin-top: 32px;
+  }
+  .timeline-step {
+    text-align: left; padding: 0 0 0 64px; margin-bottom: 32px;
+  }
+  .timeline-step:not(:last-child)::after {
+    top: 0; right: auto; left: 23px;
+    width: 1px; height: 100%;
+    background: linear-gradient(180deg, var(--c-border) 0%, var(--c-border-light) 50%, var(--c-border-light) 100%);
+  }
+  .timeline-dot {
+    position: absolute; left: 0; top: 0;
+    width: 44px; height: 44px; margin: 0; font-size: 1rem;
+  }
+  .timeline-step h3 { margin-top: 0; }
+  .timeline-step p { max-width: none; }
+  .trust-strip { gap: 16px; }
+  .trust-item { flex: 1 1 40%; min-width: 120px; padding: 18px 16px; }
+  .trust-num { font-size: 1.4rem; }
+}
+@media (max-width: 480px) {
+  .thankyou-check { width: 72px; height: 72px; margin-bottom: 24px; }
+  .timeline-step { padding-left: 56px; }
+  .timeline-step:not(:last-child)::after { left: 20px; }
+  .timeline-dot { width: 38px; height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thankyou-check { animation: none; }
+  .check-circle, .check-mark { animation: none; stroke-dashoffset: 0; }
+  .timeline-step.reveal { transition-delay: 0s; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/images/商标.webp" alt="永益吹塑" class="nav-logo-img">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li>
+        <li><a href="../products/" data-i18n="nav.products">产品展示</a></li>
+        <li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
+        <li><a href="../team.html" data-i18n="nav.team">领导团队</a></li>
+      </ul>
+      <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
+      <div class="lang-switcher">
+        <button onclick="setLang('zh')" data-lang="zh">中文</button>
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+        <button onclick="setLang('es')" data-lang="es">ES</button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-panel">
+    <ul class="nav-links">
+      <li><a href="../index.html" data-i18n="nav.facility">关于我们</a></li>
+      <li><a href="../products/" data-i18n="nav.products">产品展示</a></li>
+      <li><a href="../hardware.html" data-i18n="nav.hardware">硬件实力</a></li>
+      <li><a href="../team.html" data-i18n="nav.team">领导团队</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openQuote()" data-i18n="nav.cta">获取报价</button>
+    <div class="lang-switcher">
+      <button onclick="setLang('zh')" data-lang="zh">中文</button>
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+      <button onclick="setLang('es')" data-lang="es">ES</button>
+    </div>
+  </div>
+</div>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb-nav" aria-label="breadcrumb">
+  <ol>
+    <li><a href="../index.html" data-i18n="breadcrumb.home">首页</a></li>
+    <li aria-current="page" data-i18n="breadcrumb.thankyou">感谢询价</li>
+  </ol>
+</nav>
+
+<!-- Hero: Confirmation -->
+<section class="hero reveal">
+  <div class="hero-inner">
+    <div class="thankyou-check">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle class="check-circle" cx="50" cy="50" r="46"/>
+        <polyline class="check-mark" points="30,52 44,66 70,36"/>
+      </svg>
+    </div>
+    <h1 data-i18n="thankyou.title">感谢您的询价！</h1>
+    <p class="subtitle" data-i18n="thankyou.subtitle">您的项目需求已成功提交，我们将在24小时内与您联系</p>
+  </div>
+</section>
+
+<!-- Process Timeline: What Happens Next -->
+<section class="section section-light reveal">
+  <div style="text-align:center;max-width:var(--content-narrow);margin:0 auto 0;">
+    <span class="section-label" data-i18n="thankyou.stepsLabel">NEXT STEPS</span>
+    <h2 class="section-title" data-i18n="thankyou.stepsTitle">接下来会发生什么</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-step reveal">
+      <div class="timeline-dot">
+        <span class="dot-icon">📋</span>
+      </div>
+      <h3 data-i18n="thankyou.step1Title">询价确认</h3>
+      <p data-i18n="thankyou.step1Desc">我们的系统已收到您的询价信息，专属客户经理将在一个工作日内认领您的需求</p>
+    </div>
+    <div class="timeline-step reveal">
+      <div class="timeline-dot">
+        <span class="dot-icon">🔍</span>
+      </div>
+      <h3 data-i18n="thankyou.step2Title">需求评估</h3>
+      <p data-i18n="thankyou.step2Desc">技术团队根据您的需求进行模具与工艺评估，制定最优吹塑加工方案及报价</p>
+    </div>
+    <div class="timeline-step reveal">
+      <div class="timeline-dot">
+        <span class="dot-icon">📩</span>
+      </div>
+      <h3 data-i18n="thankyou.step3Title">方案发送</h3>
+      <p data-i18n="thankyou.step3Desc">24小时内通过邮件向您发送详细报价方案，并可安排工厂实地考察或视频验厂</p>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<section class="stats-section reveal">
+  <div class="trust-strip">
+    <div class="trust-item">
+      <div class="trust-num">24h</div>
+      <div class="trust-label" data-i18n="thankyou.stat1">平均响应时间</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">1998</div>
+      <div class="trust-label" data-i18n="thankyou.stat2">建厂年份</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">30+</div>
+      <div class="trust-label" data-i18n="thankyou.stat3">出口国家与地区</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">ISO</div>
+      <div class="trust-label" data-i18n="thankyou.stat4">质量管理认证</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: Keep browsing -->
+<section class="cta-section reveal">
+  <h2 data-i18n="thankyou.ctaTitle">继续了解我们的能力</h2>
+  <p class="subtitle" data-i18n="thankyou.ctaSub">浏览产品线、工厂设备与定制案例，为下一步合作做好准备</p>
+  <div class="hero-buttons">
+    <a href="../products/" class="btn-primary" data-i18n="thankyou.ctaProducts">查看产品 →</a>
+    <a href="../index.html" class="btn-outline" data-i18n="thankyou.ctaHome">返回首页</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy" data-i18n="footer.copyright">© 2026 永益吹塑制品厂. 保留所有权利。</span>
+    <ul class="footer-links">
+      <li><a href="../products/" data-i18n="footer.products">产品展示</a></li>
+      <li><a href="../hardware.html" data-i18n="footer.hardware">硬件实力</a></li>
+      <li><a href="../team.html" data-i18n="footer.team">领导团队</a></li>
+      <li><a href="../faq/" data-i18n="footer.faq">常见问题</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Quote Modal -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeQuote()">✕</button>
+    <h2 data-i18n="quote.title">获取免费报价</h2>
+    <p class="modal-sub" data-i18n="quote.subtitle">填写以下表单，我们将在24小时内回复您。</p>
+    <form id="quoteForm">
+      <div class="form-group">
+        <label data-i18n="quote.name">您的姓名 *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.email">邮箱地址 *</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.company">公司名称（选填）</label>
+        <input type="text" name="company">
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.phone">联系电话（选填）</label>
+        <input type="tel" name="phone">
+      </div>
+      <div class="form-group">
+        <label data-i18n="quote.message">留言 / 需求描述</label>
+        <textarea name="message"></textarea>
+      </div>
+      <button type="submit" class="form-submit" data-i18n="quote.submit">提交询价 →</button>
+    </form>
+    <div class="form-success">
+      <div class="check">✓</div>
+      <h3 data-i18n="quote.successTitle">感谢您的询价！</h3>
+      <p data-i18n="quote.successMsg">您的询价已提交。我们的团队将在24小时内给您发送详细报价。</p>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/main.js?v=1783015300"></script>
+<script>
+// Page-specific translations
+mergeTranslations({
+  zh: {
+    'page.title':'感谢询价 — 永益吹塑',
+    'breadcrumb.thankyou':'感谢询价',
+    'thankyou.title':'感谢您的询价！',
+    'thankyou.subtitle':'您的项目需求已成功提交，我们将在24小时内与您联系',
+    'thankyou.stepsLabel':'流程说明',
+    'thankyou.stepsTitle':'接下来会发生什么',
+    'thankyou.step1Title':'询价确认',
+    'thankyou.step1Desc':'我们的系统已收到您的询价信息，专属客户经理将在一个工作日内认领您的需求',
+    'thankyou.step2Title':'需求评估',
+    'thankyou.step2Desc':'技术团队根据您的需求进行模具与工艺评估，制定最优吹塑加工方案及报价',
+    'thankyou.step3Title':'方案发送',
+    'thankyou.step3Desc':'24小时内通过邮件向您发送详细报价方案，并可安排工厂实地考察或视频验厂',
+    'thankyou.stat1':'平均响应时间',
+    'thankyou.stat2':'建厂年份',
+    'thankyou.stat3':'出口国家与地区',
+    'thankyou.stat4':'质量管理认证',
+    'thankyou.ctaTitle':'继续了解我们的能力',
+    'thankyou.ctaSub':'浏览产品线、工厂设备与定制案例，为下一步合作做好准备',
+    'thankyou.ctaProducts':'查看产品 →',
+    'thankyou.ctaHome':'返回首页',
+  },
+  en: {
+    'page.title':'Thank You — Yongyi Blow Molding',
+    'breadcrumb.thankyou':'Thank You',
+    'thankyou.title':'Thank You for Your Inquiry!',
+    'thankyou.subtitle':'Your project requirements have been submitted successfully. We will contact you within 24 hours.',
+    'thankyou.stepsLabel':'NEXT STEPS',
+    'thankyou.stepsTitle':'What Happens Next',
+    'thankyou.step1Title':'Inquiry Confirmed',
+    'thankyou.step1Desc':'Our system has received your inquiry. A dedicated account manager will review your requirements within one business day.',
+    'thankyou.step2Title':'Requirements Review',
+    'thankyou.step2Desc':'Our technical team evaluates mold and process requirements, developing the optimal blow molding solution and quotation.',
+    'thankyou.step3Title':'Proposal Delivered',
+    'thankyou.step3Desc':'You will receive a detailed quotation via email within 24 hours. Factory visits or video tours can also be arranged.',
+    'thankyou.stat1':'Avg. Response Time',
+    'thankyou.stat2':'Year Established',
+    'thankyou.stat3':'Countries & Regions',
+    'thankyou.stat4':'Quality Certified',
+    'thankyou.ctaTitle':'Explore Our Capabilities',
+    'thankyou.ctaSub':'Browse our product lines, factory equipment, and custom case studies to prepare for the next step',
+    'thankyou.ctaProducts':'View Products →',
+    'thankyou.ctaHome':'Back to Home',
+  },
+  es: {
+    'page.title':'Gracias — Yongyi Blow Molding',
+    'breadcrumb.thankyou':'Gracias',
+    'thankyou.title':'¡Gracias por su Consulta!',
+    'thankyou.subtitle':'Su proyecto ha sido enviado con éxito. Nos pondremos en contacto en un plazo de 24 horas.',
+    'thankyou.stepsLabel':'PRÓXIMOS PASOS',
+    'thankyou.stepsTitle':'Qué Sucede Después',
+    'thankyou.step1Title':'Consulta Confirmada',
+    'thankyou.step1Desc':'Nuestro sistema ha recibido su consulta. Un gestor de cuenta dedicado revisará sus requisitos en un día hábil.',
+    'thankyou.step2Title':'Evaluación de Requisitos',
+    'thankyou.step2Desc':'Nuestro equipo técnico evalúa los requisitos de molde y proceso, desarrollando la solución óptima de moldeo por soplado.',
+    'thankyou.step3Title':'Propuesta Enviada',
+    'thankyou.step3Desc':'Recibirá una cotización detallada por correo electrónico en 24 horas. También podemos organizar visitas a la fábrica.',
+    'thankyou.stat1':'Tiempo de Respuesta',
+    'thankyou.stat2':'Año de Fundación',
+    'thankyou.stat3':'Países y Regiones',
+    'thankyou.stat4':'Certificación de Calidad',
+    'thankyou.ctaTitle':'Explore Nuestras Capacidades',
+    'thankyou.ctaSub':'Explore nuestras líneas de productos, equipos de fábrica y casos personalizados',
+    'thankyou.ctaProducts':'Ver Productos →',
+    'thankyou.ctaHome':'Volver al Inicio',
+  }
+});
+setLang(getLang());
+</script>
+
+<!-- Breadcrumb JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "关于我们", "item": "https://yy-hz.com/" },
+    { "@type": "ListItem", "position": 2, "name": "感谢询价", "item": "https://yy-hz.com/thank-you/" }
+  ]
+}
+</script>
+</body>
+</html>
