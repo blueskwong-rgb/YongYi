@@ -773,3 +773,62 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-accent);outline-o
   .contact-layout { grid-template-columns: 1fr !important; }
   .product-detail { grid-template-columns: 1fr !important; }
 }
+
+/* ============================================================
+   AURORA BACKGROUND — 漂浮极光 + 鼠标互动光效
+   JS 在 body 最前插入 .aurora-bg > i*3；仅改这两个共享文件即全站生效
+   ============================================================ */
+.aurora-bg{
+  position:fixed;inset:0;z-index:-1;
+  overflow:hidden;pointer-events:none;
+}
+.aurora-bg i{
+  position:absolute;
+  width:55vmax;height:55vmax;border-radius:50%;
+  filter:blur(60px);
+  opacity:.32;
+  will-change:transform,translate;
+  /* 鼠标惯性跟随：translate 属性与 animation 的 transform 叠加，互不冲突 */
+  transition:translate 1.4s cubic-bezier(.22,.61,.36,1);
+}
+.aurora-bg .a1{ /* 品牌蓝 */
+  top:-15%;left:-10%;
+  background:radial-gradient(circle at center, rgba(0,113,227,.55), rgba(0,113,227,0) 70%);
+  translate:calc(var(--mx,0)*6vmax) calc(var(--my,0)*6vmax);
+  animation:aurora-drift-1 18s ease-in-out infinite;
+}
+.aurora-bg .a2{ /* 紫 */
+  top:18%;right:-18%;
+  background:radial-gradient(circle at center, rgba(139,92,246,.5), rgba(139,92,246,0) 70%);
+  translate:calc(var(--mx,0)*-9vmax) calc(var(--my,0)*-9vmax);
+  animation:aurora-drift-2 24s ease-in-out infinite;
+}
+.aurora-bg .a3{ /* 粉 */
+  bottom:-22%;left:12%;
+  background:radial-gradient(circle at center, rgba(236,72,153,.42), rgba(236,72,153,0) 70%);
+  translate:calc(var(--mx,0)*12vmax) calc(var(--my,0)*12vmax);
+  animation:aurora-drift-3 30s ease-in-out infinite;
+}
+@keyframes aurora-drift-1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(9vw,-7vh) scale(1.18)}
+  66%{transform:translate(-7vw,9vh) scale(.94)}
+}
+@keyframes aurora-drift-2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  40%{transform:translate(-10vw,8vh) scale(1.12)}
+  70%{transform:translate(7vw,-9vh) scale(.92)}
+}
+@keyframes aurora-drift-3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  35%{transform:translate(8vw,10vh) scale(.9)}
+  75%{transform:translate(-9vw,-8vh) scale(1.16)}
+}
+/* 触屏设备：仅漂浮，无跟随 */
+@media (hover:none){
+  .aurora-bg i{transition:none;translate:none}
+}
+/* 减少动态偏好：静态微光 */
+@media (prefers-reduced-motion: reduce){
+  .aurora-bg i{animation:none;transition:none;translate:none;opacity:.18}
+}

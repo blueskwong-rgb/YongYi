@@ -301,3 +301,38 @@ document.addEventListener('DOMContentLoaded', function() {
     })(buttons[i]);
   }
 })();
+
+/* ============================================================
+   AURORA BACKGROUND — 创建极光光斑 + 鼠标坐标写入 CSS 变量
+   光斑的漂浮由 CSS animation 负责，鼠标跟随由 CSS transition 平滑
+   ============================================================ */
+(function auroraBackground(){
+  function init(){
+    if (!document.body || document.querySelector('.aurora-bg')) return;
+    var bg = document.createElement('div');
+    bg.className = 'aurora-bg';
+    bg.setAttribute('aria-hidden', 'true');
+    bg.innerHTML = '<i class="a1"></i><i class="a2"></i><i class="a3"></i>';
+    document.body.insertBefore(bg, document.body.firstChild);
+
+    // 减少动态偏好 / 触屏设备：只保留 CSS 漂浮，不绑定鼠标
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    var pending = null;
+    window.addEventListener('mousemove', function(e){
+      if (pending) return;
+      pending = requestAnimationFrame(function(){
+        pending = null;
+        // 归一化到 -1 ~ 1（视口中心为 0）
+        var x = (e.clientX / window.innerWidth - .5) * 2;
+        var y = (e.clientY / window.innerHeight - .5) * 2;
+        var s = document.documentElement.style;
+        s.setProperty('--mx', x.toFixed(3));
+        s.setProperty('--my', y.toFixed(3));
+      });
+    }, {passive: true});
+  }
+  if (document.body) init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
