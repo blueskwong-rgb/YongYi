@@ -17,6 +17,7 @@ RewriteRule ^product\.html$ /products/ [R=301,L]
 RewriteRule ^product/$ /products/ [R=301,L]
 RewriteRule ^products/index\.html$ /products/ [R=301,L]
 RewriteRule ^products/index/$ /products/ [R=301,L]
+RewriteRule ^contact-us/index\.html$ /contact-us/ [R=301,L]
 
 # --- 3. External redirect: .html → clean URL (avoid duplicate content) ---
 RewriteCond %{THE_REQUEST} \s/(.+)\.html[\s?]
@@ -28,6 +29,7 @@ RewriteRule ^(en|zh|es)/$ /index.html [L]
 # Directory-based pages (use index.html in subdirectories)
 RewriteRule ^(en|zh|es)/products/$ /products/index.html [L]
 RewriteRule ^(en|zh|es)/contact/$ /contact/index.html [L]
+RewriteRule ^(en|zh|es)/contact-us/$ /contact-us/index.html [L]
 RewriteRule ^(en|zh|es)/faq/$ /faq/index.html [L]
 RewriteRule ^(en|zh|es)/thank-you/$ /thank-you/index.html [L]
 # /en/path/ /zh/path/ /es/path/ → /path.html (file-based pages)
