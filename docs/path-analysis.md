@@ -103,7 +103,19 @@ JS   : assets/js/main.js        ← 同上
 导航  : index.html / products/... ← 同上
 ```
 
-**永远配合 `<base href="/">` 使用相对路径。不要用 `/assets/...` 根相对路径（会破坏 file://），也不要用 `../assets/...`（多级目录下会出错）。**
+**永远配合 `<base>` 使用相对路径。不要用 `/assets/...` 根相对路径（会破坏 file://）。**
+
+**⚠️ 同级页面链接的例外（2026-07-27 补充）：** `<base href="/">` 会把同级相对链接（如产品页里的 `chemical-drum.html`）解析到域名根目录 → 线上 404。**子目录页面的 `<base>` 必须指向自己所在目录**（如 `products/` 下的页面用 `<base href="/products/">`），根目录页面保持 `<base href="/">`。这样同级链接、跨级 `../` 链接、资源链接在线上和 file:// 下都正确。
+
+## 八、相关产品链接 404（2026-07-27，第 4 轮）
+
+**现象：** 线上产品详情页点击"相关产品推荐"卡片 → 404。
+
+**根因：** 全站统一 `<base href="/">` 后，`products/*.html` 内的同级相对链接 `href="chemical-drum.html"` 被解析为 `/chemical-drum.html` → .htaccess 301 到 `/chemical-drum/` → 根目录无此文件 → 404。影响 13 个 products 页面共 96 个链接（含产品列表页卡片链接）。contact/contact-us/faq/thank-you 页面全部使用 `../` 跨级链接，不受影响。
+
+**修复：** `products/` 下 13 个 HTML 的 `<base href="/">` 改为 `<base href="/products/">`。
+
+**回归校验：** `node docs/check-links.js` —— 模拟 base 解析 + .htaccess 重写，扫描全站 HTML 相对链接，修复前报 96 个 404，修复后全部通过。改动后部署前应运行一次。
 
 ---
 
